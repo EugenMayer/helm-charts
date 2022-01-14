@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 description: DEPRECATED A Rundeck chart for Kubernetes
 name: rundeck
 home: https://github.com/rundeck/rundeck
@@ -11,4 +11,3 @@ keywords:
   - operations
 sources:
   - https://github.com/rundeck/rundeck
-deprecated: true
