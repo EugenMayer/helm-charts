@@ -1,0 +1,20 @@
+{{- if and .Values.persistence.enabled .Values.persistence.claim.create }}
+{{- with .Values.persistence.claim }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "rundeck.fullname" . }}
+  labels: {{ include "rundeck.labels" . | indent 4 }}
+  annotations:
+ 
+spec:
+  {{- if .storageClass }}
+  storageClassName: {{ .storageClass | quote }}
+  {{- end }}
+  accessModes:
+    - {{ .accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .size | quote }}
+{{- end }}
+{{- end }}
