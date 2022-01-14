@@ -72,7 +72,7 @@ spec:
           {{- end }}
           env:
             - name: RUNDECK_GRAILS_URL
-              value: {{ .Values.rundeck.env.RUNDECK_GRAILS_URL }}
+              value: {{ .Values.rundeck.env.RUNDECK_GRAILS_URL | quote }}
             - name: RUNDECK_SERVER_FORWARDED
               value: "true"
             - name: RUNDECK_LOGGING_STRATEGY
@@ -80,32 +80,32 @@ spec:
             - name: RUNDECK_DATABASE_DRIVER
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name | quote }}
                   key: type
             - name: DB_URI
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name | quote }}
                   key: jdbc
             - name: DB_PORT
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name | quote }}
                   key: port
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name | quote }}
                   key: database             
             - name: RUNDECK_DATABASE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name | quote }}
                   key: user          
             - name: RUNDECK_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{.Values.database.secret_name}}
+                  name: {{.Values.database.secret_name| quote }}
                   key: password                                                       
           volumeMounts:
         {{- if .Values.volumeMounts }}
