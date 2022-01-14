@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "rundeck.fullname" . }}
-  labels: {{ include "rundeck.labels" . | indent 4 }}
+  name: rundeck-backend
+  labels: {{include "rundeck.labels" . | indent 4}}
 spec:
   type: ClusterIP
   ports:
@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ $fullName }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/name: {{$fullName}}
+    app.kubernetes.io/instance: {{.Release.Name}}

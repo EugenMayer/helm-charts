@@ -1,10 +1,13 @@
+{{- $fullName := include "rundeck.fullname" . -}}
+{{- $labels := include "rundeck.labels" . -}}
+
 {{- if and .Values.persistence.enabled .Values.persistence.claim.create }}
 {{- with .Values.persistence.claim }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "rundeck.fullname" . }}
-  labels: {{ include "rundeck.labels" . | indent 4 }}
+  name: {{ $fullName }}
+  labels: {{ $labels | indent 4 }}
   annotations:
  
 spec:

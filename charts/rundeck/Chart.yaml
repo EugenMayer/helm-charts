@@ -2,7 +2,7 @@ apiVersion: v2
 description: DEPRECATED A Rundeck chart for Kubernetes
 name: rundeck
 home: https://github.com/rundeck/rundeck
-version: 0.1.1
+version: 0.1.9
 appVersion: 3.4.9
 keywords:
   - rundeck
@@ -10,4 +10,5 @@ keywords:
   - automation
   - operations
 sources:
+  - https://github.com/EugenMayer/helm-charts
   - https://github.com/rundeck/rundeck
