@@ -17,14 +17,15 @@ spec:
         app.kubernetes.io/instance: {{.Release.Name}}
     spec:
       containers:
-        image: networkstatic/iperf3
-        command:
-          - iperf3
-          - -s
-          - -p 40000
-        ports:
-          - name: iperf3
-            containerPort: 40000
-            protocol: TCP
+        - name: iperf3
+          image: networkstatic/iperf3
+          command:
+            - iperf3
+            - -s
+            - -p 40000
+          ports:
+            - name: iperf3
+              containerPort: 40000
+              protocol: TCP
       restartPolicy: Always
 status: {}
