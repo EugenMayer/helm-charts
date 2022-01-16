@@ -1,5 +1,5 @@
 apiVersion: v2
-description: DEPRECATED A Rundeck chart for Kubernetes
+description: Rundeck chart for Kubernetes
 name: rundeck
 home: https://github.com/rundeck/rundeck
 version: 0.1.9

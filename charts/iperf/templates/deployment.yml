@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: iperf3
+      app.kubernetes.io/instance: {{.Release.Name}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: iperf3
+        app.kubernetes.io/instance: {{.Release.Name}}
+    spec:
+      containers:
+        image: networkstatic/iperf3
+        command:
+          - iperf3
+          - -s
+          - -p 40000
+        ports:
+          - name: iperf3
+            containerPort: 40000
+            protocol: TCP
+      restartPolicy: Always
+status: {}
