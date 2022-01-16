@@ -2,4 +2,5 @@ service:
   enabled: true
   # mandatory with enabled service. Will be the ip the LoadBalancer service binds to
   # externalIp:
+  # the port to bind on the service, if enabled.
   port: 40000
