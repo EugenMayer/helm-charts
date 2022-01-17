@@ -90,7 +90,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{.Values.database.secret_name| quote }}
-                  key: password                                                       
+                  key: password                                 
+            - name: RUNDECK_GRAILS_URL
+              value: {{.Values.externUrl| quote }}                     
           volumeMounts:
         {{- if .Values.volumeMounts }}
           {{- toYaml .Values.volumeMounts | nindent 10}}

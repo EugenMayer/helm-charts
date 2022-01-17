@@ -9,13 +9,35 @@ History: This chart has been taken from [charts incubator](https://github.com/he
 - adopted PVC standards
 - adopted ingress standards
 - added OPTIONS support in nginx
+- Fix Grail and CSP issues
 
-## Install
+# Install
+
+# Install
 
     helm repo add rundeck http://tba
     helm install rundeck/rundeck
 
-## Configuration
+# Configuration
+
+## Mandatory settings
+
+- `externUrl`
+- deploy your `rundeck-database-secret` to define the DB credentials and connection informations
+- deploy your own `ingress` route or activate `ingress.enabled` and set the values to your liking
+
+## Database
+
+The secret `database.secret_name` must include the following keys
+
+- `jdbc`: The jdbc url like `jdbc:postgresql://$user:$password@$host:$port/$database`
+- `user`: DB user
+- `password`: DB password
+- `type`: one of these `org.postgresql.Driver`/`org.mariadb.jdbc.Driver`/`com.mysql.jdbc.Driver`
+
+See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#database)
+
+## Other Values
 
 | Parameter                  | Description                                                                                                                                                                                | Default                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
@@ -48,14 +70,3 @@ History: This chart has been taken from [charts incubator](https://github.com/he
 | volumeMounts               | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers             | can be used to download plugins or customise your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                   | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
-
-## Database
-
-The secret `database.secret_name` must include the following keys
-
-- `jdbc`: The jdbc url like `jdbc:postgresql://$user:$password@$host:$port/$database`
-- `user`: DB user
-- `password`: DB password
-- `type`: one of these `org.postgresql.Driver`/`org.mariadb.jdbc.Driver`/`com.mysql.jdbc.Driver`
-
-See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#database)

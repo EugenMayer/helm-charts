@@ -1,6 +1,6 @@
-# Default values for rundeck.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# This must be the domain you reach your rundeck with. It is used to configure the grails URL and avoid CSP issues
+# @see https://github.com/rundeck/rundeck/issues/4417
+#externUrl: https://rundeck.domain.tld
 
 database:
   # A secret including the following keys `type`,`host`,`port`,`user`,`password`,`database`
@@ -16,23 +16,17 @@ deployment:
   replicaCount: 1
   annotations: {}
   strategy:
-    type: RollingUpdate
-    # Recreate can help when using persistent volumes
-    # type: Recreate
+    type: Recreate
 
 rundeck:
   adminUser: "admin:admin,user,admin,architect,deploy,build"
   env:
-    # {{ .Release.Name }}.{{ .Release.Namespace }}.svc
-    RUNDECK_GRAILS_URL: "http://rundeck-backend"
+    # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
     RUNDECK_SERVER_FORWARDED: "true"
     RUNDECK_LOGGING_STRATEGY: "CONSOLE"
-    # RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: com.rundeck.rundeckpro.amazon-s3
-    # RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET: ${RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET}
-    # RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION: ${RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION}
-    # RUNDECK_STORAGE_CONVERTER_1_CONFIG_PASSWORD: ${RUNDECK_STORAGE_PASSWORD}
-    # RUNDECK_CONFIG_STORAGE_CONVERTER_1_CONFIG_PASSWORD: ${RUNDECK_STORAGE_PASSWORD}
-    # RUNDECK_TOKENS_FILE: /home/rundeck/extra/tokens.properties
+    # disabling to fix https://github.com/rundeck/rundeck/issues/4417
+    # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#security-headers
+    RUNDECK_SECURITY_HTTPHEADERS_PROVIDER_CSP_ENABLED: "false"
 
   # Name of the secret containing SSH files to mount under ~/.ssh
   # sshSecrets: "ssh-secret"
@@ -40,7 +34,7 @@ rundeck:
   # Name of secret to mount under ~/.kube/
   # kubeConfigSecret: "kube-secret"
 
-  # Name of secret containing additional sensitive Runtime environment variables (eg: RUNDECK_DATABASE_PASSWORD)
+  # Name of secret containing additional sensitive Runtime environment variables
   # See https://hub.docker.com/r/rundeck/rundeck/
   # envSecret: "env-secret"
 
