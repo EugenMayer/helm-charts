@@ -70,3 +70,23 @@ See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker
 | volumeMounts               | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers             | can be used to download plugins or customise your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                   | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
+
+## S3 Execution log storage
+
+See https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
+
+You usuall add something like this to your values
+
+```yaml
+env:
+  # see https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: "org.rundeck.amazon-s3"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET: "rundeck-execution-logs"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION: "eu-central-1"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSACCESSKEYID: "awskey"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSSECRETKEY: "awssecret"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_ALLOWDELETE: "true"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_PATH: "logs/$${job.project}/logs/$${job.execid}.log"
+```
+
+Of course you will need to adjust the bucket, region, key and secret (at least)
