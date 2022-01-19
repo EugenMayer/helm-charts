@@ -19,7 +19,7 @@ to just switch out the helm source.
 
 - It is not possible to add any plugins since initContainers are not able to mount any volume. Creating a volume for `/home/rundeck/libext`
   would remove all the stock-shipped plugins, so that is not an option. ConfigMaps are not designed to take in 5MB+ for each `plugin.jar`.
-  So this is a fairly hard limitation of the stock Docker-Image which we would need to change there
+  So this is a fairly hard limitation of the stock Docker-Image which we would need to change there. See the [corresponding rundeck issue](https://github.com/rundeck/rundeck/issues/7487) and add your opinion / vote there.
 
 # Strong hint
 
