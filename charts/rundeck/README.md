@@ -2,7 +2,7 @@
 
 Rundeck helm chart.
 
-History: This chart has been taken from [charts incubator](https://github.com/helm/charts/tree/master/incubator/rundeck) and adopted to newly standards, since the old repository has been archived and is no longer maintained. AWS support has been removed
+History: This chart has been taken from [charts incubator](https://github.com/helm/charts/tree/master/incubator/rundeck) and adopted to newly standards, since the old repository has been archived and is no longer maintained.
 
 - removed AWS specific support
 - Added database configuration support
