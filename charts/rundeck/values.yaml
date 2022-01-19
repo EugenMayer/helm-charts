@@ -45,15 +45,11 @@ rundeck:
 nameOverride: ""
 fullnameOverride: ""
 
-persistence:
-  enabled: false
-  # Set existingClaim to the name of an existing PVC to reuse a volume managed outside this helm chart
-  # existingClaim:
-
-  # Set claim.create:true  to have the helm chart manage the creation of a new PVC for this deployment
+executionLogs:
   claim:
-    create: false
-    # storageClass:
+    enabled: true
+    # required - set this
+    storageClass:
     accessMode: ReadWriteOnce
     size: 1G
 
