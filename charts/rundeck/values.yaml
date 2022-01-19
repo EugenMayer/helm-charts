@@ -79,6 +79,7 @@ nginx:
 
 rundeck:
   adminUser: "admin:admin,user,admin,architect,deploy,build"
+  adminCredentialsSecretName: admin-credentials-secret
   env:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
     RUNDECK_SERVER_FORWARDED: "true"

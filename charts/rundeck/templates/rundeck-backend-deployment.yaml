@@ -110,6 +110,11 @@ spec:
           - name: extra-config
             mountPath: /home/rundeck/extra/
         {{- end }}
+        {{- if .Values.rundeck.adminCredentialsSecret }}
+          - name: admin-credentials
+            mountPath: /home/rundeck/server/config/realm.properties
+            subPath: adminCredentials
+        {{- end }}
           ports:
             - name: rundeck
               containerPort: 4440
@@ -164,6 +169,11 @@ spec:
         - name: extra-config
           secret:
             secretName: {{ .Values.rundeck.extraConfigSecret}}
+        {{- end }}
+        {{- if .Values.rundeck.adminCredentialsSecret }}
+        - name: admin-credentials
+          secret:
+            secretName: {{- if .Values.rundeck.adminCredentialsSecret }}
         {{- end }}
       {{- if .Values.volumes }}
         {{- toYaml .Values.volumes | nindent 8}}
