@@ -40,7 +40,7 @@ spec:
           command:
           - /bin/sh
           - -c
-          - echo {{ .Values.rundeck.adminUser  }} > /home/rundeck/server/config/realm.properties && cp -r /mnt/plugins/. /home/rundeck/libext && /home/rundeck/docker-lib/entry.sh
+          - cp -r /mnt/plugins/. /home/rundeck/libext && /home/rundeck/docker-lib/entry.sh
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
@@ -83,7 +83,7 @@ spec:
         {{- end }}
         {{- if .Values.executionLogs.claim.enabled }}
           - name: {{ $fullName }}-execution-logs
-            mountPath: /var/logs/rundeck
+            mountPath: /home/rundeck/var/logs/rundeck/
         {{- end }}
         {{- if .Values.data.claim.enabled }}
           - name: {{ $fullName }}-data
@@ -110,10 +110,10 @@ spec:
           - name: extra-config
             mountPath: /home/rundeck/extra/
         {{- end }}
-        {{- if .Values.rundeck.adminCredentialsSecret }}
-          - name: admin-credentials
+        {{- if .Values.rundeck.adminCredentialSecretName }}
+          - name: admin-credential
             mountPath: /home/rundeck/server/config/realm.properties
-            subPath: adminCredentials
+            subPath: adminCredential
         {{- end }}
           ports:
             - name: rundeck
@@ -159,6 +159,8 @@ spec:
         - name: sshkeys
           secret:
             secretName: {{ .Values.rundeck.sshSecrets }}
+            # stands for chmod 0400
+            defaultMode: 256
         {{- end }}
         {{- if .Values.rundeck.kubeConfigSecret }}
         - name: kube-config
@@ -170,10 +172,13 @@ spec:
           secret:
             secretName: {{ .Values.rundeck.extraConfigSecret}}
         {{- end }}
-        {{- if .Values.rundeck.adminCredentialsSecret }}
-        - name: admin-credentials
+        {{- if .Values.rundeck.adminCredentialSecretName }}
+        - name: admin-credential
           secret:
-            secretName: {{- if .Values.rundeck.adminCredentialsSecret }}
+            secretName: {{ .Values.rundeck.adminCredentialSecretName }}
+            # stands for chmod 0400
+            # 256 -> 0400
+            defaultMode: 256
         {{- end }}
       {{- if .Values.volumes }}
         {{- toYaml .Values.volumes | nindent 8}}

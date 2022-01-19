@@ -36,10 +36,11 @@ plugins:
 
 database:
   # A secret including the following keys `type`,`host`,`port`,`user`,`password`,`database`
-  # type can be postgresql/mysql and so forth
+  # type can be postgresql/mysql and so forth. Should be in the same namespace as you deploy the helm chart
   secret_name: rundeck-database-secret
 
 securityContext:
+  # keep those settings until you really know what you are doing here
   fsGroup: 0
   runAsGroup: 0
   runAsUser: 1000
@@ -78,8 +79,9 @@ nginx:
   enabled: true
 
 rundeck:
-  adminUser: "admin:admin,user,admin,architect,deploy,build"
-  adminCredentialsSecretName: admin-credentials-secret
+  # Create this secrete in the rundeck namespace.
+  # Should have the field `adminCredential` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
+  adminCredentialSecretName: admin-credential-secret
   env:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
     RUNDECK_SERVER_FORWARDED: "true"
@@ -88,7 +90,7 @@ rundeck:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#security-headers
     RUNDECK_SECURITY_HTTPHEADERS_PROVIDER_CSP_ENABLED: "false"
 
-  # Name of the secret containing SSH files to mount under ~/.ssh
+  # Name of the secret containing SSH files to mount under /home/rundeck/.ssh
   # sshSecrets: "ssh-secret"
 
   # Name of secret to mount under ~/.kube/

@@ -4,21 +4,20 @@ Rundeck helm chart.
 
 History: This chart has been taken from [charts incubator](https://github.com/helm/charts/tree/master/incubator/rundeck) and adopted to newly standards, since the old repository has been archived and is no longer maintained.
 
-- removed AWS specific support
 - Added database configuration support
+- add proper secret for the admin user
+- add proper support for plugins
+- add proper default volumes and claims
+- handle security context properly to fix volume mounts
+- Fix Grail and CSP issues
 - adopted PVC standards
 - adopted ingress standards
 - added OPTIONS support in nginx
-- Fix Grail and CSP issues
 - Add execution-logs handling by default (local storage)
-- handle security context properly and make it extendible
 - split nginx and rundeck-backend deployments
-  If you migrate from the incubator please consider breaking changes and read any aspect of this helm chart. Do not expect
-  to just switch out the helm source.
 
-# TODO / broken
-
-- It is not possible to add any plugins. See the [corresponding docker-image rundeck issue](https://github.com/rundeck/rundeck/issues/7487) and add your opinion / vote there.
+If you migrate from the incubator please consider breaking changes and read any aspect of this helm chart. Do not expect
+to just switch out the helm source.
 
 # Strong hint
 
@@ -35,12 +34,13 @@ Please open or ask all those questions in one of the [official channels](https:/
 
 # Configuration
 
-## Mandatory settings
+## Mandatory settings / Initial setup
 
 - `externUrl`
-- `executionLogs.claim.storageClass` if you keep the local execution-logs via a volume
-- deploy your `rundeck-database-secret` to define the DB credentials and connection informations
-- deploy your own `ingress` route or activate `ingress.enabled` and set the values to your liking
+- `executionLogs.claim.storageClass` / `data.claim.storageClass` / `plugins.claim.storageClass` / `addons.claim.storageClass` or disable those (or some)
+- deploy your `admin-credential-secret` secret (in your rundeck namespace) with the field `adminCredential` including the string `admin:PASSWORD,user,admin,architect,deploy,build` - replace `PASSWORD` with your password
+- deploy your `rundeck-database-secret` to define the DB credentials and connection details. See `Database` below. 
+- deploy your own `ingress` route (default) or activate `ingress.enabled` and set the values to your liking
 
 ## Database
 
@@ -53,7 +53,70 @@ The secret `database.secret_name` must include the following keys
 
 See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#database)
 
+## Execution logs
+
+By default the execution logs are saved on the `execution-logs` volume under the default undeck location `/home/rundeck/var/logs/rundeck`.
+You can disable the `claim` and use any other execution-log storage (be aware, the OSS docker image has no support for s3, see below)
+
+## Plugins
+
+Due to the [limitations](https://github.com/rundeck/rundeck/issues/7487) of rundeck's docker-image, plugin support is implemented
+using a hack - nothing more.
+
+If you want to use plugins you have to
+
+- use an `initContainer`
+- mount the volume `rundeck-plugins` to `/mnt/plugins` in the `initContainer`
+
+To do so put this (as an example for the `s3` plugin) into your `values.yaml`
+
+```yaml
+initContainers:
+  - name: plugins-download
+    image: curlimages/curl
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/sh" ]
+    args:
+      - -c
+      - >
+        curl -L --fail https://github.com/rundeck-plugins/rundeck-s3-log-plugin/releases/download/v1.0.12/rundeck-s3-log-plugin-1.0.12.jar --output /mnt/plugins/rundeck-s3-log-plugin-1.0.12.jar;
+    volumeMounts:
+      - name: rundeck-plugins
+        mountPath: /mnt/plugins
+```
+
+Background: When the rundeck-backend image starts, we override the command, copy the plugins first and then call the actual
+command to continue the boostrap. Hopefully the [issue](https://github.com/rundeck/rundeck/issues/7487) will be solved at some point, making this entire backflip unneeded.
+
+## Addons
+
+Similar to plugins, mount `rundeck-addons` using an init container and download your addons(s)
+
+## S3 Execution log storage
+
+**ATTENTION**: this is NOT working due to [rundeck oss version limitations](https://github.com/rundeck/rundeck/issues/7490)
+
+See https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
+
+You usuall add something like this to your values
+
+```yaml
+env:
+  # see https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: "org.rundeck.amazon-s3"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET: "rundeck-execution-logs"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION: "eu-central-1"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSACCESSKEYID: "awskey"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSSECRETKEY: "awssecret"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_ALLOWDELETE: "true"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_PATH: "logs/$${job.project}/logs/$${job.execid}.log"
+```
+
+Of course you will need to adjust the bucket, region, key and secret (at least)
+
 ## Other Values
+
+It is better to read the `values.yaml` itself - but here is somewhat of an overview about the options (not all).
 
 | Parameter                        | Description                                                                                                                                                                                | Default                                               |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
@@ -91,57 +154,3 @@ See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker
 | volumeMounts                     | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers                   | can be used to download plugins or customize your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                         | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
-
-## Plugins
-
-Due to the [limitations](https://github.com/rundeck/rundeck/issues/7487) of rundeck's docker-image, plugin support is implemented
-using a hack - nothing more.
-
-If you want to use plugins you have to
-
-- use an `initContainer`
-- mount the volume `rundeck-plugins` to `/mnt/plugins` in the `initContainer`
-
-To do so put this (as an example for the `s3` plugin) into your `values.yaml`
-
-```
-initContainers:
-  - name: plugins-download
-    image: curlimages/curl
-    imagePullPolicy: IfNotPresent
-    command: [ "/bin/sh" ]
-    args:
-      - -c
-      - >
-        curl -L --fail https://github.com/rundeck-plugins/rundeck-s3-log-plugin/releases/download/v1.0.12/rundeck-s3-log-plugin-1.0.12.jar --output /mnt/plugins/rundeck-s3-log-plugin-1.0.12.jar;
-    volumeMounts:
-      - name: rundeck-plugins
-        mountPath: /mnt/plugins
-```
-
-Background: When the rundeck-backend image starts, we override the command, copy the plugins first and then call the actual
-command to continue the boostrap. Hopefully the [issue](https://github.com/rundeck/rundeck/issues/7487) will be solved at some point, making this entire backflip unneeded.
-
-## Addons
-
-Similar to plugins, mount `rundeck-addons` using an init container and download your addons(s)
-
-## S3 Execution log storage
-
-See https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
-
-You usuall add something like this to your values
-
-```yaml
-env:
-  # see https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: "org.rundeck.amazon-s3"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET: "rundeck-execution-logs"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION: "eu-central-1"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSACCESSKEYID: "awskey"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSSECRETKEY: "awssecret"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_ALLOWDELETE: "true"
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_PATH: "logs/$${job.project}/logs/$${job.execid}.log"
-```
-
-Of course you will need to adjust the bucket, region, key and secret (at least)
