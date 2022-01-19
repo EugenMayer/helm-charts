@@ -32,8 +32,13 @@ spec:
   {{- range $ingressPaths }}
           - path: {{ . }}
             backend:
-              serviceName: {{ $fullName }}
+              {{- if and .Values.nginx.enabled }}
+              serviceName: {{ $fullName }}-nginx
               servicePort: http
+              {{else}}
+              serviceName: rundeck-backend
+              servicePort: rundeck
+              {{end}}
   {{- end }}
   {{- end }}
 {{- end }}

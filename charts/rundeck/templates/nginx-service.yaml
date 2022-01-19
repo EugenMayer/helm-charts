@@ -1,8 +1,9 @@
+{{- if and .Values.nginx.enabled }}
 {{- $fullName := include "rundeck.fullname" . -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: rundeck-backend
+  name: rundeck-nginx
   labels: {{include "rundeck.labels" . | indent 4}}
 spec:
   type: ClusterIP
@@ -12,5 +13,6 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{$fullName}}
+    app.kubernetes.io/name: {{$fullName}}-nginx
     app.kubernetes.io/instance: {{.Release.Name}}
+{{end}}

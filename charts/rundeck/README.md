@@ -11,9 +11,10 @@ History: This chart has been taken from [charts incubator](https://github.com/he
 - added OPTIONS support in nginx
 - Fix Grail and CSP issues
 - Add execution-logs handling by default (local storage)
-
-If you migrate from the incubator please consider breaking changes and read any aspect of this helm chart. Do not expect
-to just switch out the helm source.
+- handle security context properly and make it extendible
+- split nginx and rundeck-backend deployments
+  If you migrate from the incubator please consider breaking changes and read any aspect of this helm chart. Do not expect
+  to just switch out the helm source.
 
 # TODO / broken
 
@@ -57,6 +58,14 @@ See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker
 | Parameter                        | Description                                                                                                                                                                                | Default                                               |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
 | database.secret_name             | Secret-name with your database credentials and connection details: `type`,`jdbc`,`user`,`password`, You have to create the secret yourself.                                                | None (required)                                       |
+| executionLogs.claim.enabled      | If you plan to store execution logs locally, enable the claim.                                                                                                                             | true                                                  |
+| executionLogs.claim.storageClass | If you enabled local execution-logs, set your storage class                                                                                                                                | None (required)                                       |
+| data.claim.enabled               | If enabled, mounts a volume for the server data [what is it used for?](https://github.com/rundeck/rundeck/issues/7488)                                                                     | true                                                  |
+| data.claim.storageClass          | Set the storage class for the server data volume [what is it used for?](https://github.com/rundeck/rundeck/issues/7488)                                                                    | None (required)                                       |
+| plugins.claim.enabled            | If enabled, mounts a volume for the plugins. Those will be copied to `/home/rundeck/libexex/`                                                                                              | true                                                  |
+| plugins.claim.storageClass       | Set the storage class for the plugins volume                                                                                                                                               | None (required)                                       |
+| addons.claim.enabled             | If enabled, mounts a volume for the server addons - special addons for the enterprise editions (not plugins)                                                                               | true                                                  |
+| addons.claim.storageClass        | Set the storage class for the server addons volume                                                                                                                                         | None (required)                                       |
 | deployment.replicaCount          | How many replicas to run. Rundeck can really only work with one.                                                                                                                           | 1                                                     |
 | deployment.annotations           | You can pass annotations inside deployment.spec.template.metadata.annotations. Useful for KIAM/Kube2IAM and others for example.                                                            | {}                                                    |
 | deployment.strategy              | Sets the K8s rollout strategy for the Rundeck deployment                                                                                                                                   | { type: RollingUpdate }                               |
@@ -75,8 +84,6 @@ See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker
 | rundeck.kubeConfigSecret         | Name of secret to mount under the `~/.kube/` directory. Useful when Rundeck needs configuration for multiple K8s clusters.                                                                 | ""                                                    |
 | rundeck.extraConfigSecret        | Name of secret containing additional files to mount at `~/extra/`. Can be useful for working with RUNDECK_TOKENS_FILE configuration                                                        | ""                                                    |
 | nginxConfOverride                | An optional multi-line value that can replace the default nginx.conf.                                                                                                                      | ""                                                    |
-| executionLogs.claim.enabled      | If you plan to store execution logs locally, enable the claim.                                                                                                                             | true                                                  |
-| executionLogs.claim.storageClass | If you enabled local execution-logs, set your storage class                                                                                                                                | None (required)                                       |
 | serviceAccount.create            | Set to true to create a service account for the Rundeck pod                                                                                                                                | false                                                 |
 | serviceAccount.annotations       | A map of annotations to attach to the service account (eg: AWS IRSA)                                                                                                                       | {}                                                    |
 | serviceAccount.name              | Name of the service account the Rundeck pod should use                                                                                                                                     | ""                                                    |
@@ -84,6 +91,40 @@ See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker
 | volumeMounts                     | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers                   | can be used to download plugins or customize your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                         | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
+
+## Plugins
+
+Due to the [limitations](https://github.com/rundeck/rundeck/issues/7487) of rundeck's docker-image, plugin support is implemented
+using a hack - nothing more.
+
+If you want to use plugins you have to
+
+- use an `initContainer`
+- mount the volume `rundeck-plugins` to `/mnt/plugins` in the `initContainer`
+
+To do so put this (as an example for the `s3` plugin) into your `values.yaml`
+
+```
+initContainers:
+  - name: plugins-download
+    image: curlimages/curl
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/sh" ]
+    args:
+      - -c
+      - >
+        curl -L --fail https://github.com/rundeck-plugins/rundeck-s3-log-plugin/releases/download/v1.0.12/rundeck-s3-log-plugin-1.0.12.jar --output /mnt/plugins/rundeck-s3-log-plugin-1.0.12.jar;
+    volumeMounts:
+      - name: rundeck-plugins
+        mountPath: /mnt/plugins
+```
+
+Background: When the rundeck-backend image starts, we override the command, copy the plugins first and then call the actual
+command to continue the boostrap. Hopefully the [issue](https://github.com/rundeck/rundeck/issues/7487) will be solved at some point, making this entire backflip unneeded.
+
+## Addons
+
+Similar to plugins, mount `rundeck-addons` using an init container and download your addons(s)
 
 ## S3 Execution log storage
 
@@ -94,7 +135,7 @@ You usuall add something like this to your values
 ```yaml
 env:
   # see https://docs.rundeck.com/docs/administration/cluster/logstore/s3.html#install
-  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: "com.rundeck.rundeckpro.amazon-s3"
+  RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_NAME: "org.rundeck.amazon-s3"
   RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_BUCKET: "rundeck-execution-logs"
   RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_REGION: "eu-central-1"
   RUNDECK_PLUGIN_EXECUTIONFILESTORAGE_S3_AWSACCESSKEYID: "awskey"

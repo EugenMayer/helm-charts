@@ -1,16 +1,16 @@
 {{- $fullName := include "rundeck.fullname" . -}}
 {{- $labels := include "rundeck.labels" . -}}
 
-{{- if and .Values.executionLogs.claim.enabled }}
-{{- with .Values.executionLogs.claim}}
+{{- if and .Values.addons.claim.enabled }}
+{{- with .Values.addons.claim}}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ $fullName }}-execution-logs-claim
+  name: {{ $fullName }}-addons-claim
   labels: {{ $labels | indent 4 }}
 spec:
   {{- if .storageClass }}
-  storageClassName: {{ required "Please set the storage class for execution logs!" .storageClass | quote }}
+  storageClassName: {{ required "Please set the storage class for the addons volume!" .storageClass | quote }}
   {{- end }}
   accessModes:
     - {{ .accessMode | quote }}

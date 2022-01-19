@@ -1,7 +1,9 @@
+{{- $fullName := include "rundeck.fullname" . -}}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "rundeck.fullname" . }}
+  name: {{ $fullName }}-rundeck-backend
   labels: {{ include "rundeck.labels" . | indent 4 }}
   {{- with .Values.deployment.annotations }}
   annotations:
@@ -13,7 +15,7 @@ spec:
     {{- toYaml .Values.deployment.strategy | nindent 4 }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "rundeck.name" . }}
+      app.kubernetes.io/name: {{ $fullName }}-rundeck-backend
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
@@ -24,43 +26,21 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
       labels:
-        app.kubernetes.io/name: {{ include "rundeck.name" . }}
+        app.kubernetes.io/name: {{ $fullName }}-rundeck-backend
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-      serviceAccountName: {{ include "rundeck.serviceAccountName" . }}
       securityContext:
-        fsGroup: 1000
+      {{- toYaml .Values.securityContext | nindent 8 }}
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
         - name: {{ .Values.image.pullSecrets }}
       {{- end }}
       containers:
-        - name: nginx
-          image: nginx:stable
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 80
-              scheme: HTTP
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: 80
-              scheme: HTTP
-            periodSeconds: 5
-          volumeMounts:
-            - name: nginx-config
-              mountPath: /etc/nginx
         - name: {{ .Chart.Name }}
           command:
           - /bin/sh
           - -c
-          - echo {{ .Values.rundeck.adminUser  }} > /home/rundeck/server/config/realm.properties && /home/rundeck/docker-lib/entry.sh
+          - echo {{ .Values.rundeck.adminUser  }} > /home/rundeck/server/config/realm.properties && cp -r /mnt/plugins/. /home/rundeck/libexec && /home/rundeck/docker-lib/entry.sh
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
@@ -70,6 +50,10 @@ spec:
           - secretRef:
               name: {{ .Values.rundeck.envSecret }}
           {{- end }}
+          ports:
+            - name: rundeck
+              containerPort: 4440
+              protocol: TCP
           env:
             - name: RUNDECK_DATABASE_DRIVER
               valueFrom:
@@ -92,14 +76,26 @@ spec:
                   name: {{.Values.database.secret_name| quote }}
                   key: password                                 
             - name: RUNDECK_GRAILS_URL
-              value: {{.Values.externUrl| quote }}                     
+              value: {{ required "Please set the externalUrl so grails can be configured!" .Values.externUrl | quote }}                     
           volumeMounts:
         {{- if .Values.volumeMounts }}
           {{- toYaml .Values.volumeMounts | nindent 10}}
         {{- end }}
         {{- if .Values.executionLogs.claim.enabled }}
-          - name: execution-logs
+          - name: {{ $fullName }}-execution-logs
             mountPath: /var/logs/rundeck
+        {{- end }}
+        {{- if .Values.data.claim.enabled }}
+          - name: {{ $fullName }}-data
+            mountPath: /home/rundeck/server/data
+        {{- end }}
+        {{- if .Values.addons.claim.enabled }}
+          - name: {{ $fullName }}-addons
+            mountPath: /home/rundeck/server/addons
+        {{- end }}
+        {{- if .Values.plugins.claim.enabled }}
+          - name: {{ $fullName }}-plugins
+            mountPath: /mnt/plugins
         {{- end }}
         {{- if .Values.rundeck.sshSecrets }}
           - name: sshkeys
@@ -134,17 +130,26 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-        - name: nginx-config
-          configMap:
-            name: {{ .Release.Name }}-nginx-configmap
-            items:
-              - key: nginx.conf
-                path: nginx.conf
         {{- if .Values.executionLogs.claim.enabled }}
-        - name: data
+        - name: {{ $fullName }}-execution-logs
           persistentVolumeClaim:
-            claimName: {{ include "rundeck.fullname" . }}-execution-logs
+            claimName: {{ $fullName }}-execution-logs-claim
+        {{- end }}
+        {{- if .Values.data.claim.enabled }}
+        - name: {{ $fullName }}-data
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-data-claim
         {{- end }}  
+        {{- if .Values.plugins.claim.enabled }}
+        - name: {{ $fullName }}-plugins
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-plugins-claim
+        {{- end }}  
+        {{- if .Values.addons.claim.enabled }}
+        - name: {{ $fullName }}-addons
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-addons-claim
+        {{- end }}          
         {{- if .Values.rundeck.sshSecrets }}
         - name: sshkeys
           secret:

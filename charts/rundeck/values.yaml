@@ -1,11 +1,49 @@
 # This must be the domain you reach your rundeck with. It is used to configure the grails URL and avoid CSP issues
 # @see https://github.com/rundeck/rundeck/issues/4417
-#externUrl: https://rundeck.domain.tld
+externUrl:
+
+executionLogs:
+  claim:
+    enabled: true
+    # required - set this
+    storageClass:
+    accessMode: ReadWriteOnce
+    size: 1G
+
+data:
+  claim:
+    enabled: true
+    # required - set this
+    storageClass:
+    accessMode: ReadWriteOnce
+    size: 1G
+
+addons:
+  claim:
+    enabled: true
+    # required - set this
+    storageClass:
+    accessMode: ReadWriteOnce
+    size: 1G
+
+plugins:
+  claim:
+    enabled: true
+    # required - set this
+    storageClass:
+    accessMode: ReadWriteOnce
+    size: 1G
 
 database:
   # A secret including the following keys `type`,`host`,`port`,`user`,`password`,`database`
   # type can be postgresql/mysql and so forth
   secret_name: rundeck-database-secret
+
+securityContext:
+  fsGroup: 1000
+  runAsGroup: 1000
+  runAsUser: 1000
+  fsGroupChangePolicy: "OnRootMismatch"
 
 image:
   repository: rundeck/rundeck
@@ -17,6 +55,26 @@ deployment:
   annotations: {}
   strategy:
     type: Recreate
+
+ingress:
+  enabled: false
+  className:
+  annotations:
+    {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  paths: []
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+# Enable nginx and nginx-service and deployment. If you handle CORS and ssl using your ingress, disable this
+# and use the rundeck-backend service as upstream
+nginx:
+  enabled: true
 
 rundeck:
   adminUser: "admin:admin,user,admin,architect,deploy,build"
@@ -44,37 +102,6 @@ rundeck:
 
 nameOverride: ""
 fullnameOverride: ""
-
-executionLogs:
-  claim:
-    enabled: true
-    # required - set this
-    storageClass:
-    accessMode: ReadWriteOnce
-    size: 1G
-
-serviceAccount:
-  # Specifies whether a ServiceAccount should be created
-  create: true
-  annotations: {}
-  # The name of the ServiceAccount to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name:
-
-ingress:
-  enabled: false
-  className:
-  annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  paths: []
-  hosts:
-    - chart-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
 
 resources:
   {}
@@ -133,9 +160,7 @@ volumes:
   #   emptyDir: {}
 
 # volumeMounts to add to the rundeck container and configurable paths
-volumeMounts:
-  - name: data
-    mountPath: /home/rundeck/server/data
+volumeMounts: []
 
 # initContainers can be used to download plugins or customise your rundeck installation
 initContainers:

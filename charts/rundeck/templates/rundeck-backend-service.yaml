@@ -1,0 +1,16 @@
+{{- $fullName := include "rundeck.fullname" . -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: rundeck-backend
+  labels: {{include "rundeck.labels" . | indent 4}}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 4440
+      targetPort: 4440
+      protocol: TCP
+      name: rundeck
+  selector:
+    app.kubernetes.io/name: {{$fullName}}-rundeck-backend
+    app.kubernetes.io/instance: {{.Release.Name}}
