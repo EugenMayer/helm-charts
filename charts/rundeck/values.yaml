@@ -40,8 +40,8 @@ database:
   secret_name: rundeck-database-secret
 
 securityContext:
-  fsGroup: 1000
-  runAsGroup: 1000
+  fsGroup: 0
+  runAsGroup: 0
   runAsUser: 1000
   fsGroupChangePolicy: "OnRootMismatch"
 
