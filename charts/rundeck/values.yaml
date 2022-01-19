@@ -47,7 +47,8 @@ securityContext:
 
 image:
   repository: rundeck/rundeck
-  tag: 3.4.9
+  # see https://hub.docker.com/r/rundeck/rundeck/tags
+  tag: 3.4.10
   pullPolicy: IfNotPresent
 
 deployment:

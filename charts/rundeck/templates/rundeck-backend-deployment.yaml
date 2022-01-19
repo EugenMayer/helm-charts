@@ -40,7 +40,7 @@ spec:
           command:
           - /bin/sh
           - -c
-          - echo {{ .Values.rundeck.adminUser  }} > /home/rundeck/server/config/realm.properties && cp -r /mnt/plugins/. /home/rundeck/libexec && /home/rundeck/docker-lib/entry.sh
+          - echo {{ .Values.rundeck.adminUser  }} > /home/rundeck/server/config/realm.properties && cp -r /mnt/plugins/. /home/rundeck/libext && /home/rundeck/docker-lib/entry.sh
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
