@@ -20,8 +20,11 @@ spec:
   template:
     metadata:
       labels:
+        # This will restart the nginx pod if the nginx configuration changed
         app.kubernetes.io/name: {{ $fullName }}-nginx
         app.kubernetes.io/instance: {{ .Release.Name }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/nginx-configmap.yaml") . | sha256sum }}
     spec:
       securityContext:
         fsGroupChangePolicy: "OnRootMismatch"

@@ -5,7 +5,8 @@ Rundeck helm chart.
 History: This chart has been taken from [charts incubator](https://github.com/helm/charts/tree/master/incubator/rundeck) and adopted to newly standards, since the old repository has been archived and is no longer maintained.
 
 - Added database configuration support
-- add proper secret for the admin user
+- add proper secret for user creation (`realm.properties`)
+- add configuration to the `rundeck-config.properties`
 - add proper support for plugins
 - add proper default volumes and claims
 - handle security context properly to fix volume mounts
@@ -38,8 +39,10 @@ Please open or ask all those questions in one of the [official channels](https:/
 
 - `externUrl`
 - `executionLogs.claim.storageClass` / `data.claim.storageClass` / `plugins.claim.storageClass` / `addons.claim.storageClass` or disable those (or some)
-- deploy your `admin-credential-secret` secret (in your rundeck namespace) with the field `adminCredential` including the string `admin:PASSWORD,user,admin,architect,deploy,build` - replace `PASSWORD` with your password
-- deploy your `rundeck-database-secret` to define the DB credentials and connection details. See `Database` below. 
+- deploy your `user-credentials-secret` secret (in your rundeck namespace) with the field `userCredentials` including the string (at least)`admin:PASSWORD,user,admin,architect,deploy,build`
+  - replace `PASSWORD` with your password
+  - add as many as you like, seperate by newlines `\n`
+- deploy your `rundeck-database-secret` to define the DB credentials and connection details. See `Database` below.
 - deploy your own `ingress` route (default) or activate `ingress.enabled` and set the values to your liking
 
 ## Database
@@ -75,7 +78,7 @@ initContainers:
   - name: plugins-download
     image: curlimages/curl
     imagePullPolicy: IfNotPresent
-    command: [ "/bin/sh" ]
+    command: ["/bin/sh"]
     args:
       - -c
       - >

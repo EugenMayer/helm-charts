@@ -37,10 +37,8 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          command:
-          - /bin/sh
-          - -c
-          - cp -r /mnt/plugins/. /home/rundeck/libext && /home/rundeck/docker-lib/entry.sh
+          command: ["/bin/bash"]
+          args: ["/custom-scripts/bootstrap.sh"]
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
@@ -78,43 +76,49 @@ spec:
             - name: RUNDECK_GRAILS_URL
               value: {{ required "Please set the externalUrl so grails can be configured!" .Values.externUrl | quote }}                     
           volumeMounts:
-        {{- if .Values.volumeMounts }}
+          - name: boostrap-wrapper-script
+            mountPath: /custom-scripts
+          {{- if .Values.volumeMounts }}
           {{- toYaml .Values.volumeMounts | nindent 10}}
-        {{- end }}
-        {{- if .Values.executionLogs.claim.enabled }}
+          {{- end }}
+          {{- if .Values.executionLogs.claim.enabled }}
           - name: {{ $fullName }}-execution-logs
             mountPath: /home/rundeck/var/logs/rundeck/
-        {{- end }}
-        {{- if .Values.data.claim.enabled }}
+          {{- end }}
+          {{- if .Values.data.claim.enabled }}
           - name: {{ $fullName }}-data
             mountPath: /home/rundeck/server/data
-        {{- end }}
-        {{- if .Values.addons.claim.enabled }}
+          {{- end }}
+          {{- if .Values.addons.claim.enabled }}
           - name: {{ $fullName }}-addons
             mountPath: /home/rundeck/server/addons
-        {{- end }}
-        {{- if .Values.plugins.claim.enabled }}
+          {{- end }}
+          {{- if .Values.plugins.claim.enabled }}
           - name: {{ $fullName }}-plugins
             mountPath: /mnt/plugins
-        {{- end }}
-        {{- if .Values.rundeck.sshSecrets }}
+          {{- end }}
+          {{- if .Values.rundeck.sshSecrets }}
           - name: sshkeys
             mountPath: /home/rundeck/.ssh
             readOnly: true
-        {{- end }}
-        {{- if .Values.rundeck.kubeConfigSecret }}
+          {{- end }}
+          {{- if .Values.rundeck.kubeConfigSecret }}
           - name: kube-config
             mountPath: /home/rundeck/.kube/
-        {{- end }}
-        {{- if .Values.rundeck.extraConfigSecret }}
+          {{- end }}
+          {{- if .Values.rundeck.extraConfigSecret }}
           - name: extra-config
             mountPath: /home/rundeck/extra/
-        {{- end }}
-        {{- if .Values.rundeck.adminCredentialSecretName }}
-          - name: admin-credential
+          {{- end }}
+          {{- if .Values.rundeck.userCredentialsSecretName }}
+          - name: user-credentials
             mountPath: /home/rundeck/server/config/realm.properties
-            subPath: adminCredential
-        {{- end }}
+            subPath: userCredentials
+          {{- end }}
+         {{- if .Values.rundeck.rundeckConfigConfigMap }}
+          - name: rundeck-config-append
+            mountPath: /home/rundeck/custom/rundeck-config
+          {{- end }}
           ports:
             - name: rundeck
               containerPort: 4440
@@ -135,6 +139,9 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+        - name: boostrap-wrapper-script
+          configMap:
+            name: boostrap-wrapper-script
         {{- if .Values.executionLogs.claim.enabled }}
         - name: {{ $fullName }}-execution-logs
           persistentVolumeClaim:
@@ -172,13 +179,18 @@ spec:
           secret:
             secretName: {{ .Values.rundeck.extraConfigSecret}}
         {{- end }}
-        {{- if .Values.rundeck.adminCredentialSecretName }}
-        - name: admin-credential
+        {{- if .Values.rundeck.userCredentialsSecretName }}
+        - name: user-credentials
           secret:
-            secretName: {{ .Values.rundeck.adminCredentialSecretName }}
-            # stands for chmod 0400
-            # 256 -> 0400
-            defaultMode: 256
+            secretName: {{ .Values.rundeck.userCredentialsSecretName}}
+        {{- end }}
+        {{- if .Values.rundeck.rundeckConfigConfigMap }}
+        - name: rundeck-config-append
+          configMap:
+            name: {{ .Values.rundeck.rundeckConfigConfigMap }}
+            items:
+            - key: config
+              path: rundeck-config-append.properties
         {{- end }}
       {{- if .Values.volumes }}
         {{- toYaml .Values.volumes | nindent 8}}

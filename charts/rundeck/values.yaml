@@ -79,9 +79,12 @@ nginx:
   enabled: true
 
 rundeck:
+  # if set, a config-map with this name will be loaded and appended to the
+  # /home/rundeck/server/config/rundeck-config.properties file. Use the key 'config'
+  rundeckConfigConfigMap:
   # Create this secrete in the rundeck namespace.
-  # Should have the field `adminCredential` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
-  adminCredentialSecretName: admin-credential-secret
+  # Should have the field `userCredentials` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
+  userCredentialsSecretName: user-credentials-secret
   env:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
     RUNDECK_SERVER_FORWARDED: "true"
