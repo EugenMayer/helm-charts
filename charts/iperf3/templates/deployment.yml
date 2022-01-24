@@ -4,6 +4,7 @@ metadata:
   name: {{.Chart.Name}}
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: iperf3
