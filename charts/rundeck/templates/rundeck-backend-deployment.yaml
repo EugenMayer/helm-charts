@@ -8,7 +8,6 @@ metadata:
   {{- with .Values.deployment.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   revisionHistoryLimit: 1
@@ -16,7 +15,6 @@ spec:
     {{- toYaml .Values.deployment.strategy | nindent 4 }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ $fullName }}-rundeck-backend
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
