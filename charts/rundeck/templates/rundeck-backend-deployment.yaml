@@ -11,6 +11,7 @@ metadata:
   {{- end }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
+  revisionHistoryLimit: 1
   strategy:
     {{- toYaml .Values.deployment.strategy | nindent 4 }}
   selector:
