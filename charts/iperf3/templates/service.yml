@@ -6,8 +6,10 @@ metadata:
   name: iperf3
 spec:
   type: LoadBalancer
+{{- if .Values.service.externalIp -}}
   externalIPs:
     - {{.Values.service.externalIp}}
+{{- end }}
   selector:
     app.kubernetes.io/name: iperf3
     app.kubernetes.io/instance: {{.Release.Name}}
