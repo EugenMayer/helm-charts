@@ -26,6 +26,9 @@ spec:
             - -p 40000
             - -i 1
             - --forceflush
+            {{- if .Values.verbose }}
+            - -V
+            {{- end }}
           ports:
             - name: iperf3
               containerPort: 40000
