@@ -24,6 +24,8 @@ spec:
             - iperf3
             - -s
             - -p 40000
+            - -i 1
+            - --forceflush
           ports:
             - name: iperf3
               containerPort: 40000
