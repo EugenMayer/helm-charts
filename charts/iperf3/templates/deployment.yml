@@ -23,7 +23,7 @@ spec:
           command:
             - iperf3
             - -s
-            - -p 40000
+            - -p {{.Values.deployment.targetPort}}
             - -i 1
             - --forceflush
             {{- if .Values.verbose }}
@@ -31,7 +31,7 @@ spec:
             {{- end }}
           ports:
             - name: iperf3
-              containerPort: 40000
+              containerPort: {{.Values.deployment.targetPort}}
               protocol: TCP
       restartPolicy: Always
 status: {}
