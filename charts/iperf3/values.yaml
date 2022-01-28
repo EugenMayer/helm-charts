@@ -6,3 +6,5 @@ service:
   port: 40000
 # set to true for verbose logging
 verbose: false
+# change this to set the number of replicas
+replicas: 1
