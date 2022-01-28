@@ -14,3 +14,5 @@ deployment:
     repository: networkstatic/iperf3
     # adapt if you want to use a different tag
     tag: "latest"
+  # port where iperf3 inside the container is listening on
+  targetPort: 40000
