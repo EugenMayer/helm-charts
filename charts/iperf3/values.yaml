@@ -4,3 +4,5 @@ service:
   # externalIp:
   # the port to bind on the service, if enabled.
   port: 40000
+# set to true for verbose logging
+verbose: false
