@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{.Chart.Name}}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   revisionHistoryLimit: 1
   selector:
     matchLabels:
