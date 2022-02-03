@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: iperf3
-          image: networkstatic/iperf3
+          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
           command:
             - iperf3
             - -s

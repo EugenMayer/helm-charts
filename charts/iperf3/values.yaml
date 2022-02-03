@@ -8,3 +8,9 @@ service:
 verbose: false
 # change this to set the number of replicas
 replicas: 1
+deployment:
+  image:
+    # if needed you can use another image
+    repository: networkstatic/iperf3
+    # adapt if you want to use a different tag
+    tag: "latest"
