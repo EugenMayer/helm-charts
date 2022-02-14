@@ -13,5 +13,5 @@ Check the `values.yaml` file
 Deploy the chart, set the externalIp to a ip on your control-plane and then run
 
 ```bash
-iperf3 -c <controlPlaneIpOrFip> -p 40000
+iperf3 -c <controlPlaneIpOrFip> -p 5201
 ```
