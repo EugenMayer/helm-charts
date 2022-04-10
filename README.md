@@ -5,6 +5,13 @@ Different kubernetes charts.
 - Hopefully using the current standards
 - If possible, uses the official docker images
 
+## Chart repository
+
+The chart repository is hosted vi Github-Pages under [chart repository](https://github.com/EugenMayer/helm-charts/tree/gh-pages)
+and an be access via
+
+`https://eugenmayer.github.io/helm-charts/`
+
 ## What it is not
 
 Please do  consider the helm charts are **not** build to be a starter for you to understand how to install an application the first time. 
@@ -18,3 +25,12 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [rundeck](charts/rundeck)
 - [postgres-pgdump-backup](charts/postgres-pgdump-backup)
 - [iperf3](charts/iperf3)
+
+
+## Releasing
+
+This will release all packages that have been changed and update the `index.yaml` under `gh-pages`
+
+```bash
+make release-all
+```

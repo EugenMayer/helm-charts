@@ -3,3 +3,6 @@ owner: EugenMayer
 git-repo: helm-charts
 package-path: .deploy
 index-path: index.yaml
+git-base-url: https://api.github.com/
+git-upload-url: https://uploads.github.com/
+remote: cr-remote
