@@ -8,8 +8,12 @@ metadata:
   {{- include "postgres-backup-local.labels" . | nindent 4 }}
 data:
   {{- with .Values.postgres }}
+  # those 2 are used by backup.sh directly
   POSTGRES_HOST: {{  required "Please provide the postgres.host!" .host }}
   POSTGRES_PORT:  {{  required "Please provide the postgres.post!" .port | quote }}
+  # Setting those 2 Setting those 2 for better cli-support https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76
+  PGHOST: {{ required "Please provide the postgres.host!" .host }}
+  PGPORT: {{ required "Please provide the postgres.post!" .port | quote }}
   # credentials are stored in a secret
   {{- end }}
 
@@ -26,3 +30,4 @@ data:
   {{- end }}
 
   HEALTHCHECK_PORT: "8080"
+{{ toYaml .Values.env | indent 2}}

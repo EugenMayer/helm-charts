@@ -11,11 +11,13 @@ postgres:
 backup:
   database:
     # Pick specific databases for the backup. Ensure to set backup.database.all to FALSE if you do that
-    names:
+    # If you are using backup.database.all=TRUE you have to set the default database here
+    # see https://github.com/prodrigestivill/docker-postgres-backup-local/blob/main/backup.sh#L80=
+    names: auth
     # set this to TRUE backup all databases, not just the one given in backup.database.names
     all: "TRUE"
   # arguments passed to pg_dump/pg_dumpall
-  dumpExtraOpts: "-Z6"
+  dumpExtraOpts: ""
   schedule: "@daily"
   retention:
     keepDays: 7
@@ -29,13 +31,10 @@ monitoring:
     # the port the monitoring port is exposed with
     port: 8080
 
-## @param extraEnvVars Extra environment variables to add to RabbitMQ pods
-## E.g:
-## extraEnvVars:
-##   - name: FOO
-##     value: BAR
-##
-extraEnvVars: []
+## Add extra env variables to the container, e.g. to enabled SSLmode 
+## env:
+##   PGSSLMODE: require"
+env: []
 
 replicas: 1
 

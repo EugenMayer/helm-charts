@@ -1,0 +1,13 @@
+postgres:
+  host: test-host
+  auth:
+    existingSecretName: "test"
+    
+env: 
+  PGSSMODLE: "require"
+
+persistence:
+  storageClass: "local-path"
+
+image:
+  tag: "12"
