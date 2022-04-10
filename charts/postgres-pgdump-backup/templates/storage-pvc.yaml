@@ -1,11 +1,11 @@
 {{- if not .Values.persistence.existingClaim }}
-{{- if .Values.persistence.enabled}}
-{{- with .Values.persistence}}
+{{- if .Values.persistence.enabled }}
+{{- $fullName := include "postgres-backup-local.fullname" . -}}
+{{- with .Values.persistence }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name:  {{ include "postgres-backup-local.fullname" . }}
-  labels: {{ $labels | indent 4 }}
+  name:  {{ $fullName }}
 spec:
   storageClassName: {{ required "Please set the storage class for the plugins volume!" .storageClass | quote }}
   accessModes:

@@ -29,6 +29,9 @@ If any values are unclear, open an issue or a PR explaining those. Happy to incl
 - `postgres.host` - set this to your postgres host
 - `postgres.auth.existingSecretName` - set this to the existing secret holding `POSTGRES_USER` and `POSTGRES_PASSWORD`. Alternatively set `postgres.auth.user` and `postgres.auth.password`
 
+Hint: You should not just set the mandatory fields by go through the entire `values.yaml` and ensure everything is 
+as expected.
+
 ## Credits
 
 Of course all the credits are going to [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local) doing all the important and hard work.

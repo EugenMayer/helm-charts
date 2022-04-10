@@ -1,26 +1,28 @@
+{{- $fullName := include "postgres-backup-local.fullname" . -}}
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "postgres-backup-local.fullname" . }}
+  name: {{ $fullName }}
   labels:
   {{- include "postgres-backup-local.labels" . | nindent 4 }}
 data:
-    {{ - with .Values.postgres }}
-    POSTGRES_HOST: {{  required "Please provide the postgres.host!" .host }}
-    POSTGRES_PORT:  {{  required "Please provide the postgres.post!" .port | quote }}
-    # credentials are stored in a secret
-    {{ - end }}
+  {{- with .Values.postgres }}
+  POSTGRES_HOST: {{  required "Please provide the postgres.host!" .host }}
+  POSTGRES_PORT:  {{  required "Please provide the postgres.post!" .port | quote }}
+  # credentials are stored in a secret
+  {{- end }}
 
-    {{- with .Values.backup}}
-    # the database(s)  to backup (single name or comma seperated list of database)
-    POSTGRES_DB: {{ .database.names }}
-    # If TRUE, backups all databases and not just the list given in POSTGRES_DB
-    POSTGRES_CLUSTER: {{ .database.all | quote }}
-    POSTGRES_EXTRA_OPTS: {{ .dump_extra_opts | quote }}
-    SCHEDULE: {{ .schedule | quote }}
-    BACKUP_KEEP_DAYS: {{ .retention.keep_days | quote}}
-    BACKUP_KEEP_WEEKS: {{ .retention.keep_weeks | quote}}
-    BACKUP_KEEP_MONTHS: {{ .retention.keep_months | quote}}
-    {{- end }}
+  {{- with .Values.backup}}
+  # the database(s) to backup (single name or comma seperated list of database)
+  POSTGRES_DB: {{ .database.names | quote }}
+  # If TRUE, backups all databases and not just the list given in POSTGRES_DB
+  POSTGRES_CLUSTER: {{ .database.all | quote }}
+  POSTGRES_EXTRA_OPTS: {{ .dumpExtraOpts | quote }}
+  SCHEDULE: {{ .schedule | quote }}
+  BACKUP_KEEP_DAYS: {{ .retention.keepDays | quote }}
+  BACKUP_KEEP_WEEKS: {{ .retention.keepWeeks | quote }}
+  BACKUP_KEEP_MONTHS: {{ .retention.keepMonths | quote }}
+  {{- end }}
 
-    HEALTHCHECK_PORT: {{ .Values.monitoring.healthcheck_port | quote}}
+  HEALTHCHECK_PORT: "8080"

@@ -14,15 +14,20 @@ backup:
     names:
     # set this to TRUE backup all databases, not just the one given in backup.database.names
     all: "TRUE"
-  dump_extra_opts: "-Z6"
+  # arguments passed to pg_dump/pg_dumpall
+  dumpExtraOpts: "-Z6"
   schedule: "@daily"
   retention:
-    keep_days: 7
-    keep_weeks: 4
-    keep_months: 6
+    keepDays: 7
+    keepWeeks: 4
+    keepMonths: 6
 
 monitoring:
-  healthcheck_port: 8080
+  service:
+    # if enabled, exposing the monitoring port as a service
+    enabled: false
+    # the port the monitoring port is exposed with
+    port: 8080
 
 ## @param extraEnvVars Extra environment variables to add to RabbitMQ pods
 ## E.g:
@@ -59,10 +64,7 @@ persistence:
   accessMode: ReadWriteOnce
 
   ## @param persistence.existingClaim Provide an existing PersistentVolumeClaims
-  ## The value is evaluated as a template
-  ## So, for example, the name can depend on .Release or .Chart
-  ##
-  existingClaim: ""
+  # existingClaim:
 
   ## @param persistence.mountPath The path the volume will be mounted at
   ##

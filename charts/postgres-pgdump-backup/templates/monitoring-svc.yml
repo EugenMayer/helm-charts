@@ -1,0 +1,17 @@
+{{- if .Values.monitoring.service.enabled -}}
+{{- $fullName := include "postgres-backup-local.fullname" . -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fullName }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.monitoring.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: health
+  selector:
+    app.kubernetes.io/name: {{ $fullName }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
