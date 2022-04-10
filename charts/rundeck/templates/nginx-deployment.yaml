@@ -62,4 +62,4 @@ spec:
             items:
               - key: nginx.conf
                 path: nginx.conf
-{{end}}
+{{ end }}

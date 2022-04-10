@@ -30,84 +30,9 @@ spec:
         app.kubernetes.io/name: {{ $fullName }}-rundeck-backend
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-      securityContext:
-      {{- toYaml .Values.securityContext | nindent 8 }}
-      {{- if .Values.image.pullSecrets }}
-      imagePullSecrets:
-        - name: {{ .Values.image.pullSecrets }}
-      {{- end }}
-      volumes:
-        - name: boostrap-wrapper-script
-          configMap:
-            name: boostrap-wrapper-script
-        {{- if .Values.executionLogs.claim.enabled }}
-        - name: {{ $fullName }}-execution-logs
-          persistentVolumeClaim:
-            claimName: {{ $fullName }}-execution-logs-claim
-        {{- end }}
-        {{- if .Values.data.claim.enabled }}
-        - name: {{ $fullName }}-data
-          persistentVolumeClaim:
-            claimName: {{ $fullName }}-data-claim
-        {{- end }}  
-        {{- if .Values.plugins.claim.enabled }}
-        - name: {{ $fullName }}-plugins
-          persistentVolumeClaim:
-            claimName: {{ $fullName }}-plugins-claim
-        {{- end }}  
-        {{- if .Values.addons.claim.enabled }}
-        - name: {{ $fullName }}-addons
-          persistentVolumeClaim:
-            claimName: {{ $fullName }}-addons-claim
-        {{- end }}          
-        {{- if .Values.rundeck.sshSecrets }}
-        - name: sshkeys
-          secret:
-            secretName: {{ .Values.rundeck.sshSecrets }}
-            # stands for chmod 0400
-            defaultMode: 256
-        {{- end }}
-        {{- if .Values.rundeck.kubeConfigSecret }}
-        - name: kube-config
-          secret:
-            secretName: {{ .Values.rundeck.kubeConfigSecret}}
-        {{- end }}
-        {{- if .Values.rundeck.extraConfigSecret }}
-        - name: extra-config
-          secret:
-            secretName: {{ .Values.rundeck.extraConfigSecret}}
-        {{- end }}
-        {{- if .Values.rundeck.userCredentialsSecretName }}
-        - name: user-credentials
-          secret:
-            secretName: {{ .Values.rundeck.userCredentialsSecretName}}
-        {{- end }}
-        {{- if .Values.rundeck.rundeckConfigConfigMap }}
-        - name: rundeck-config-append
-          configMap:
-            name: {{ .Values.rundeck.rundeckConfigConfigMap }}
-            items:
-            - key: config
-              path: rundeck-config-append.properties
-        {{- end }}
-      {{- if .Values.volumes }}
-        {{- toYaml .Values.volumes | nindent 8}}
-      {{- end }}
       {{- if .Values.initContainers }}
       initContainers:
         {{- toYaml .Values.initContainers | nindent 8 }}
-      {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -212,4 +137,84 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      
+      { { - with .Values.nodeSelector } }
+      nodeSelector:
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+
+      { { - with .Values.affinity } }
+      affinity:
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+
+      { { - with .Values.tolerations } }
+      tolerations:
+        { { - toYaml . | nindent 8 } }
+      { { - end } }
+
+      securityContext:
+      {{- toYaml .Values.securityContext | nindent 8 }}
+      {{- if .Values.image.pullSecrets }}
+
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecrets }}
+      {{- end }}
+
+      volumes:
+        - name: boostrap-wrapper-script
+          configMap:
+            name: boostrap-wrapper-script
+        {{- if .Values.executionLogs.claim.enabled }}
+        - name: {{ $fullName }}-execution-logs
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-execution-logs-claim
+        {{- end }}
+        {{- if .Values.data.claim.enabled }}
+        - name: {{ $fullName }}-data
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-data-claim
+        {{- end }}  
+        {{- if .Values.plugins.claim.enabled }}
+        - name: {{ $fullName }}-plugins
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-plugins-claim
+        {{- end }}  
+        {{- if .Values.addons.claim.enabled }}
+        - name: {{ $fullName }}-addons
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-addons-claim
+        {{- end }}          
+        {{- if .Values.rundeck.sshSecrets }}
+        - name: sshkeys
+          secret:
+            secretName: {{ .Values.rundeck.sshSecrets }}
+            # stands for chmod 0400
+            defaultMode: 256
+        {{- end }}
+        {{- if .Values.rundeck.kubeConfigSecret }}
+        - name: kube-config
+          secret:
+            secretName: {{ .Values.rundeck.kubeConfigSecret}}
+        {{- end }}
+        {{- if .Values.rundeck.extraConfigSecret }}
+        - name: extra-config
+          secret:
+            secretName: {{ .Values.rundeck.extraConfigSecret}}
+        {{- end }}
+        {{- if .Values.rundeck.userCredentialsSecretName }}
+        - name: user-credentials
+          secret:
+            secretName: {{ .Values.rundeck.userCredentialsSecretName}}
+        {{- end }}
+        {{- if .Values.rundeck.rundeckConfigConfigMap }}
+        - name: rundeck-config-append
+          configMap:
+            name: {{ .Values.rundeck.rundeckConfigConfigMap }}
+            items:
+            - key: config
+              path: rundeck-config-append.properties
+        {{- end }}
+      {{- if .Values.volumes }}
+        {{- toYaml .Values.volumes | nindent 8}}
+      {{- end }}
+
