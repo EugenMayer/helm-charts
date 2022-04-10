@@ -10,5 +10,5 @@ keywords:
   - automation
   - operations
 sources:
-  - https://github.com/EugenMayer/helm-charts
+  - https://github.com/EugenMayer/helm-charts/charts/rundeck
   - https://github.com/rundeck/rundeck

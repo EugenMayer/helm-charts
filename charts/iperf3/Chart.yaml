@@ -9,4 +9,4 @@ keywords:
   - network
   - tools
 sources:
-  - https://github.com/EugenMayer/helm-charts
+  - https://github.com/EugenMayer/helm-charts/charts/rundeck
