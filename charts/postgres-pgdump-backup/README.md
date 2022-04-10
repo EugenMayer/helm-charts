@@ -7,8 +7,7 @@ It offers a backup solution with those key features
 - retentions
 - health monitoring of the jobs
 - using pg_dump / pg_dumpall as storage formats (not WAL)
-- can backup specific databases or all databases
-
+- can backup specific databases or all databases (all databases is the default)
 
 You find all the important documentation in the official repository [documentation](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
@@ -23,6 +22,12 @@ Hopefully most of them are self-explaining. You might habe a look on `configmaps
 are mapped in which [environment variables of the actual image](https://github.com/prodrigestivill/docker-postgres-backup-local#environment-variables=)
 
 If any values are unclear, open an issue or a PR explaining those. Happy to include docs here for anything needed
+
+### Mandatory values
+
+- `image.tag` - set this to your pg version, see [docker available tags](https://hub.docker.com/r/prodrigestivill/postgres-backup-local/tags)
+- `postgres.host` - set this to your postgres host
+- `postgres.auth.existingSecretName` - set this to the existing secret holding `POSTGRES_USER` and `POSTGRES_PASSWORD`. Alternatively set `postgres.auth.user` and `postgres.auth.password`
 
 ## Credits
 
