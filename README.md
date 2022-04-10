@@ -29,8 +29,11 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 
 ## Releasing
 
-This will release all packages that have been changed and update the `index.yaml` under `gh-pages`
+We are using [chart-releaser](https://github.com/helm/chart-releaser)
+This will release all packages that have been changed and update the `index.yaml` under `gh-pages`.
 
 ```bash
+# export the gh token
+ export CR_TOKEN=<token>
 make release-all
 ```
