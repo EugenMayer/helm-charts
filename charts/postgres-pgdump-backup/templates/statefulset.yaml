@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "postgres-backup-local.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+       {{- include "postgres-backup-local.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "postgres-backup-local.fullname" . }}
+  replicas: {{ .Values.replicas }}
+  revisionHistoryLimit: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        {{- include "postgres-backup-local.labels" . | nindent 8 }}
+    spec:
+      securityContext:
+        fsGroup: 999
+        runAsUser: 999
+        runAsGroup: 999
+        runAsNonRoot: true
+      containers:
+        - name: {{ include "postgres-backup-local.fullname" . }}
+          image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.config.healthcheck_port }}
+              name: health
+#          livenessProbe:
+#            httpGet:
+#              port: {{ .Values.config.healthcheck_port }}
+          volumeMounts:
+            - name:  {{ include "postgres-backup-local.fullname" . }}
+              mountPath: {{ .Values.persistence.mountPath  }}
+              {{- if .Values.persistence.subPath }}
+              subPath: .Values.persistence.subPath
+              {{- end }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "postgres-backup-local.fullname" . }}
+            {{- if not .Values.postgres.auth.existingSecretName }}
+            - secretRef:
+                name: {{ include "postgres-backup-local.fullname" . }}
+            {{ else }}
+            - secretRef:
+                name: {{- .Values.postgres.auth.existingSecretName  }}
+            {{ end }}
+      volumes:
+  {{- if not .Values.persistence.enabled }}
+        - name:  {{ include "postgres-backup-local.fullname" . }}
+          emptyDir: { }
+  {{- else if .Values.persistence.existingClaim }}
+        - name:  {{ include "postgres-backup-local.fullname" . }}
+          persistentVolumeClaim:
+            {{- with .Values.persistence.existingClaim }}
+            claimName: {{ tpl . $ }}
+            {{- end }}
+  {{- end }}
