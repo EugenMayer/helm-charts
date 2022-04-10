@@ -1,5 +1,5 @@
 # @see https://github.com/helm/chart-releaser#config-file=
 owner: EugenMayer
 git-repo: helm-charts
-#package-path: .deploy
+package-path: .deploy
 index-path: index.yaml
