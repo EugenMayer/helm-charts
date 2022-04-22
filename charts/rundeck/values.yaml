@@ -51,6 +51,7 @@ image:
   # see https://hub.docker.com/r/rundeck/rundeck/tags
   tag: 3.4.10
   pullPolicy: IfNotPresent
+  pullSecrets: []
 
 deployment:
   replicaCount: 1
