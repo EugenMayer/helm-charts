@@ -10,4 +10,4 @@ package-all:
 init:
 	# cr remote needs to be https due to https://github.com/helm/chart-releaser/issues/124
 	git remote -v | grep cr-remote > /dev/null || git remote add cr-remote https://github.com/EugenMayer/helm-charts.git -f
-	git fetch -a cm-remote
+	git fetch -a cr-remote

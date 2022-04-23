@@ -137,25 +137,31 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.nodeSelector }}
       { { - with .Values.nodeSelector } }
       nodeSelector:
         { { - toYaml . | nindent 8 } }
       { { - end } }
+      {{- end }}
 
+      {{- if .Values.affinity }}
       { { - with .Values.affinity } }
       affinity:
         { { - toYaml . | nindent 8 } }
       { { - end } }
+      {{- end }}
 
+      {{- if .Values.tolerations }}
       { { - with .Values.tolerations } }
       tolerations:
         { { - toYaml . | nindent 8 } }
       { { - end } }
+      {{- end }}
 
       securityContext:
       {{- toYaml .Values.securityContext | nindent 8 }}
+      
       {{- if .Values.image.pullSecrets }}
-
       imagePullSecrets:
         - name: {{ .Values.image.pullSecrets }}
       {{- end }}
