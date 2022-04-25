@@ -32,7 +32,7 @@ spec:
   {{- range $ingressPaths }}
           - path: {{ . }}
             backend:
-              {{- if and .Values.nginx.enabled }}
+              {{- if .Values.nginx.enabled }}
               serviceName: {{ $fullName }}-nginx
               servicePort: http
               {{else}}
