@@ -49,3 +49,25 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Create a variable for the service name referenced in the ingress resource.
+*/}}
+{{- define "rundeck.serviceName" -}}
+    {{- if .Values.nginx.enabled -}}
+        {{- include "rundeck.fullname" . -}}-nginx
+    {{- else -}}
+        rundeck-backend
+    {{- end -}}
+{{- end -}}
+
+{{/*
+Create a variable for the service port referenced in the ingress resource.
+*/}}
+{{- define "rundeck.servicePort" -}}
+    {{- if .Values.nginx.enabled -}}
+        http
+    {{- else -}}
+        rundeck
+    {{- end -}}
+{{- end -}}
