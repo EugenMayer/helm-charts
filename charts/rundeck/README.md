@@ -92,6 +92,12 @@ initContainers:
 Background: When the rundeck-backend image starts, we override the command, copy the plugins first and then call the actual
 command to continue the boostrap. Hopefully the [issue](https://github.com/rundeck/rundeck/issues/7487) will be solved at some point, making this entire backflip unneeded.
 
+## Configuration
+
+You can configure `rundeck-config.properties` and `framework-properties` via `ConfigMaps` - see `rundeck.rundeckConfigConfigMap` and `rundeck.rundeckFrameworkConfigMap` in `values.yaml`
+
+If you change the values, you usually have to manually restart the pod so those values are applied, since k8s caches the config maps.
+
 ## Addons
 
 Similar to plugins, mount `rundeck-addons` using an init container and download your addons(s)
