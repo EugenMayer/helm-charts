@@ -33,7 +33,7 @@ spec:
           - path: {{ . }}
             backend:
               service:
-              {{ - if .Values.nginx.enabled }}
+              {{- if .Values.nginx.enabled }}
                 name: {{ $fullName }}-nginx
                 port:
                   name: http
