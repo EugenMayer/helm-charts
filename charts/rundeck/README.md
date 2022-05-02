@@ -7,6 +7,7 @@ History: This chart has been taken from [charts incubator](https://github.com/he
 - Added database configuration support
 - add proper secret for user creation (`realm.properties`)
 - add configuration to the `rundeck-config.properties`
+- add configuration to the `framework.properties`
 - add proper support for plugins
 - add proper default volumes and claims
 - handle security context properly to fix volume mounts
@@ -157,3 +158,11 @@ It is better to read the `values.yaml` itself - but here is somewhat of an overv
 | volumeMounts                     | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers                   | can be used to download plugins or customize your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                         | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
+
+## Test
+
+To test if the templates compile
+
+```bash
+helm template . -f values.yaml -f values-test.yaml
+```
