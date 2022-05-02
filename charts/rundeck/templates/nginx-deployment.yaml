@@ -55,7 +55,6 @@ spec:
           volumeMounts:
             - name: nginx-config
               mountPath: /etc/nginx
-      serviceAccountName: {{ include "rundeck.serviceAccountName" . }}
       volumes:
         - name: nginx-config
           configMap:

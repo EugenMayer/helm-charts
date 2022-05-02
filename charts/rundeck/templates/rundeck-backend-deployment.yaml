@@ -165,8 +165,6 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.image.pullSecrets }}
       {{- end }}
-      
-      serviceAccountName: {{ include "rundeck.serviceAccountName" . }}
 
       volumes:
         - name: boostrap-wrapper-script

@@ -1,5 +1,7 @@
 {{- if .Values.ingress.enabled -}}
+{{- $kubeGitVersion := .Capabilities.KubeVersion.GitVersion -}}
 {{- $fullName := include "rundeck.fullname" . -}}
+{{- $nginxEnabled := .Values.nginx.enabled -}}
 {{- $ingressPaths := .Values.ingress.paths -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -30,14 +32,29 @@ spec:
       http:
         paths:
   {{- range $ingressPaths }}
-          - path: {{ . }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
             backend:
-              {{- if .Values.nginx.enabled }}
+              {{- if $nginxEnabled }}
+              {{- if semverCompare ">=1.19-0" $kubeGitVersion }}
+              service:
+                name: {{ $fullName }}-nginx
+                port:
+                  name: http
+              {{- else }}
               serviceName: {{ $fullName }}-nginx
               servicePort: http
+              {{- end }}
               {{else}}
+              {{- if semverCompare ">=1.19-0" $kubeGitVersion }}
+              service:
+                name: rundeck-backend
+                port:
+                  name: rundeck
+              {{- else }}
               serviceName: rundeck-backend
               servicePort: rundeck
+              {{- end }}
               {{end}}
   {{- end }}
   {{- end }}
