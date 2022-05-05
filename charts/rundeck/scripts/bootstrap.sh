@@ -9,6 +9,14 @@ if test -f "$CONFIG_SRC"; then
     cp "$CONFIG_SRC" /tmp/remco-partials/rundeck-config/rundeck-config-custom.properties
 fi
 
+FRAMEWORK_SRC=/home/rundeck/custom/framework/framework-append.properties
+if test -f "$FRAMEWORK_SRC"; then
+    echo "Applying custom framework.properties"
+    # see https://docs.rundeck.com/docs/administration/configuration/docker/extending-configuration.html#special-destination-directories
+    mkdir -p /tmp/remco-partials/framework
+    cp "$FRAMEWORK_SRC" /tmp/remco-partials/framework/framework-custom.properties
+fi
+
 echo "Copying custom plugins"
 cp -r /mnt/plugins/. /home/rundeck/libext
 

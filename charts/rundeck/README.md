@@ -1,3 +1,5 @@
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/eugen)](https://artifacthub.io/packages/search?repo=eugen)
+
 # WAT
 
 Rundeck helm chart.
@@ -7,6 +9,7 @@ History: This chart has been taken from [charts incubator](https://github.com/he
 - Added database configuration support
 - add proper secret for user creation (`realm.properties`)
 - add configuration to the `rundeck-config.properties`
+- add configuration to the `framework.properties`
 - add proper support for plugins
 - add proper default volumes and claims
 - handle security context properly to fix volume mounts
@@ -91,6 +94,12 @@ initContainers:
 Background: When the rundeck-backend image starts, we override the command, copy the plugins first and then call the actual
 command to continue the boostrap. Hopefully the [issue](https://github.com/rundeck/rundeck/issues/7487) will be solved at some point, making this entire backflip unneeded.
 
+## Configuration
+
+You can configure `rundeck-config.properties` and `framework-properties` via `ConfigMaps` - see `rundeck.rundeckConfigConfigMap` and `rundeck.rundeckFrameworkConfigMap` in `values.yaml`
+
+If you change the values, you usually have to manually restart the pod so those values are applied, since k8s caches the config maps.
+
 ## Addons
 
 Similar to plugins, mount `rundeck-addons` using an init container and download your addons(s)
@@ -157,3 +166,11 @@ It is better to read the `values.yaml` itself - but here is somewhat of an overv
 | volumeMounts                     | volumeMounts to add to the rundeck container                                                                                                                                               | ""                                                    |
 | initContainers                   | can be used to download plugins or customize your rundeck installation                                                                                                                     | ""                                                    |
 | sideCars                         | can be used to run additional containers in the pod                                                                                                                                        | ""                                                    |
+
+## Test
+
+To test if the templates compile
+
+```bash
+helm template . -f values.yaml -f values-test.yaml
+```
