@@ -62,13 +62,14 @@ deployment:
 ingress:
   enabled: false
   className:
-  annotations:
-    {}
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-  paths: [/]
   hosts:
-    - chart-example.local
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -82,7 +83,14 @@ nginx:
 rundeck:
   # if set, a config-map with this name will be loaded and appended to the
   # /home/rundeck/server/config/rundeck-config.properties file. Use the key 'config'
+  # this will later be copied to /tmp/remco-partials/rundeck-config/rundeck-config-custom.properties and then appended
+  # to rundecks rundeck-config, see https://docs.rundeck.com/docs/administration/configuration/docker/extending-configuration.html#special-destination-directories
   rundeckConfigConfigMap:
+  # if set, a config-map with this name will be loaded and appended to the
+  # /home/rundeck/server/config/rundeck-framework.properties file. Use the key 'config'
+  # this will later be copied to /tmp/remco-partials/framework/framework-custom.properties and then appended
+  # to rundecks framework config, see https://docs.rundeck.com/docs/administration/configuration/docker/extending-configuration.html#special-destination-directories
+  rundeckFrameworkConfigMap:
   # Create this secrete in the rundeck namespace.
   # Should have the field `userCredentials` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
   userCredentialsSecretName: user-credentials-secret
@@ -170,17 +178,18 @@ volumes:
 # volumeMounts to add to the rundeck container and configurable paths
 volumeMounts: []
 
-# initContainers can be used to download plugins or customise your rundeck installation
+# initContainers can be used to download plugins or customize your rundeck installation
+# Plugins you on rundeck-plugins are later deployed to /mnt/plugins/libext/ during the bootstrap
 initContainers:
   ""
   # - name: download-plugins
   #   image: alpine:3.8
   #   command: [sh, -c]
   #   args:
-  #     - wget https://github.com/rundeck-plugins/kubernetes/releases/download/1.0.16/kubernetes-plugin-1.0.16.zip -O /home/rundeck/libext/kubernetes-plugin-1.0.16.zip
+  #     - wget https://github.com/rundeck-plugins/kubernetes/releases/download/1.0.16/kubernetes-plugin-1.0.16.zip -O /mnt/plugins/libext/kubernetes-plugin-1.0.16.zip
   #   volumeMounts:
-  #     - mountPath: /home/rundeck/libext/
-  #       name: plugins
+  #     - mountPath: /mnt/plugins
+  #       name: rundeck-plugins
 
 # sideCars can run additional containers in the pod
 sideCars:
@@ -199,5 +208,5 @@ serviceAccount:
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # If not set and create is true, a name is generated using the full name template
   name: ""

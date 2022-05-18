@@ -1,3 +1,5 @@
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/eugen)](https://artifacthub.io/packages/search?repo=eugen)
+
 # WAT
 
 Different kubernetes charts.
@@ -12,9 +14,11 @@ and an be access via
 
 `https://eugenmayer.github.io/helm-charts/`
 
+See an overview of the charts using artifacthub: https://artifacthub.io/badge/repository/eugen
+
 ## What it is not
 
-Please do  consider the helm charts are **not** build to be a starter for you to understand how to install an application the first time. 
+Please do consider the helm charts are **not** build to be a starter for you to understand how to install an application the first time.
 Please use the docs of the particular application, learn the Docker environment variables, possible configuration values and all those things.
 Please always use the official docs, I will not answer non-chart related questions here.
 
@@ -25,7 +29,6 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [rundeck](charts/rundeck)
 - [postgres-pgdump-backup](charts/postgres-pgdump-backup)
 - [iperf3](charts/iperf3)
-
 
 ## Releasing
 

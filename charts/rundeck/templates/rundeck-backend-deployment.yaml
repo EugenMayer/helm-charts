@@ -114,10 +114,14 @@ spec:
             mountPath: /home/rundeck/server/config/realm.properties
             subPath: userCredentials
           {{- end }}
-         {{- if .Values.rundeck.rundeckConfigConfigMap }}
+          {{- if .Values.rundeck.rundeckConfigConfigMap }}
           - name: rundeck-config-append
             mountPath: /home/rundeck/custom/rundeck-config
           {{- end }}
+          {{- if .Values.rundeck.rundeckFrameworkConfigMap }}
+          - name: framework-append
+            mountPath: /home/rundeck/custom/framework
+          {{- end }}          
           ports:
             - name: rundeck
               containerPort: 4440
@@ -221,6 +225,14 @@ spec:
             items:
             - key: config
               path: rundeck-config-append.properties
+        {{- end }}
+        {{- if .Values.rundeck.rundeckFrameworkConfigMap }}
+        - name: framework-append
+          configMap:
+            name: {{ .Values.rundeck.rundeckFrameworkConfigMap }}
+            items:
+            - key: config
+              path: framework-append.properties
         {{- end }}
       {{- if .Values.volumes }}
         {{- toYaml .Values.volumes | nindent 8}}
