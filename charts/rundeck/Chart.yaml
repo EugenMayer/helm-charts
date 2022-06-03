@@ -3,7 +3,7 @@ description: Rundeck chart for Kubernetes
 name: rundeck
 home: https://github.com/rundeck/rundeck
 version: 1.0.0
-appVersion: 4.2.1
+appVersion: 4.3.0
 keywords:
   - rundeck
   - jobs
