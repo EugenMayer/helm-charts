@@ -73,7 +73,7 @@ spec:
                   name: {{.Values.database.secret_name| quote }}
                   key: password                                 
             - name: RUNDECK_GRAILS_URL
-              value: {{ required "Please set the externalUrl so grails can be configured!" .Values.externUrl | quote }}                     
+              value: {{ required "Please set the externUrl so grails can be configured!" .Values.externUrl | quote }}                     
           volumeMounts:
           - name: boostrap-wrapper-script
             mountPath: /custom-scripts

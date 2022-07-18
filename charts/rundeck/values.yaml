@@ -35,7 +35,7 @@ plugins:
     size: 1G
 
 database:
-  # A secret including the following keys `type`,`host`,`port`,`user`,`password`,`database`
+  # A secret including the following keys `type`,`jdbc`,`port`,`user`,`password`,`database`
   # type can be postgresql/mysql and so forth. Should be in the same namespace as you deploy the helm chart
   secret_name: rundeck-database-secret
 
