@@ -33,8 +33,8 @@ Please open or ask all those questions in one of the [official channels](https:/
 
 # Install
 
-    helm repo add rundeck http://tba
-    helm install rundeck/rundeck
+    helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
+    helm install eugenmayer/rundeck
 
 # Configuration
 
