@@ -1,3 +1,6 @@
+## 0.9.9
+- Fix duplicated port definition for rundeck deployment
+
 ## 0.9.8
 
 - Fix ingress router definition and simplify its template

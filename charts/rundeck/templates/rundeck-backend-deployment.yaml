@@ -122,9 +122,6 @@ spec:
           - name: framework-append
             mountPath: /home/rundeck/custom/framework
           {{- end }}          
-          ports:
-            - name: rundeck
-              containerPort: 4440
           livenessProbe:
             httpGet:  
               path: /
