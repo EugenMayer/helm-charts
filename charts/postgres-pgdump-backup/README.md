@@ -22,7 +22,7 @@ We do not re-publish the docker-image but use the original one published in [pos
 
 ## Helm values
 
-Hopefully most of them are self-explaining. You might habe a look on `configmaps.yaml` to understand, what values
+Hopefully most of them are self-explaining. You might have a look on `configmaps.yaml` to understand, what values
 are mapped in which [environment variables of the actual image](https://github.com/prodrigestivill/docker-postgres-backup-local#environment-variables=)
 
 If any values are unclear, open an issue or a PR explaining those. Happy to include docs here for anything needed.
