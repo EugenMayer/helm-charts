@@ -128,7 +128,7 @@ spec:
               port: 4440
               scheme: HTTP
             initialDelaySeconds: 120
-            periodSeconds: 120
+            periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /

@@ -1,3 +1,6 @@
+## 1.0.0
+- Major app upgrade to rundeck 4.5.0. Still rather consider early adoption
+
 ## 0.9.9
 - Fix duplicated port definition for rundeck deployment
 
