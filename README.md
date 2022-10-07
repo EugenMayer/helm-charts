@@ -29,6 +29,7 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [rundeck](charts/rundeck)
 - [postgres-pgdump-backup](charts/postgres-pgdump-backup)
 - [iperf3](charts/iperf3)
+- [openldap-test](charts/openldap-test)
 
 ## Releasing
 

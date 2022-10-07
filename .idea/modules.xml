@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/helm-external.iml" filepath="$PROJECT_DIR$/.idea/helm-external.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/helm-charts.iml" filepath="$PROJECT_DIR$/.idea/helm-charts.iml" />
     </modules>
   </component>
 </project>
