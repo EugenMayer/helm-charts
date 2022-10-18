@@ -1,3 +1,6 @@
+## 1.1.0
+- Upgrade to rundeck 4.7.0
+
 ## 1.0.0
 - Major app upgrade to rundeck 4.5.0. Still rather consider early adoption
 
