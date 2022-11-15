@@ -38,7 +38,7 @@ spec:
         - name: {{ .Chart.Name }}
           command: ["/bin/bash"]
           args: ["/custom-scripts/bootstrap.sh"]
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
           - configMapRef:

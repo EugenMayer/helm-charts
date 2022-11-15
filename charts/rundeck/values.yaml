@@ -5,7 +5,7 @@ externUrl:
 image:
   repository: rundeck/rundeck
   # see https://hub.docker.com/r/rundeck/rundeck/tags
-  tag: 4.7.0
+  tag:
   pullPolicy: IfNotPresent
 
 executionLogs:
