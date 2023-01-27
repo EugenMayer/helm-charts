@@ -139,24 +139,24 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.nodeSelector }}
-      { { - with .Values.nodeSelector } }
+      {{- with .Values.nodeSelector }}
       nodeSelector:
-        { { - toYaml . | nindent 8 } }
-      { { - end } }
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- end }}
 
       {{- if .Values.affinity }}
-      { { - with .Values.affinity } }
+      {{- with .Values.affinity }}
       affinity:
-        { { - toYaml . | nindent 8 } }
-      { { - end } }
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- end }}
 
       {{- if .Values.tolerations }}
-      { { - with .Values.tolerations } }
+      {{- with .Values.tolerations }}
       tolerations:
-        { { - toYaml . | nindent 8 } }
-      { { - end } }
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- end }}
 
       securityContext:
