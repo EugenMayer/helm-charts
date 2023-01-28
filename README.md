@@ -10,7 +10,7 @@ Different kubernetes charts.
 ## Chart repository
 
 The chart repository is hosted vi Github-Pages under [chart repository](https://github.com/EugenMayer/helm-charts/tree/gh-pages)
-and an be access via
+and can be access via
 
 `https://eugenmayer.github.io/helm-charts/`
 
@@ -18,7 +18,7 @@ See an overview of the charts using artifacthub: https://artifacthub.io/badge/re
 
 ## What it is not
 
-Please do consider the helm charts are **not** build to be a starter for you to understand how to install an application the first time.
+Please do consider the helm charts are **not** build to be a starter for you to understand how to install an application the first time - please use the official docs for that purpose.
 Please use the docs of the particular application, learn the Docker environment variables, possible configuration values and all those things.
 Please always use the official docs, I will not answer non-chart related questions here.
 
