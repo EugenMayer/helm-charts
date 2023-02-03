@@ -1,3 +1,6 @@
+## 1.3.1
+- Fix syntax errors in helm chart
+
 ## 1.3.0
 - Upgrade to rundeck 4.9.0
 
