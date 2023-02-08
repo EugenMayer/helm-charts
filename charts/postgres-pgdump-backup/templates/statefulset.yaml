@@ -66,6 +66,9 @@ spec:
             {{ end }}
           securityContext:
             allowPrivilegeEscalation: false
+            runAsUser: 999
+            runAsGroup: 999
+            runAsNonRoot: true
       volumes:
         {{- if not .Values.persistence.enabled }}
         - name: backup-storage
@@ -81,8 +84,5 @@ spec:
         {{- end }}
       securityContext:
         fsGroup: 999
-        runAsUser: 999
-        runAsGroup: 999
-        runAsNonRoot: true
-        fsGroupChangePolicy: "OnRootMismatch"
+        fsGroupChangePolicy: "Always"
 
