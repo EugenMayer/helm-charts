@@ -44,6 +44,8 @@ spec:
             - secretRef:
                 name: {{ .Values.postgres.auth.existingSecretName }}
             {{ end }}
+          securityContext:
+            allowPrivilegeEscalation: false
       volumes:
         {{- if not .Values.persistence.enabled }}
         - name: backup-storage
@@ -62,3 +64,5 @@ spec:
         runAsUser: 999
         runAsGroup: 999
         runAsNonRoot: true
+        fsGroupChangePolicy: "OnRootMismatch"
+
