@@ -18,6 +18,23 @@ spec:
       labels:
         {{- include "postgres-backup-local.labels" . | nindent 8 }}
     spec:
+      initContainers:
+        # fix volume permissions
+        - name: fix-volumes
+          image: busybox
+          command:
+            - /bin/sh
+            - -c
+            - |
+              chown 999:999 /backups -R
+          volumeMounts:
+            - name: backup-storage
+              mountPath: {{ .Values.persistence.mountPath  }}
+              {{- if .Values.persistence.subPath }}
+              subPath: .Values.persistence.subPath
+              {{- end }}
+          securityContext:
+            privileged: true
       containers:
         - name: {{ $fullName }}
           image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Values.image.tag }}
