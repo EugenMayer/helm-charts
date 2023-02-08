@@ -26,7 +26,7 @@ spec:
             - /bin/sh
             - -c
             - |
-              chown 999:999 /backups -R
+              chown 999:999 {{ .Values.persistence.mountPath  }} -R
           volumeMounts:
             - name: backup-storage
               mountPath: {{ .Values.persistence.mountPath  }}
@@ -35,6 +35,8 @@ spec:
               {{- end }}
           securityContext:
             privileged: true
+            runAsUser: 0
+            runAsGroup: 0
       containers:
         - name: {{ $fullName }}
           image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Values.image.tag }}
