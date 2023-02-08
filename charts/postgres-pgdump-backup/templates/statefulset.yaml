@@ -18,26 +18,26 @@ spec:
       labels:
         {{- include "postgres-backup-local.labels" . | nindent 8 }}
     spec:
-      initContainers:
-        # fix volume permissions
-        - name: fix-volumes
-          image: busybox
-          command:
-            - /bin/sh
-            - -c
-            - |
-              chown 999:999 {{ .Values.persistence.mountPath  }} -R
-          volumeMounts:
-            - name: backup-storage
-              mountPath: {{ .Values.persistence.mountPath  }}
-              {{- if .Values.persistence.subPath }}
-              subPath: .Values.persistence.subPath
-              {{- end }}
-          securityContext:
-            privileged: true
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
+{{/*      initContainers:*/}}
+{{/*        # fix volume permissions*/}}
+{{/*        - name: fix-volumes*/}}
+{{/*          image: busybox*/}}
+{{/*          command:*/}}
+{{/*            - /bin/sh*/}}
+{{/*            - -c*/}}
+{{/*            - |*/}}
+{{/*              chown 999:999 {{ .Values.persistence.mountPath  }} -R*/}}
+{{/*          volumeMounts:*/}}
+{{/*            - name: backup-storage*/}}
+{{/*              mountPath: {{ .Values.persistence.mountPath  }}*/}}
+{{/*              {{- if .Values.persistence.subPath }}*/}}
+{{/*              subPath: .Values.persistence.subPath*/}}
+{{/*              {{- end }}*/}}
+{{/*          securityContext:*/}}
+{{/*            privileged: true*/}}
+{{/*            runAsUser: 0*/}}
+{{/*            runAsGroup: 0*/}}
+{{/*            runAsNonRoot: false*/}}
       containers:
         - name: {{ $fullName }}
           image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Values.image.tag }}
