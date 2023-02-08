@@ -37,6 +37,7 @@ spec:
             privileged: true
             runAsUser: 0
             runAsGroup: 0
+            runAsNonRoot: false
       containers:
         - name: {{ $fullName }}
           image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Values.image.tag }}
