@@ -174,3 +174,9 @@ To test if the templates compile
 ```bash
 helm template . -f values.yaml -f values-test.yaml
 ```
+
+### License
+
+It is explicitly forbidden to be used as a work to derive from for any purpose by PagerDuty or Rundeck the coorporate. It cannot be included in any work offered on their website or as a base to anything else by the company. So if your are an employee of PagerDuty, Rundeck or do work for them commercially, you cannot use this chart.
+
+Anybody else can use this helm chart for what ever they like - without warranties included of course
