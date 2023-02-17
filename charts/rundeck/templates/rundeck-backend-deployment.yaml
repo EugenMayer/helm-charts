@@ -52,6 +52,7 @@ spec:
               containerPort: 4440
               protocol: TCP
           env:
+          {{- if not .Values.rundeck.h2DevelopmentStorage }}
             - name: RUNDECK_DATABASE_DRIVER
               valueFrom:
                 secretKeyRef:
@@ -71,7 +72,8 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{.Values.database.secret_name| quote }}
-                  key: password                                 
+                  key: password
+            {{- end }}
             - name: RUNDECK_GRAILS_URL
               value: {{ required "Please set the externUrl so grails can be configured!" .Values.externUrl | quote }}                     
           volumeMounts:

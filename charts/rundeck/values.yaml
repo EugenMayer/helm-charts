@@ -92,6 +92,7 @@ rundeck:
   rundeckFrameworkConfigMap:
   # Create this secrete in the rundeck namespace.
   # Should have the field `userCredentials` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
+  h2DevelopmentStorage: false
   userCredentialsSecretName: user-credentials-secret
   env:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
