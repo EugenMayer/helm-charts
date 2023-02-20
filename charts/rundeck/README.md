@@ -50,8 +50,6 @@ Please open or ask all those questions in one of the [official channels](https:/
 
 ## Database
 
-For development usage, the `h2DevelopmentStorage` flag can be set to true, in which case rundeck will use the embedded database at `jdbc:h2:file:/home/rundeck/server/data/grailsdb;MVCC=true`. This is only meant for pure development and testing, never use on a production environment (see [docs for default](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic) and [database docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic)).
-
 For production usage, the secret `database.secret_name` must include the following keys
 
 - `jdbc`: The jdbc url like `jdbc:postgresql://$user:$password@$host:$port/$database`
@@ -60,6 +58,8 @@ For production usage, the secret `database.secret_name` must include the followi
 - `type`: one of these `org.postgresql.Driver`/`org.mariadb.jdbc.Driver`/`com.mysql.jdbc.Driver`
 
 See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#database)
+
+For development usage, the `h2DevelopmentStorage` flag can be set to true, in which case rundeck will use the embedded database at `jdbc:h2:file:/home/rundeck/server/data/grailsdb;MVCC=true`. This is only meant for pure development and testing, never use on a production environment (see [docs for default](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic) and [database docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic)).
 
 ## Execution logs
 
