@@ -44,6 +44,9 @@ database:
   # A secret including the following keys `type`,`jdbc`,`port`,`user`,`password`,`database`
   # type can be postgresql/mysql and so forth. Should be in the same namespace as you deploy the helm chart
   secret_name: rundeck-database-secret
+  # If set to true, the chart won't consider the secret above for configuration and will default back to rundeck own defaults. Not safe for production.
+  # @see https://github.com/EugenMayer/helm-charts/tree/main/charts/rundeck#database
+  useInternalH2db: false
 
 securityContext:
   # keep those settings until you really know what you are doing here
