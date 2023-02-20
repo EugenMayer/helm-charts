@@ -45,7 +45,7 @@ Please open or ask all those questions in one of the [official channels](https:/
 - deploy your `user-credentials-secret` secret (in your rundeck namespace) with the field `userCredentials` including the string (at least)`admin:PASSWORD,user,admin,architect,deploy,build`
   - replace `PASSWORD` with your password
   - add as many as you like, seperate by newlines `\n`
-- deploy your `rundeck-database-secret` to define the DB credentials and connection details or use `useInternalH2db` (only for non-production). See `Database` below.
+- deploy your `rundeck-database-secret` to define the DB credentials and connection details or use `database.useInternalH2db` (only for non-production). See `Database` below.
 - deploy your own `ingress` route (default) or activate `ingress.enabled` and set the values to your liking
 
 ## Database
@@ -59,7 +59,7 @@ For production usage, the secret `database.secret_name` must include the followi
 
 See the [docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#database)
 
-For development usage, the `useInternalH2db` flag can be set to true, in which case rundeck will use the embedded database at `jdbc:h2:file:/home/rundeck/server/data/grailsdb;MVCC=true`. This is only meant for pure development and testing, never use on a production environment (see [docs for default](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic) and [database docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic)).
+For development usage, the `database.useInternalH2db` flag can be set to true, in which case rundeck will use the embedded database at `jdbc:h2:file:/home/rundeck/server/data/grailsdb;MVCC=true`. This is only meant for pure development and testing, never use on a production environment (see [docs for default](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic) and [database docs](https://docs.rundeck.com/docs/administration/configuration/docker.html#basic)).
 
 ## Execution logs
 
