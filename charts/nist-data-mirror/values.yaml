@@ -1,0 +1,6 @@
+replicas: 1
+deployment:
+  image:
+    repository: ghcr.io/kontextwork/nist-data-mirror
+    tag: "0.0.1"
+

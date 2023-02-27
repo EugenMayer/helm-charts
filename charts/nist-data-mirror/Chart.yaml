@@ -1,0 +1,12 @@
+apiVersion: v2
+description: NIST data mirror
+name: nist-data-mirror
+home: https://github.com/KontextWork/nist-data-mirror
+version: 0.0.1
+appVersion: 0.0.1
+keywords:
+  - network
+  - tools
+  - development
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/nist-data-mirror

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+spec:
+  replicas: {{ .Values.replicas }}
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nist-data-mirror
+      app.kubernetes.io/instance: {{.Release.Name}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nist-data-mirror
+        app.kubernetes.io/instance: {{.Release.Name}}
+    spec:
+      containers:
+        - name: openldap
+          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
+          ports:
+            - name: webserver
+              containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+      restartPolicy: Always
+status: {}
