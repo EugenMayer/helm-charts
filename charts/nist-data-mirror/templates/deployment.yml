@@ -21,7 +21,7 @@ spec:
         - name: openldap
           image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
           ports:
-            - name: webserver
+            - name: web
               containerPort: 80
               protocol: TCP
           readinessProbe:
