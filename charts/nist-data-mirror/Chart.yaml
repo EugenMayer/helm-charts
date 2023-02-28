@@ -2,8 +2,8 @@ apiVersion: v2
 description: NIST data mirror
 name: nist-data-mirror
 home: https://github.com/EugenMayer/nist-data-mirror
-version: 0.0.2
-appVersion: 0.0.1
+version: 0.1.0
+appVersion: 0.1.0
 keywords:
   - network
   - tools

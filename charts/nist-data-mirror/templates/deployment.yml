@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{.Chart.Name}}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .Values.deployment.replicas }}
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: openldap
-          image: {{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}
+          image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
           ports:
             - name: webserver
               containerPort: 80
