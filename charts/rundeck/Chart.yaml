@@ -2,8 +2,8 @@ apiVersion: v2
 description: Rundeck chart for Kubernetes
 name: rundeck
 home: https://github.com/rundeck/rundeck
-version: 1.5.0
-appVersion: 4.10.0
+version: 1.5.1
+appVersion: 4.10.1
 keywords:
   - rundeck
   - jobs
