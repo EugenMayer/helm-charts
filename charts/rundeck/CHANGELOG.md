@@ -1,8 +1,11 @@
-## 1.4.1
+## 1.5.2
+- Upgrade rundeck to 4.10.1
+
+## 1.5.1
 - add h2 internal database support (for development)
 
 ## 1.4.0
-- Upgrde rundeck to 4.10.0
+- Upgrade rundeck to 4.10.0
 
 ## 1.3.1
 - Fix syntax errors in helm chart
