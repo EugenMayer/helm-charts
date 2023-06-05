@@ -5,8 +5,7 @@ It syncs and serves the NVD (CPE/CVE JSON) data from NIST.
 
 # Volumes / PVC
 
-Considering this a pure mirror image, and it takes about 25s to compute and download the entire data, I decided to not
-include and PVC. If you think differently, be free to discuss this in a PR / issue.
+Considering this a pure mirror image (somewhat cache-like), and it takes about 25s to compute and download the entire data, I decided to not include a PVC. If you think differently, be free to discuss this in a PR / issue.
 
 # Values
 
