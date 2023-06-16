@@ -14,7 +14,7 @@ and can be access via
 
 `https://eugenmayer.github.io/helm-charts/`
 
-See an overview of the charts using artifacthub: https://artifacthub.io/badge/repository/eugen
+See an overview of the charts using artifacthub: [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/eugen)](https://artifacthub.io/packages/search?repo=eugen)
 
 ## What it is not
 
