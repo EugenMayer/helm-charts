@@ -1,3 +1,6 @@
+## 1.6.0
+- Upgrade rundeck to 4.14.0
+
 ## 1.5.2
 - Upgrade rundeck to 4.10.1
 
