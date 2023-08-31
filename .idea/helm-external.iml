@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="Go" enabled="true" />
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
+<module version="4">
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="d8d75f78-9fbf-4cae-8dad-6fcdde837393" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">

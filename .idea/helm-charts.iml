@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="Go" enabled="true" />
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-  <component name="TemplatesService">
-    <option name="TEMPLATE_FOLDERS">
-      <list>
-        <option value="$MODULE_DIR$/charts/rundeck/templates" />
-      </list>
-    </option>
+<module version="4">
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="0af0da7b-44a2-4516-8701-1d5f64219b6b" />
   </component>
 </module>
