@@ -129,15 +129,15 @@ spec:
               path: /
               port: 4440
               scheme: HTTP
-            initialDelaySeconds: {{ .Values.rundeck.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.rundeck.livenessProbe.periodSeconds }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
           readinessProbe:
             httpGet:
               path: /
               port: 4440
               scheme: HTTP
-            initialDelaySeconds: {{ .Values.rundeck.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.rundeck.readinessProbe.periodSeconds }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- if .Values.nodeSelector }}
