@@ -118,6 +118,13 @@ rundeck:
   # This can be useful for populating a file you reference with RUNDECK_TOKENS_FILE above.
   # extraConfigSecret: "extra-secret"
 
+livenessProbe:
+  initialDelaySeconds: 120
+  periodSeconds: 5
+readinessProbe:
+  initialDelaySeconds: 60
+  periodSeconds: 5
+
 nameOverride: ""
 fullnameOverride: ""
 
