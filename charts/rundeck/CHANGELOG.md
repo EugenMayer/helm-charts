@@ -1,3 +1,6 @@
+## 1.8.2
+- Downgrade rundeck to 4.16.0 (4.16.1 does not exist)
+
 ## 1.8.1
 - Upgrade rundeck to 4.16.1
 
