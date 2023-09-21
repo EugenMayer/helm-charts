@@ -14,3 +14,6 @@ deployment:
     repository: networkstatic/iperf3
     # adapt if you want to use a different tag
     tag: "latest"
+# Resource limits and requests for the container. By default, no limits are set.
+# Uncomment and modify the following lines if you want to set resource limits and requests.
+# resources: {}
