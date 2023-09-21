@@ -14,3 +14,10 @@ deployment:
     repository: networkstatic/iperf3
     # adapt if you want to use a different tag
     tag: "latest"
+resources:
+  requests:
+    memory: "1000Mi"
+    cpu: "1000m"
+  limits:
+    memory: "2000Mi"
+    cpu: "2000m"
