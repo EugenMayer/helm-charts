@@ -96,6 +96,8 @@ rundeck:
   # Create this secrete in the rundeck namespace.
   # Should have the field `userCredentials` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
   userCredentialsSecretName: user-credentials-secret
+  # Name of the field within the user credentials secret that contains the actual credentials
+  userCredentialsSecretSubpath: userCredentials
   env:
     # @see https://docs.rundeck.com/docs/administration/configuration/docker.html#environment-variables for the options
     RUNDECK_SERVER_FORWARDED: "true"
