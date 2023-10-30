@@ -114,7 +114,7 @@ spec:
           {{- if .Values.rundeck.userCredentialsSecretName }}
           - name: user-credentials
             mountPath: /home/rundeck/server/config/realm.properties
-            subPath: userCredentials
+            subPath: {{ .Values.rundeck.userCredentialsSecretSubpath }}
           {{- end }}
           {{- if .Values.rundeck.rundeckConfigConfigMap }}
           - name: rundeck-config-append
