@@ -1,4 +1,10 @@
 ## 1.9.0
+- Resilient bootstrap when no custom plugins exist #44 - by @langesven
+- Make subPath for user credentials configurable #43 - by @langesven
+
+Both changes should be backward compatible.
+
+## 1.9.0
 - Upgrade run rundeck to 4.17.1
 
 ## 1.8.2
