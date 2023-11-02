@@ -40,7 +40,7 @@ spec:
 {{/*            runAsNonRoot: false*/}}
       containers:
         - name: {{ $fullName }}
-          image: {{ .Values.image.repository }}:{{  required "Please set an image.tag with your desired pg version!" .Chart.AppVersion .Values.image.tag }}
+          image: {{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 8080

@@ -8,6 +8,3 @@ env:
 
 persistence:
   storageClass: "local-path"
-
-image:
-  tag: "12"
