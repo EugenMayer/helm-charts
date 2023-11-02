@@ -1,4 +1,4 @@
-## 1.9.0
+## 1.10.0
 - Resilient bootstrap when no custom plugins exist #44 - by @langesven
 - Make subPath for user credentials configurable #43 - by @langesven
 
