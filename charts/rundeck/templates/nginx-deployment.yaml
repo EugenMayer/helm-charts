@@ -25,6 +25,8 @@ spec:
         app.kubernetes.io/name: {{ $fullName }}-nginx
         app.kubernetes.io/instance: {{ .Release.Name }}
       annotations:
+        # needed to ensure that we update / redeploy the pod on config map changes
+        # see https://helm.sh/docs/howto/charts_tips_and_tricks/#automatically-roll-deployments
         checksum/config: {{ include (print $.Template.BasePath "/nginx-configmap.yaml") . | sha256sum }}
     spec:
       securityContext:

@@ -15,6 +15,11 @@ spec:
     type: RollingUpdate
   template:
     metadata:
+      annotations:
+        # needed to ensure that we update / redeploy the pod on config map changes
+        # see https://helm.sh/docs/howto/charts_tips_and_tricks/#automatically-roll-deployments
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secrets: {{ include (print $.Template.BasePath "/postgres-secret.yaml") . | sha256sum }}
       labels:
         {{- include "postgres-backup-local.labels" . | nindent 8 }}
     spec:
