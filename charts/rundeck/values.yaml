@@ -56,6 +56,7 @@ securityContext:
   fsGroupChangePolicy: "OnRootMismatch"
 
 deployment:
+  # HINT: you should not change the replica count. AFAICs rundeck does not support horizontal scaling. So keep this to one
   replicaCount: 1
   annotations: {}
   strategy:
