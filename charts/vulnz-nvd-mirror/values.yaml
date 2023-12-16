@@ -1,0 +1,16 @@
+deployment:
+  replicas: 1
+
+image:
+  repository: ghcr.io/jeremylong/vulnz
+  # tag: "0.0.1"
+  pullPolicy: IfNotPresent
+  
+# set this to preseed your API key. the expected structure is
+# NVD_API_KEY=<key>
+#nvd:
+#  secretName: vulnz-nvd-secret
+
+vulnz:
+  env:
+    JAVA_OPT: -Xmx2g

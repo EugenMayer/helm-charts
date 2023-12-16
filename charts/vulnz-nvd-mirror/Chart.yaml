@@ -1,0 +1,12 @@
+apiVersion: v2
+description: NVD api mirror and cache
+name: vulnz-nvd-mirror
+home: https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+version: 0.0.1
+appVersion: 5.1.1
+keywords:
+  - network
+  - tools
+  - development
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/owasp-vulnzSS
