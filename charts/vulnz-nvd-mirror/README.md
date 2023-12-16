@@ -47,6 +47,8 @@ The data is refreshed every night using a cron-job. If you want to do it manuall
 Since ingress definitions are so individual, i skipped the build in support in this chart. Just add your own ingress
 definition or open and issue/PR as a discussion.
 
+You want to create an ingress to serviceName `vulnz-nvd-mirror` on port `80`.
+
 ### Volumes / PVC
 
 Considering this a pure mirror image (somewhat cache-like), and it takes about 25s to compute and download the entire data, I decided to not include a PVC. If you think differently, be free to discuss this in a PR / issue.
