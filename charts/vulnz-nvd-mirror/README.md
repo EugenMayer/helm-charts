@@ -44,10 +44,7 @@ The data is refreshed every night using a cron-job. If you want to do it manuall
 
 ### Ingress
 
-Since ingress definitions are so individual, i skipped the build in support in this chart. Just add your own ingress
-definition or open and issue/PR as a discussion.
-
-You want to create an ingress to serviceName `vulnz-nvd-mirror` on port `80`.
+See the [values.yml](values.yaml) ingress section and [templates/ingress.yaml](templates/ingress.yaml) for the usual setup.
 
 ### Volumes / PVC
 
