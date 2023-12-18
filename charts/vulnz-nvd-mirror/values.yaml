@@ -8,8 +8,9 @@ image:
 
 # set this to preseed your API key. the expected structure is
 # NVD_API_KEY=<key>
-#nvd:
-#  secretName: vulnz-nvd-secret
+nvd:
+  secretName:
+  # secretName: vulnz-nvd-secret
 
 vulnz:
   env:
