@@ -1,3 +1,8 @@
+# Hint!
+
+This project has been super-seeded by the chart [vulnz](../vulnz-nvd-mirror), which offers the NVD v2 API.
+This chart will no longer receive updates since the NVD v1 API is deprecated.
+
 # WAT
 
 Chart to host a NIST data mirror - see https://github.com/EugenMayer/nist-data-mirror
