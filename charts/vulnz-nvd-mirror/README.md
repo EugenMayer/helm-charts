@@ -31,7 +31,6 @@ nvd:
 
 Of course, you can change the secret name if you like.
 
-
 ### Refresh data
 
 The data is refreshed every night using a cron-job. If you want to do it manually, you connect to the container and run
@@ -40,6 +39,22 @@ The data is refreshed every night using a cron-job. If you want to do it manuall
 /mirror.sh
 ```
 
+### Gradle plugin
+
+To use the API cache, configure gradle to use
+
+```groovy
+dependencyCheck {
+    nvd {
+        validForHours = 24
+        // Replace https://your-mirror-url.com with your ingress domain / schema
+        // keep /nvdcve-{0}.json.gz
+        datafeedUrl = "https://your-mirror-url.com/nvdcve-{0}.json.gz"
+        // no need to drive a high delay since we use our own mirror
+        delay = 10
+    }
+}
+```
 ## Chart
 
 ### Ingress
