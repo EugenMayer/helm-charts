@@ -2,7 +2,10 @@ deployment:
   replicas: 1
 
 image:
-  repository: ghcr.io/jeremylong/vulnz
+  # FIXME: cannot use the official repo until https://github.com/jeremylong/Open-Vulnerability-Project/pull/114
+  # has been merged
+  # repository: ghcr.io/jeremylong/vulnz
+  repository: ghcr.io/eugenmayer/vulnz
   # tag: "0.0.1"
   pullPolicy: IfNotPresent
 
