@@ -1,0 +1,8 @@
+le:
+  # use "https://acme-staging-v02.api.letsencrypt.org/directory" for staging
+  server: "https://acme-v02.api.letsencrypt.org/directory"
+  dns:
+    email:
+    secret:
+      name:
+      key: 
