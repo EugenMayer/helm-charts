@@ -31,6 +31,7 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [iperf3](charts/iperf3)
 - [openldap-test](charts/openldap-test)
 - [vulnz-nvd-mirror](charts/vulnz-nvd-mirror)
+- [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config)
 - [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing

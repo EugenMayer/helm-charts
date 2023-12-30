@@ -7,8 +7,8 @@ package-all:
 	cr package charts/iperf3
 	cr package charts/rundeck
 	cr package charts/openldap-test
-	cr package charts/nist-data-mirror
 	cr package charts/vulnz-nvd-mirror
+	cr package charts/cert-manager-cloudflare-config
 
 init:
 	# cr remote needs to be https due to https://github.com/helm/chart-releaser/issues/124
