@@ -9,6 +9,8 @@ package-all:
 	cr package charts/openldap-test
 	cr package charts/vulnz-nvd-mirror
 	cr package charts/cert-manager-cloudflare-config
+	cr package charts/localpath
+	cr package charts/whatsmyip
 
 init:
 	# cr remote needs to be https due to https://github.com/helm/chart-releaser/issues/124
