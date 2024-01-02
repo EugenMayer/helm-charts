@@ -34,6 +34,7 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config)
 - [localpath](charts/localpath)
 - [whatsmyip](charts/whatsmyip)
+- [coredns-private-dns-fix](charts/coredns-private-dns-fix)
 - [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing

@@ -11,6 +11,7 @@ package-all:
 	cr package charts/cert-manager-cloudflare-config
 	cr package charts/localpath
 	cr package charts/whatsmyip
+	cr package charts/coredns-private-dns-fix
 
 init:
 	# cr remote needs to be https due to https://github.com/helm/chart-releaser/issues/124
