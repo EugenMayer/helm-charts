@@ -1,5 +1,5 @@
 name: coredns-private-dns-fix
 description: Ensure coredns uses dns upstreams in a sequential order to fix private DNS resolving
-version: 0.1.0
+version: 0.1.1
 apiVersion: v2
 appVersion: 0.1.0

@@ -4,7 +4,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  forward.override:
+  forward.override: |-
     forward . /etc/resolv.conf {
       policy sequential
     }
