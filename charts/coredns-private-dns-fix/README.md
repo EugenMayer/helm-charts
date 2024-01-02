@@ -31,6 +31,13 @@ This chart fixes this by using a coredns override and lets coredns work sequenti
 - k3s
 - rke2
 
+## Install
+
+```bash
+helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
+helm install eugenmayer/coredns-private-dns-fix
+```
+
 ## More
 
 See https://github.com/k3s-io/k3s/discussions/7822#discussioncomment-6307840

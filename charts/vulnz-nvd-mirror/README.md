@@ -7,6 +7,13 @@ This cache offers the v2 API of NVD, while [nist-data-mirror](../nist-data-mirro
 
 On pod start, there should be an initial / direct preseed of the cache once (so you do not need to wait for the cron job)
 
+# Install
+
+```bash
+helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
+helm install eugenmayer/coredns-private-dns-fix
+```
+
 # Configuration
 You can tweak the configuration. In general you can mass any ENV var you like using the map.
 For example to adjust the memory usage
