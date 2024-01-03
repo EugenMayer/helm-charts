@@ -1,0 +1,5 @@
+name: cert-manager-cloudflare-config
+description: Cert-Manager config for lets encrypt ACME via Cloudflare (DNS01)
+version: 1.1.0
+apiVersion: v2
+appVersion: 1.0.0

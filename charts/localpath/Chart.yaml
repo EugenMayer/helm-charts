@@ -1,0 +1,6 @@
+name: localpath
+description: Provisions the rancher local-path
+version: 1.1.0
+apiVersion: v2
+# see https://github.com/rancher/local-path-provisioner/releases
+appVersion: 0.0.26

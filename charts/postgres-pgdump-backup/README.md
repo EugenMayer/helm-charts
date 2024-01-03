@@ -16,6 +16,13 @@ or anything else - we keep it vanilla. If you need anything else, ask in [postgr
 
 We do not re-publish the docker-image but use the original one published in [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
+# Install
+
+```bash
+helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
+helm install eugenmayer/coredns-private-dns-fix
+```
+
 ## Adjustments / Fixes
 
 - to fix https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76 we are current also exposing `PGUSER`,  `PGPASSWORD`, `PGHOST`,`PGPORT`as additional env variables

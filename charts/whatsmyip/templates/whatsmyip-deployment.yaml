@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    kontextwork.de/project: {{.Chart.Name}}
+  name: {{.Chart.Name}}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      kontextwork.de/app: {{.Chart.Name}}
+      kontextwork.de/project: {{.Chart.Name}}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        kontextwork.de/app: {{.Chart.Name}}
+        kontextwork.de/project: {{.Chart.Name}}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{.Chart.Name}}
+          image: eugenmayer/whatsmyip
+          ports:
+            - name: {{.Chart.Name}}
+              containerPort: 8080
+          resources: {}
+status: {}
