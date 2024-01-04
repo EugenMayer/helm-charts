@@ -1,0 +1,12 @@
+name: iobroker
+description: iobroker
+version: 0.1.2
+apiVersion: v2
+appVersion: v9.0.1
+keywords:
+  - iobroker
+  - automation
+  - home-automation
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+  - https://github.com/buanet/ioBroker.docker
