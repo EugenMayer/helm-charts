@@ -13,7 +13,10 @@ iobroker:
 
 persistence:
   config:
+    # this will only ensure the pod mounts the claim with the name iobroker-config-claim
     enabled: true
+    # if this is true, the PVC claim is created by the chart. Disable it if you want to provide your own pvc
+    create: true
     # storageClass:
     accessMode: ReadWriteOnce
     size: 1G
