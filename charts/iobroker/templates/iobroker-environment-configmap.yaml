@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Release.Name }}-environment-configmap
-data:
-{{ toYaml .Values.iobroker.env | indent 4}}

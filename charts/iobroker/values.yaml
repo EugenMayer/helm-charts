@@ -1,38 +1,84 @@
-deployment:
-  replicas: 1
-
 image:
-  #repository: ghcr.io/buanet/iobroker
   repository: iobroker/iobroker
   pullPolicy: IfNotPresent
+  tag: v9.0.1
 
-iobroker:
-  env: {}
-  secretName:
-  # secretName: vulnz-nvd-secret
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+        targetPort: 8081
 
 persistence:
   config:
-    # this will only ensure the pod mounts the claim with the name iobroker-config-claim
     enabled: true
-    # if this is true, the PVC claim is created by the chart. Disable it if you want to provide your own pvc
-    create: true
-    # storageClass:
-    accessMode: ReadWriteOnce
-    size: 1G
-    
+    size: 1Gi
+    mountPath: "/opt/iobroker"
+
+portal:
+  open:
+    enabled: false
+
+securityContext:
+  container:
+    # yet iobroker is not rootless
+    capabilities:
+      add:
+        - NET_RAW
+      # TODO: drop as many as possible. ALL is too much though
+      drop: []
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    # image requires start as root for a couple of things and the de-escalates to 568:568
+    runAsGroup: 0
+    runAsUser: 0
+
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    podSpec:
+      containers:
+        main:
+          env:
+            # see https://docs.buanet.de/iobroker-docker-image/docs/#environment-variables-env
+            DEBUG: false
+            # trueCharts default is 568:568 and it is setting it via PUID/PGID
+            # which is not yet supported by the iobroker image, see https://github.com/buanet/ioBroker.docker/issues/419
+            SETGID: 568
+            SETUID: 568
+          probes:
+            readiness:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+            liveness:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+              spec:
+                initialDelaySeconds: 60
+                periodSeconds: 5
+            startup:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+
+# see more under https://truecharts.org/manual/helm/common/ingress/
 ingress:
-  enabled: false
-  className:
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-  # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  main:
+    enabled: false
+    primary: true
+    required: false
+    ingressClassName:  ""
+    targetSelector:
+      main: main
+    hosts:
+    -  host: my-iobroker.local
+       paths:
+           - path: /
+             pathType: Prefix
