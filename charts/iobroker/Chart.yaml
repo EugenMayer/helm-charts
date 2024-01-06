@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: iobroker
-version: 0.2.2
+version: 0.2.3
 appVersion: v9.0.1
 description: home automation via ioBroker
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
