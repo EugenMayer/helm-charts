@@ -1,0 +1,6 @@
+longhorn:
+  backup:
+    cron: "20 2 * * *"
+    retain: 7
+    concurrency: 3
+    schedule_label: daily

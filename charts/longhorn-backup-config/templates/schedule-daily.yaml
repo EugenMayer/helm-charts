@@ -1,0 +1,13 @@
+apiVersion: longhorn.io/v1beta1
+kind: RecurringJob
+metadata:
+  name: {{ .Values.longhorn.backup.schedule_label }}-backup
+spec:
+  cron: {{ .Values.longhorn.backup.cron }}
+  task: "backup-force-create"
+  groups:
+    - default
+  retain: {{ .Values.longhorn.backup.retain }}
+  concurrency: {{ .Values.longhorn.backup.concurrency }}
+  labels:
+    schedule: {{ .Values.longhorn.backup.schedule_label }}
