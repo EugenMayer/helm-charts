@@ -4,6 +4,13 @@ Chart for an OpenLDAP test server with pre-defined structure. Testing purposes o
 See https://github.com/EugenMayer/docker-image-ldapexample for the structure and 
 general documentation of the ldap server itself.
 
+# Install
+
+```bash
+helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
+helm install eugenmayer/coredns-private-dns-fix
+```
+
 # Values
 
 Check the `values.yaml` file

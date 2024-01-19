@@ -1,9 +1,14 @@
+# Hint!
+
+This project has been super-seeded by the chart [vulnz](../vulnz-nvd-mirror), which offers the NVD v2 API.
+This chart will no longer receive updates since the NVD v1 API is deprecated.
+
 # WAT
 
 Chart to host a NIST data mirror - see https://github.com/EugenMayer/nist-data-mirror
 It syncs and serves the NVD (CPE/CVE JSON) data from NIST.
 
-When the container/pod starts intially, it should instanly preseed the data once (and not wait for the cron job)
+When the container/pod starts initially, it should instantly preseed the data once (and not wait for the cron job)
 
 # Volumes / PVC
 

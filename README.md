@@ -30,7 +30,13 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [postgres-pgdump-backup](charts/postgres-pgdump-backup)
 - [iperf3](charts/iperf3)
 - [openldap-test](charts/openldap-test)
-- [nist-data-mirror](charts/nist-data-mirror)
+- [vulnz-nvd-mirror](charts/vulnz-nvd-mirror)
+- [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config)
+- [localpath](charts/localpath)
+- [whatsmyip](charts/whatsmyip)
+- [coredns-private-dns-fix](charts/coredns-private-dns-fix)
+- [longhorn-backup-config](charts/longhorn-backup-config)
+- [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing
 
