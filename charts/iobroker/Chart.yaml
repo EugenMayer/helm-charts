@@ -5,7 +5,6 @@ version: 0.2.3
 appVersion: v9.0.1
 description: home automation via ioBroker
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/sabnzbd.png
 deprecated: false
 sources:
   - https://www.iobroker.net/

@@ -1,7 +1,11 @@
 image:
-  repository: iobroker/iobroker
+  # see https://github.com/buanet/ioBroker.docker
+  # https://hub.docker.com/r/iobroker/iobroker/tags
+  # https://github.com/buanet/ioBroker.docker/pkgs/container/iobroker
+  #repository: iobroker/iobroker
+  repository:  ghcr.io/buanet/iobroker
   pullPolicy: IfNotPresent
-  tag: v9.0.1
+  tag: v9.1.0
 
 service:
   main:
