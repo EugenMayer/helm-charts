@@ -140,6 +140,9 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.sideCars }}
+          {{- toYaml .Values.sideCars | nindent 8 }}
+        {{- end }}
       {{- if .Values.nodeSelector }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
