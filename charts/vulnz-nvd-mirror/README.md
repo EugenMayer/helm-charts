@@ -11,11 +11,11 @@ On pod start, there should be an initial / direct preseed of the cache once (so 
 
 ```bash
 helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
-helm install eugenmayer/coredns-private-dns-fix
+helm install eugenmayer/vulnz-nvd-mirror
 ```
 
 # Configuration
-You can tweak the configuration. In general you can mass any ENV var you like using the map.
+You can tweak the configuration. In general, you can mass any ENV var you like using the map.
 For example to adjust the memory usage or set any additional env var
 
 ```yaml

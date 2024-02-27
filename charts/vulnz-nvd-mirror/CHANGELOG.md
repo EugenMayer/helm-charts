@@ -1,3 +1,9 @@
+## 0.1.1
+
+- Add debug flag
+- Change back ghcr.io/eugenmayer/vulnz 
+- Better logging
+
 ## 0.1.0
 Breaking change! Please be sure to set the NVD_API_KEY using the new way since the chart was reworked.
 

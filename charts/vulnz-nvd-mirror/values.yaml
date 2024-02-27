@@ -1,7 +1,9 @@
 image:
-  repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  #repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  #tag: v5.1.2
+  repository: ghcr.io/eugenmayer/vulnz
+  tag: 5.1.3
   pullPolicy: IfNotPresent
-  tag: v5.1.2
 
 
 persistence:
@@ -12,7 +14,6 @@ persistence:
 
 securityContext:
   container:
-    # currently supervisord is used and priv. dropped via gosu
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
@@ -40,23 +41,23 @@ workload:
             #    name: nvd-api-key
             #    key: password
             JAVA_OPT: -Xmx2g
+            #DEBUG: true
           probes:
             readiness:
-              enabled: true
-              type: http
               port: 80
-              path: /
+              type: tcp
               spec:
-                initialDelaySeconds: 5
+                initialDelaySeconds: 10
                 periodSeconds: 5
+                failureThreshold: 2
             liveness:
               enabled: true
-              type: http
+              type: tcp
               port: 80
-              path: /
               spec:
-                initialDelaySeconds: 30
+                initialDelaySeconds: 15
                 periodSeconds: 5
+                failureThreshold: 2
 
 ingress:
   main:
