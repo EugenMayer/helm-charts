@@ -42,7 +42,7 @@ workload:
             JAVA_OPT: -Xmx2g
             # amount of retries
             #MAX_RETRY: 10
-            # fetch max record pre page
+            # fetch max record pre page - cannot be higher then 2000 by API limits
             #MAX_RECORDS_PER_PAGE: 2000
             # show debug logs
             #DEBUG: true
