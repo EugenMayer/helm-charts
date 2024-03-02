@@ -1,6 +1,6 @@
 release-all: package-all init
-	cr upload --skip-existing
-	cr index --push
+	cr upload --push --skip-existing --packages-with-index
+	cr index --push --packages-with-index
 
 package-all:
 	cr package charts/postgres-pgdump-backup

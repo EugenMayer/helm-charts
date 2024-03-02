@@ -1,6 +1,7 @@
 owner: EugenMayer
 package-path: .deploy
-remote: cr-remote
-git-base-url: https://api.github.com/
-git-upload-url: https://uploads.github.com/
+# remote: cr-remote
+#git-base-url: https://api.github.com/
+#git-upload-url: https://uploads.github.com/
 git-repo: helm-charts
+index-path: .
