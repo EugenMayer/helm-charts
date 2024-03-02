@@ -24,6 +24,22 @@ entries:
   iperf3:
   - apiVersion: v2
     appVersion: 3.0.0
+    created: "2024-03-02T21:35:02.977255186Z"
+    description: IPerf3 server to benchmark kubernetes networking
+    digest: d9c46ae7005418c2fcba94365d37b46960ae546192afb029546e8a49de4c5e7d
+    home: https://iperf.fr/iperf-download.php
+    keywords:
+    - benchmark
+    - network
+    - tools
+    name: iperf3
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iperf3
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iperf3-0.2.2/iperf3-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 3.0.0
     created: "2024-03-02T22:25:02.757342231+01:00"
     description: IPerf3 server to benchmark kubernetes networking
     digest: b19c66f8039d2f94dc08220bbd0c11d1d73639a7d3e713b4e8cd6727541a42d9
@@ -150,4 +166,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-02T22:25:04.804603552+01:00"
+generated: "2024-03-02T21:35:03.14754756Z"
