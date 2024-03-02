@@ -1,5 +1,5 @@
 owner: EugenMayer
-package-path: .deploy
+#package-path: .deploy
 # remote: cr-remote
 #git-base-url: https://api.github.com/
 #git-upload-url: https://uploads.github.com/
