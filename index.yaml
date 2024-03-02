@@ -1,0 +1,153 @@
+apiVersion: v1
+entries:
+  cert-manager-cloudflare-config:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-02T22:25:02.164384144+01:00"
+    description: Cert-Manager config for lets encrypt ACME via Cloudflare (DNS01)
+    digest: 8cc96589afdeda3570eabca86b2b29ebd3bd99576c1c71e4c3f97996fa96332f
+    name: cert-manager-cloudflare-config
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/cert-manager-cloudflare-config-1.1.0/cert-manager-cloudflare-config-1.1.0.tgz
+    version: 1.1.0
+  coredns-private-dns-fix:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-03-02T22:25:02.449236912+01:00"
+    description: Ensure coredns uses dns upstreams in a sequential order to fix private
+      DNS resolving
+    digest: 9f366ef4cb5fd048104af68318d2435775dc7acdbebe52dcf49a6661a8f536dd
+    name: coredns-private-dns-fix
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/coredns-private-dns-fix-0.1.1/coredns-private-dns-fix-0.1.1.tgz
+    version: 0.1.1
+  iperf3:
+  - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2024-03-02T22:25:02.757342231+01:00"
+    description: IPerf3 server to benchmark kubernetes networking
+    digest: b19c66f8039d2f94dc08220bbd0c11d1d73639a7d3e713b4e8cd6727541a42d9
+    home: https://iperf.fr/iperf-download.php
+    keywords:
+    - benchmark
+    - network
+    - tools
+    name: iperf3
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iperf3
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iperf3-0.2.1/iperf3-0.2.1.tgz
+    version: 0.2.1
+  localpath:
+  - apiVersion: v2
+    appVersion: 0.0.26
+    created: "2024-03-02T22:25:03.067339968+01:00"
+    description: Provisions the rancher local-path
+    digest: 03568310797c29e869e4c8240657a9b3b9651c8cd8b644b85e11a7f2431cf72a
+    name: localpath
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/localpath-1.1.0/localpath-1.1.0.tgz
+    version: 1.1.0
+  longhorn-backup-config:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-03-02T22:25:03.371075763+01:00"
+    description: Configure longhorn backups
+    digest: 83e55345166ff80ba8ae5b424b26ee0182f6df67e6da6e6ffb04016be501267e
+    name: longhorn-backup-config
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/longhorn-backup-config-0.0.1/longhorn-backup-config-0.0.1.tgz
+    version: 0.0.1
+  openldap-test:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-03-02T22:25:03.575576267+01:00"
+    description: OpenLdap test / example server
+    digest: 26d68bda563757ecba66b5e0518651ec201f559ba91e53fe404b77e5b1c7a849
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.0.5/openldap-test-0.0.5.tgz
+    version: 0.0.5
+  postgres-pgdump-backup:
+  - apiVersion: v2
+    appVersion: "14"
+    created: "2024-03-02T22:25:03.884743695+01:00"
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 2bab893336cea929009a736046403438bc72f3ddef5a631f9482287d2e35bb98
+    home: https://github.com/prodrigestivill/docker-postgres-backup-local
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.5.2/postgres-pgdump-backup-0.5.2.tgz
+    version: 0.5.2
+  rundeck:
+  - apiVersion: v2
+    appVersion: 4.17.4
+    created: "2024-03-02T22:25:04.192769956+01:00"
+    description: Rundeck chart for Kubernetes
+    digest: a0530467887232b3290469c2eb35d24a21466650c7da0f2458dcc379f147856a
+    home: https://github.com/rundeck/rundeck
+    keywords:
+    - rundeck
+    - jobs
+    - automation
+    - operations
+    name: rundeck
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/rundeck
+    - https://github.com/rundeck/rundeck
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-1.11.0/rundeck-1.11.0.tgz
+    version: 1.11.0
+  vulnz-nvd-mirror:
+  - apiVersion: v2
+    appVersion: 5.1.3
+    created: "2024-03-02T22:25:04.509032434+01:00"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 18.1.0
+    description: NVD api mirror and cache
+    digest: 9f7f99e62e37d187892ae95aba3357b8a4d47eba876afe9209605cd5300119f4
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.1.1/vulnz-nvd-mirror-0.1.1.tgz
+    version: 0.1.1
+  whatsmyip:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-02T22:25:04.804594992+01:00"
+    description: What's my ip - as simple as that
+    digest: 0df6b4a9c5cddf6a13215787c9fc12551592fc051470e703d5ddfcac3b9aeb5e
+    name: whatsmyip
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
+    version: 1.0.4
+generated: "2024-03-02T22:25:04.804603552+01:00"
