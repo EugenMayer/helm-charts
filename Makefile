@@ -1,6 +1,6 @@
-release-all: package-all init
-	cr upload --push --skip-existing --packages-with-index
-	cr index --push --packages-with-index
+release-all: package-all
+	cr upload --push --skip-existing 
+	cr index --push 
 
 package-all:
 	cr package charts/postgres-pgdump-backup
@@ -13,8 +13,3 @@ package-all:
 	cr package charts/whatsmyip
 	cr package charts/coredns-private-dns-fix
 	cr package charts/longhorn-backup-config
-
-init:
-	# cr remote needs to be https due to https://github.com/helm/chart-releaser/issues/124
-	git remote -v | grep cr-remote > /dev/null || git remote add cr-remote https://github.com/EugenMayer/helm-charts.git -f
-	git fetch -a cr-remote

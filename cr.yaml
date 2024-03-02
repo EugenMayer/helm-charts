@@ -1,6 +1,3 @@
 owner: EugenMayer
 git-repo: helm-charts
 index-path: .
-# this is important since we are not allowed to use the ssh protocol and cr index would use origin by default
-# see https://github.com/helm/chart-releaser/issues/124#issuecomment-850799366
-remote: cr-remote
