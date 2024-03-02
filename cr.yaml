@@ -5,3 +5,4 @@ owner: EugenMayer
 #git-upload-url: https://uploads.github.com/
 git-repo: helm-charts
 index-path: .
+skip-index: true

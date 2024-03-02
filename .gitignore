@@ -1,3 +1,4 @@
 .deploy
 index.yaml
 config.yaml
+.cr-release-packages
