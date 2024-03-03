@@ -24,6 +24,29 @@ entries:
   iobroker:
   - apiVersion: v2
     appVersion: v9.0.1
+    created: "2024-03-03T09:04:28.209439121Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 18.1.4
+    description: home automation via ioBroker
+    digest: 243db8b747384220ee98a589a3c0158e80fc703c7c8cfe4c534d76ae4dadeab1
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    keywords:
+    - iobroker
+    - home-automation
+    kubeVersion: '>=1.24.0-0'
+    name: iobroker
+    sources:
+    - https://www.iobroker.net/
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    - https://github.com/buanet/ioBroker.docker
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iobroker-0.2.4/iobroker-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: v9.0.1
     created: "2024-03-03T08:42:28.657967092Z"
     dependencies:
     - name: common
@@ -190,4 +213,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-03T08:42:28.657977972Z"
+generated: "2024-03-03T09:04:28.209455372Z"
