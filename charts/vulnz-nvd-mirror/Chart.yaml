@@ -1,12 +1,25 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-description: NVD api mirror and cache
 name: vulnz-nvd-mirror
-home: https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
-version: 0.0.4
-appVersion: 5.1.1
+version: 0.1.1
+appVersion: 5.1.3
+description: NVD api mirror and cache
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+deprecated: false
 keywords:
   - network
   - tools
   - development
 sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+  - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+dependencies:
+  - name: common
+    # https://artifacthub.io/packages/helm/truecharts-library-charts/common
+    version: 18.1.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+type: application
