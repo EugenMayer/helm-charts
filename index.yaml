@@ -21,6 +21,30 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/coredns-private-dns-fix-0.1.1/coredns-private-dns-fix-0.1.1.tgz
     version: 0.1.1
+  iobroker:
+  - apiVersion: v2
+    appVersion: v9.0.1
+    created: "2024-03-03T08:42:28.657967092Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 17.2.21
+    description: home automation via ioBroker
+    digest: 85053fdeee43d686cad8c36c81aa92b6235f0bb94f916637faaf781c018d40f6
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    keywords:
+    - iobroker
+    - home-automation
+    kubeVersion: '>=1.24.0-0'
+    name: iobroker
+    sources:
+    - https://www.iobroker.net/
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    - https://github.com/buanet/ioBroker.docker
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iobroker-0.2.3/iobroker-0.2.3.tgz
+    version: 0.2.3
   iperf3:
   - apiVersion: v2
     appVersion: 3.0.0
@@ -166,4 +190,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-02T21:35:03.14754756Z"
+generated: "2024-03-03T08:42:28.657977972Z"
