@@ -35,6 +35,7 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [localpath](charts/localpath)
 - [whatsmyip](charts/whatsmyip)
 - [coredns-private-dns-fix](charts/coredns-private-dns-fix)
+- [ioBroker](charts/iobroker)
 - [longhorn-backup-config](charts/longhorn-backup-config)
 - [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 

@@ -13,3 +13,4 @@ package-all:
 	cr package charts/whatsmyip
 	cr package charts/coredns-private-dns-fix
 	cr package charts/longhorn-backup-config
+	cr package charts/iobroken
