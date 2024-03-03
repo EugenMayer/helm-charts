@@ -11,17 +11,21 @@ On pod start, there should be an initial / direct preseed of the cache once (so 
 
 ```bash
 helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
-helm install eugenmayer/coredns-private-dns-fix
+helm install eugenmayer/vulnz-nvd-mirror
 ```
 
 # Configuration
-You can tweak the configuration. In general you can mass any ENV var you like using the map.
-For example to adjust the memory usage
+You can tweak the configuration. In general, you can mass any ENV var you like using the map.
+For example to adjust the memory usage or set any additional env var
 
 ```yaml
-vulnz:
-  env:
-    JAVA_OPT: -Xmx2g
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            JAVA_OPT: -Xmx2g
 ```
 
 ### API key
@@ -29,11 +33,30 @@ vulnz:
 There is a rate limit that can be eased by creating an API key on NVDs side. To let your mirror use the API key create secret
 with the key `NVD_API_KEY` and your API key as the value
 
-Add this secret under the name `vulnz-nvd-secret` and uncomment the following lines in the `values.yml`
+Either add your API key as ENV value directly
+```yaml
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NVD_API_KEY: YOUR-API-KEY
+```
+
+Or via a secret you created:
 
 ```yaml
-nvd:
-  secretName: vulnz-nvd-secret
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NVD_API_KEY:
+              secretKeyRef:
+                name: nvd-api-key-secret-ref
+                key: password
 ```
 
 Of course, you can change the secret name if you like.
@@ -66,15 +89,27 @@ dependencyCheck {
 
 ### Ingress
 
-See the [values.yml](values.yaml) ingress section and [templates/ingress.yaml](templates/ingress.yaml) for the usual setup.
+See the [values.yml](values.yaml) 
+A minimal example would be
+```yaml
+ingress:
+  main:
+    enabled: true
+    ingressClassName:  "nginx"
+    hosts:
+      -  host: vulnz-mirror.com
+         paths:
+           - path: /
+             pathType: Prefix
+```
 
 ### Volumes / PVC
 
-Considering this a pure mirror image (somewhat cache-like), and it takes about 25s to compute and download the entire data, I decided to not include a PVC. If you think differently, be free to discuss this in a PR / issue.
+By default the cached mirror data is persistence, see persistence in [values.yml](values.yaml)
 
 ### Values
 
-Check the `values.yaml` file
+Check the [values.yml](values.yaml)  file
 
 # Credits
 
