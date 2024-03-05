@@ -1,6 +1,6 @@
 ## 2.0.0
 
-- Upgrade run rundeck to 5.1.0
+- Upgrade run rundeck to 5.1.1
 
 ## 1.11.0
 
