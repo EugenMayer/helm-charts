@@ -162,6 +162,24 @@ entries:
     version: 0.5.2
   rundeck:
   - apiVersion: v2
+    appVersion: 4.17.5
+    created: "2024-03-05T06:50:01.942720167Z"
+    description: Rundeck chart for Kubernetes
+    digest: e753aa796c3a5fcfba7c83c217070f71557e28fdd9b0ca161a07b711581aec92
+    home: https://github.com/rundeck/rundeck
+    keywords:
+    - rundeck
+    - jobs
+    - automation
+    - operations
+    name: rundeck
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/rundeck
+    - https://github.com/rundeck/rundeck
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-1.11.1/rundeck-1.11.1.tgz
+    version: 1.11.1
+  - apiVersion: v2
     appVersion: 4.17.4
     created: "2024-03-02T22:25:04.192769956+01:00"
     description: Rundeck chart for Kubernetes
@@ -213,4 +231,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-03T09:04:28.209455372Z"
+generated: "2024-03-05T06:50:01.942736578Z"
