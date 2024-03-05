@@ -121,6 +121,23 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/longhorn-backup-config-0.0.1/longhorn-backup-config-0.0.1.tgz
     version: 0.0.1
+  nist-data-mirror:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-03-05T07:00:11.471965887Z"
+    description: NIST data mirror
+    digest: e16743b5a114b18150ec332d568f459940dbd3079e151ca2804b00601c11b4a0
+    home: https://github.com/EugenMayer/nist-data-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    name: nist-data-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/nist-data-mirror
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/nist-data-mirror-0.1.2/nist-data-mirror-0.1.2.tgz
+    version: 0.1.2
   openldap-test:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -141,6 +158,25 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.0.5/openldap-test-0.0.5.tgz
     version: 0.0.5
   postgres-pgdump-backup:
+  - apiVersion: v2
+    appVersion: "15"
+    created: "2024-03-05T07:00:11.581616134Z"
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 23f90d09f811195517b5cf86ab326f0ffed6906740b383c7b109e9276a2a4fad
+    home: https://github.com/prodrigestivill/docker-postgres-backup-local
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.6.0/postgres-pgdump-backup-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v2
     appVersion: "14"
     created: "2024-03-02T22:25:03.884743695+01:00"
@@ -231,4 +267,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-05T06:50:01.942736578Z"
+generated: "2024-03-05T07:00:11.680745239Z"
