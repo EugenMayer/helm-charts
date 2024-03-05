@@ -1,0 +1,88 @@
+image:
+  # see https://github.com/buanet/ioBroker.docker
+  # https://hub.docker.com/r/iobroker/iobroker/tags
+  # https://github.com/buanet/ioBroker.docker/pkgs/container/iobroker
+  #repository: iobroker/iobroker
+  repository:  ghcr.io/buanet/iobroker
+  pullPolicy: IfNotPresent
+  tag: v9.1.0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+        targetPort: 8081
+
+persistence:
+  config:
+    enabled: true
+    size: 1Gi
+    mountPath: "/opt/iobroker"
+
+portal:
+  open:
+    enabled: false
+
+securityContext:
+  container:
+    # yet iobroker is not rootless
+    capabilities:
+      add:
+        - NET_RAW
+      # TODO: drop as many as possible. ALL is too much though
+      drop: []
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    # image requires start as root for a couple of things and the de-escalates to 568:568
+    runAsGroup: 0
+    runAsUser: 0
+
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    podSpec:
+      containers:
+        main:
+          env:
+            # see https://docs.buanet.de/iobroker-docker-image/docs/#environment-variables-env
+            DEBUG: false
+            # trueCharts default is 568:568 and it is setting it via PUID/PGID
+            # which is not yet supported by the iobroker image, see https://github.com/buanet/ioBroker.docker/issues/419
+            SETGID: 568
+            SETUID: 568
+          probes:
+            readiness:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+            liveness:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+              spec:
+                initialDelaySeconds: 60
+                periodSeconds: 5
+            startup:
+              type: "exec"
+              command:
+                - /bin/bash
+                - /opt/scripts/healthcheck.sh
+
+# see more under https://truecharts.org/manual/helm/common/ingress/
+ingress:
+  main:
+    enabled: false
+    primary: true
+    required: false
+    ingressClassName:  ""
+    targetSelector:
+      main: main
+    hosts:
+    -  host: my-iobroker.local
+       paths:
+           - path: /
+             pathType: Prefix

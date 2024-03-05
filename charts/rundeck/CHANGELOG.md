@@ -2,6 +2,10 @@
 
 - Upgrade run rundeck to 5.1.1
 
+## 1.11.1
+
+- Upgrade run rundeck to 4.17.5
+
 ## 1.11.0
 
 - Add support for sidecar containers
