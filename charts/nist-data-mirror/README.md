@@ -1,6 +1,8 @@
 # Hint!
 
-This project has been super-seeded by the chart [vulnz](../vulnz-nvd-mirror), which offers the NVD v2 API.
+**DEPRECATED**
+
+This project has been super-seeded by the chart [vulnz](../vulnz-nvd-mirror), which offers the (new) NVD v2 API.
 This chart will no longer receive updates since the NVD v1 API is deprecated.
 
 # WAT
@@ -25,4 +27,3 @@ The data is refreshed every night using a cron-job. If you want to do it manuall
 # Values
 
 Check the `values.yaml` file
-

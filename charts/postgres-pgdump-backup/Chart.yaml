@@ -1,8 +1,8 @@
 apiVersion: v2
 name: postgres-pgdump-backup
 home: https://github.com/prodrigestivill/docker-postgres-backup-local
-version: 0.5.2
-appVersion: 14
+version: 0.6.0
+appVersion: 15
 keywords:
   - postgres
   - backup
@@ -14,4 +14,3 @@ type: application
 sources:
   - https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
   - https://github.com/prodrigestivill/docker-postgres-backup-local
-
