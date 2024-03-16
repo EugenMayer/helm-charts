@@ -1,18 +1,61 @@
-persistence:
-  # If enabled, create a volume for /mnt
-  enabled: true
+image:
+  repository: debian
+  tag: bookworm
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+    readOnlyRootFilesystem: false
 
 service:
-  # If enabled, exposes the iperf servers via services
-  enabled: true
+  main:
+    ports:
+      main:
+        protocol: tcp
+        port: 5201
+        targetPort: 5201
 
-pods:
-  rick:
-    enabled: true # enable or disable the rick pod
-  morty:
-    enabled: true # enable or disable the morty pod
-strictPodPlacement:
-  # if enabled, schedule the pods on specific nodes
-  enabled: false
-  rickAgent: prod-rke-agent-1
-  mortyAgent: prod-rke-agent-2
+workload:
+  main:
+    enabled: true
+    replicas: 1
+    strategy: Recreate
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          command:
+            - "/bin/bash"
+          args:
+            - "-c"
+            - |
+              apt update
+              apt install -y curl wget iperf3 inetutils-ping telnet dnsutils procps
+              echo "run iperf3 on port 5201"
+              exec iperf3 -s -p 5201
+          probes:
+            readiness:
+              port: 5201
+              type: tcp
+              spec:
+                initialDelaySeconds: 10
+                periodSeconds: 5
+                failureThreshold: 2
+            liveness:
+              enabled: true
+              type: tcp
+              port: 5201
+              spec:
+                initialDelaySeconds: 15
+                periodSeconds: 5
+                failureThreshold: 2
+ingress:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false

@@ -1,8 +1,8 @@
 name: network-tools
 description: Debugging Tools / Pods
-version: 0.1.1
+version: 0.2.0
 apiVersion: v2
-appVersion: 1.0.0
+appVersion: 1.1.0
 keywords:
   - network
   - tools
@@ -10,3 +10,12 @@ keywords:
 sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+dependencies:
+  - name: common
+    # https://artifacthub.io/packages/helm/truecharts-library-charts/common
+    version: 20.2.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
