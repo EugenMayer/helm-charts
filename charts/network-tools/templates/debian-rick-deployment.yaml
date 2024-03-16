@@ -1,4 +1,4 @@
-{{- if .Values.pods.ricl.enabled -}}
+{{- if .Values.pods.rick.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
