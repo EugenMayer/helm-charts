@@ -33,7 +33,7 @@ workload:
             - "-c"
             - |
               apt update
-              apt install -y curl wget iperf3 inetutils-ping telnet dnsutils procps iproute2
+              apt install -y curl wget iperf3 inetutils-ping telnet dnsutils procps iproute2 tcpdump
               echo "run iperf3 on port 5201"
               exec iperf3 -s -p 5201
           probes:
@@ -41,7 +41,7 @@ workload:
               port: 5201
               type: tcp
               spec:
-                initialDelaySeconds: 10
+                initialDelaySeconds: 61200
                 periodSeconds: 5
                 failureThreshold: 2
             liveness:
@@ -49,7 +49,7 @@ workload:
               type: tcp
               port: 5201
               spec:
-                initialDelaySeconds: 15
+                initialDelaySeconds: 120
                 periodSeconds: 5
                 failureThreshold: 2
 ingress:

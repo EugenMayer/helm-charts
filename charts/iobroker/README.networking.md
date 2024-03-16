@@ -28,7 +28,7 @@ metadata:
 spec:
   config: '{
       "name": "iobroker-macvlan",
-      "cniVersion": "0.3.0",
+      "cniVersion": "0.3.1",
       "type": "macvlan",
       "master": "eth0",
       "mode": "bridge",
@@ -37,9 +37,6 @@ spec:
         "subnet": "192.168.1.0/24",
         "rangeStart": "192.168.1.200",
         "rangeEnd": "192.168.1.216",
-        "routes": [
-          { "dst": "0.0.0.0/0" }
-        ],
         "gateway": "192.168.1.1"
       }
     }'
