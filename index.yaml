@@ -124,6 +124,26 @@ entries:
   network-tools:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2024-03-16T18:43:09.477394822Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.0
+    description: Debugging Tools / Pods
+    digest: 41635082c9326b85880115f44c4cef656fb20a785110f13fe3f9d110582bfa22
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    keywords:
+    - network
+    - tools
+    - development
+    name: network-tools
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/network-tools-0.2.1/network-tools-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2024-03-16T14:58:02.77547584Z"
     dependencies:
     - name: common
@@ -320,4 +340,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-16T14:58:02.775493002Z"
+generated: "2024-03-16T18:43:09.477418005Z"
