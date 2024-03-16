@@ -121,6 +121,23 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/longhorn-backup-config-0.0.1/longhorn-backup-config-0.0.1.tgz
     version: 0.0.1
+  network-tools:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-16T12:36:02.69567584Z"
+    description: Debugging Tools / Pods
+    digest: 7195ffa6b8c7e4823b4bc533b7a61a543c5d427ae4a65f937fd4355969148b3a
+    home: ttps://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    keywords:
+    - network
+    - tools
+    - development
+    name: network-tools
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/network-tools-0.1.0/network-tools-0.1.0.tgz
+    version: 0.1.0
   nist-data-mirror:
   - apiVersion: v2
     appVersion: 0.1.1
@@ -267,4 +284,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-05T07:00:11.680745239Z"
+generated: "2024-03-16T12:36:02.695692852Z"
