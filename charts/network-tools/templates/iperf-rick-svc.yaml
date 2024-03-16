@@ -1,0 +1,18 @@
+{{- if and .Values.service.enabled .Values.pods.rick.enabled -}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rick
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5201
+      targetPort: 5201
+      protocol: TCP
+      name: iperf3
+  selector:
+    pickle: rick
+    kontextwork.de/app: debian
+    kontextwork.de/project: network-tools
+{{- end }}

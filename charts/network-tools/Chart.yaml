@@ -1,0 +1,12 @@
+name: network-tools
+description: Debugging Tools / Pods
+version: 0.1.0
+apiVersion: v2
+appVersion: 1.0.0
+keywords:
+  - network
+  - tools
+  - development
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+home: ttps://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools

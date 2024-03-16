@@ -1,0 +1,18 @@
+persistence:
+  # If enabled, create a volume for /mnt
+  enabled: true
+
+service:
+  # If enabled, exposes the iperf servers via services
+  enabled: true
+
+pods:
+  rick:
+    enabled: true # enable or disable the rick pod
+  morty:
+    enabled: true # enable or disable the morty pod
+strictPodPlacement:
+  # if enabled, schedule the pods on specific nodes
+  enabled: false
+  rickAgent: prod-rke-agent-1
+  mortyAgent: prod-rke-agent-2

@@ -14,3 +14,4 @@ package-all:
 	cr package charts/coredns-private-dns-fix
 	cr package charts/longhorn-backup-config
 	cr package charts/iobroker
+	cr package charts/network-tools

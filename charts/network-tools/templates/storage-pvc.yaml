@@ -1,0 +1,15 @@
+{{- if and .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    kontextwork.de/project: {{.Release.Name}}
+  name: network-tools-storage-tmp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 5Gi
+{{ end }}
