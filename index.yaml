@@ -124,6 +124,22 @@ entries:
   network-tools:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-03-16T12:49:21.78119157Z"
+    description: Debugging Tools / Pods
+    digest: bfd77787f0b5f2ce6db9fb16dac101fc04f8d046dba969aa36521cd239a6351f
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    keywords:
+    - network
+    - tools
+    - development
+    name: network-tools
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/network-tools-0.1.1/network-tools-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-03-16T12:36:02.69567584Z"
     description: Debugging Tools / Pods
     digest: 7195ffa6b8c7e4823b4bc533b7a61a543c5d427ae4a65f937fd4355969148b3a
@@ -284,4 +300,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-16T12:36:02.695692852Z"
+generated: "2024-03-16T12:49:21.781214122Z"
