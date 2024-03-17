@@ -41,7 +41,7 @@ workload:
               port: 5201
               type: tcp
               spec:
-                initialDelaySeconds: 61200
+                initialDelaySeconds: 40
                 periodSeconds: 5
                 failureThreshold: 2
             liveness:
@@ -49,7 +49,7 @@ workload:
               type: tcp
               port: 5201
               spec:
-                initialDelaySeconds: 120
+                initialDelaySeconds: 40
                 periodSeconds: 5
                 failureThreshold: 2
 ingress:
