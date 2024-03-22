@@ -75,7 +75,7 @@ see [values.yaml](./values.yaml) for a full list, but you will need to set
 Test chart-rendering
 
 ```bash
-helm template . -f values.yaml -f values-mandatory-test.yaml
+helm template . -f values.yaml
 ```
 
 ## Credits
