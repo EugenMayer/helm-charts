@@ -1,16 +1,22 @@
-apiVersion: v2
 name: postgres-pgdump-backup
-home: https://github.com/prodrigestivill/docker-postgres-backup-local
-version: 0.6.0
+description: Backup postgres databases using pg_dump, retention and schedules
+version: 0.7.0
+apiVersion: v2
 appVersion: 15
 keywords:
   - postgres
   - backup
   - retention
   - pg_dump
-# @see https://github.com/prodrigestivill/docker-postgres-backup-local
-description: Backup postgres databases using pg_dump, retention and schedules
-type: application
 sources:
-  - https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
   - https://github.com/prodrigestivill/docker-postgres-backup-local
+home: https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+dependencies:
+  - name: common
+    # https://artifacthub.io/packages/helm/truecharts-library-charts/common
+    version: 20.2.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
