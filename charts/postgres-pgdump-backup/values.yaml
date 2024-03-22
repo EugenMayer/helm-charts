@@ -59,6 +59,7 @@ workload:
           envFrom:
             - secretRef:
                 name: postgres-backup-local
+                expandObjectName: false
                 # should define following keys
                 # those 2 are used by backup.sh directly
                 # POSTGRES_USER:
