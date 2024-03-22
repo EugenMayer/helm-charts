@@ -1,3 +1,5 @@
+[CHANGLOG](./CHANGELOG.md)
+
 # WAT
 
 Helm for the postgres 'pg_dump' based backup solution [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
