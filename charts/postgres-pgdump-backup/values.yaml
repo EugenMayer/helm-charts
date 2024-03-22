@@ -37,15 +37,17 @@ workload:
       containers:
         main:
           env:
+            #### MANDATORY
             # those 2 are used by backup.sh directly
             # POSTGRES_HOST:
+            # the database(s) to backup (single name or comma seperated list of database)
+            # POSTGRES_DB:
+            #### OPTIONAL
             POSTGRES_PORT: 5432
             # Setting those 2 for better cli-support https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76
             # PGHOST:
-            PGPORT: 5432
-            # credentials are stored in a secret
-            # the database(s) to backup (single name or comma seperated list of database)
-            # POSTGRES_DB:
+            PGPORT: 5432       
+            # PGSSLMODE: "require"    
             # If TRUE, backups all databases and not just the list given in POSTGRES_DB
             POSTGRES_CLUSTER: "FALSE"
             POSTGRES_EXTRA_OPTS: ""
@@ -55,15 +57,15 @@ workload:
             BACKUP_KEEP_MONTHS: 6
             HEALTHCHECK_PORT: "8080"
           envFrom:
-            # should define following keys
-            # those 2 are used by backup.sh directly
-            # POSTGRES_USER:
-            # POSTGRES_PASSWORD:
-            # Setting those 2 for better cli-support https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76
-            # PGUSER:
-            # PGPASSWORD:
             - secretRef:
                 name: postgres-backup-local
+                # should define following keys
+                # those 2 are used by backup.sh directly
+                # POSTGRES_USER:
+                # POSTGRES_PASSWORD:
+                # Setting those 2 for better cli-support https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76
+                # PGUSER:
+                # PGPASSWORD:
 
 ingress:
   main:
