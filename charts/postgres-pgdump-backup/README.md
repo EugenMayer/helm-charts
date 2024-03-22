@@ -36,6 +36,9 @@ Mandatory values to set
 
 For example
 ```yaml
+image:
+  tag: "16-debian"
+
 workload:
   main:
     podSpec:
@@ -59,12 +62,12 @@ see [values.yaml](./values.yaml) for a full list, but you will need to set
 - **How to enable ssl support?** Add this to your values.yaml
   ```yaml
   workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            PGSSLMODE: "require"
+    main:
+      podSpec:
+        containers:
+          main:
+            env:
+              PGSSLMODE: "require"
   ```
 
 ## Developing

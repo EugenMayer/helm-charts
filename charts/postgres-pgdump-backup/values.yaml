@@ -1,7 +1,7 @@
 image:
   repository: prodrigestivill/postgres-backup-local
-  # pick the pg version here: 13, 14 - see https://hub.docker.com/r/prodrigestivill/postgres-backup-local/tags
-  # tag: "12"
+  # pick the pg version here: 15, 16 - see https://hub.docker.com/r/prodrigestivill/postgres-backup-local/tags
+  # tag: "15"
   pullPolicy: IfNotPresent
 
 persistence:
