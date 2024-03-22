@@ -253,6 +253,27 @@ entries:
   postgres-pgdump-backup:
   - apiVersion: v2
     appVersion: "15"
+    created: "2024-03-22T21:05:12.720885084Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.0
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 9f970debbfa28a4dbe7de59947aeb2c017095892ab30a2aef5f56b8794497bd9
+    home: https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.0/postgres-pgdump-backup-0.7.0.tgz
+    version: 0.7.0
+  - apiVersion: v2
+    appVersion: "15"
     created: "2024-03-05T07:00:11.581616134Z"
     description: Backup postgres databases using pg_dump, retention and schedules
     digest: 23f90d09f811195517b5cf86ab326f0ffed6906740b383c7b109e9276a2a4fad
@@ -360,4 +381,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-17T08:43:10.941931051Z"
+generated: "2024-03-22T21:05:12.720906264Z"
