@@ -11,6 +11,7 @@ package-all:
 	cr package charts/cert-manager-cloudflare-config
 	cr package charts/localpath
 	cr package charts/whatsmyip
+	cr package charts/whoami
 	cr package charts/coredns-private-dns-fix
 	cr package charts/longhorn-backup-config
 	cr package charts/iobroker

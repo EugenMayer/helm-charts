@@ -1,5 +1,5 @@
 image:
-  repository: eugenmayer/whatsmyip
+  repository: traefik/whoamim
   # https://hub.docker.com/r/traefik/whoami/tags
   tag: v1.10
   pullPolicy: Always
@@ -15,8 +15,8 @@ service:
   main:
     ports:
       main:
-        port: 8080
-        targetPort: 8080
+        port: 80
+        targetPort: 80
 
 workload:
   main:
@@ -28,7 +28,7 @@ workload:
         main:
           probes:
             readiness:
-              port: 8080
+              port: 80
               type: tcp
               spec:
                 initialDelaySeconds: 5
@@ -37,7 +37,7 @@ workload:
             liveness:
               enabled: true
               type: tcp
-              port: 8080
+              port: 80
               spec:
                 initialDelaySeconds: 5
                 periodSeconds: 5
@@ -52,7 +52,7 @@ ingress:
     targetSelector:
       main: main
     hosts:
-      - host: whatsmyip.local
+      - host: whoami.local
         paths:
           - path: /
             pathType: Prefix
