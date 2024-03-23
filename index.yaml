@@ -23,6 +23,29 @@ entries:
     version: 0.1.1
   iobroker:
   - apiVersion: v2
+    appVersion: v9.1.1
+    created: "2024-03-23T09:30:11.527354808Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: home automation via ioBroker
+    digest: c0b1ee523635cb2fc9409351af3c6526209628f2235ca5d7b3a2cc54c0ec616a
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    keywords:
+    - iobroker
+    - home-automation
+    kubeVersion: '>=1.24.0-0'
+    name: iobroker
+    sources:
+    - https://www.iobroker.net/
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    - https://github.com/buanet/ioBroker.docker
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iobroker-0.2.5/iobroker-0.2.5.tgz
+    version: 0.2.5
+  - apiVersion: v2
     appVersion: v9.0.1
     created: "2024-03-03T09:04:28.209439121Z"
     dependencies:
@@ -234,6 +257,29 @@ entries:
   openldap-test:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-03-23T09:30:11.635350611Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: OpenLdap test / example server
+    digest: e238f44922cf3fe083d7491ca245de9f21558073ce0ee4cebdbcf8d3d9448ffd
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.1.0/openldap-test-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-03-02T22:25:03.575576267+01:00"
     description: OpenLdap test / example server
     digest: 26d68bda563757ecba66b5e0518651ec201f559ba91e53fe404b77e5b1c7a849
@@ -251,6 +297,27 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.0.5/openldap-test-0.0.5.tgz
     version: 0.0.5
   postgres-pgdump-backup:
+  - apiVersion: v2
+    appVersion: "15"
+    created: "2024-03-23T09:30:11.747239456Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 6247228c4862f9964a85634a3616b05a2f6865c93f3260348513c707a47db9f2
+    home: https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.1/postgres-pgdump-backup-0.7.1.tgz
+    version: 0.7.1
   - apiVersion: v2
     appVersion: "15"
     created: "2024-03-22T21:05:12.720885084Z"
@@ -349,6 +416,29 @@ entries:
     version: 1.11.0
   vulnz-nvd-mirror:
   - apiVersion: v2
+    appVersion: 6.0.0
+    created: "2024-03-23T09:30:11.856222569Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: NVD api mirror and cache
+    digest: 95bf0cd41ed5fa5f32f0a7b759491426420c45bd94fad790b0d9257b0c1efd3e
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.1.2/vulnz-nvd-mirror-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 5.1.3
     created: "2024-03-02T22:25:04.509032434+01:00"
     dependencies:
@@ -381,4 +471,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-22T21:05:12.720906264Z"
+generated: "2024-03-23T09:30:11.956814145Z"
