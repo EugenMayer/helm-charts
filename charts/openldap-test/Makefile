@@ -1,0 +1,2 @@
+update:
+	helm dependency update

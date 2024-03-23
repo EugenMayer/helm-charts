@@ -3,9 +3,9 @@ image:
   # https://hub.docker.com/r/iobroker/iobroker/tags
   # https://github.com/buanet/ioBroker.docker/pkgs/container/iobroker
   #repository: iobroker/iobroker
-  repository:  ghcr.io/buanet/iobroker
+  repository: ghcr.io/buanet/iobroker
   pullPolicy: IfNotPresent
-  tag: v9.1.0
+  tag: v9.1.1
 
 service:
   main:
@@ -78,11 +78,11 @@ ingress:
     enabled: false
     primary: true
     required: false
-    ingressClassName:  ""
+    ingressClassName: ""
     targetSelector:
       main: main
     hosts:
-    -  host: my-iobroker.local
-       paths:
-           - path: /
-             pathType: Prefix
+      - host: my-iobroker.local
+        paths:
+          - path: /
+            pathType: Prefix

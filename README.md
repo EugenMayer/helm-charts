@@ -26,17 +26,18 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 
 ## Index
 
-- [rundeck](charts/rundeck)
-- [postgres-pgdump-backup](charts/postgres-pgdump-backup)
-- [iperf3](charts/iperf3)
-- [openldap-test](charts/openldap-test)
-- [vulnz-nvd-mirror](charts/vulnz-nvd-mirror)
-- [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config)
-- [localpath](charts/localpath)
-- [whatsmyip](charts/whatsmyip)
-- [coredns-private-dns-fix](charts/coredns-private-dns-fix)
-- [ioBroker](charts/iobroker)
-- [longhorn-backup-config](charts/longhorn-backup-config)
+- [rundeck](charts/rundeck): Rundeck
+- [postgres-pgdump-backup](charts/postgres-pgdump-backup): Automated Postgres DB backups
+- [iperf3](charts/iperf3): Iperf for network performance tests
+- [openldap-test](charts/openldap-test): Pre-Provisioned ldap server for tests
+- [vulnz-nvd-mirror](charts/vulnz-nvd-mirror): NVD vuln mirror
+- [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config): Cert Manager Cloudflare ACME config CRD)
+- [localpath](charts/localpath): Rancher localpath 
+- [whatsmyip](charts/whatsmyip): Simple pong service for ingress tests
+- [coredns-private-dns-fix](charts/coredns-private-dns-fix): Fix coreDNS private DNS resolving
+- [ioBroker](charts/iobroker): Home automation ioBroker
+- [longhorn-backup-config](charts/longhorn-backup-config): Longhorn backup configuration (CRD)
+- [network-tools](charts/network-tools): Multi-Pod network debugging tools
 - [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing

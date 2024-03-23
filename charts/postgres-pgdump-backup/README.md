@@ -1,3 +1,6 @@
+[CHANGELOG](./CHANGELOG.md)
+**0.7.0** had breaking changes - see changelog!
+
 # WAT
 
 Helm for the postgres 'pg_dump' based backup solution [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
@@ -11,7 +14,7 @@ It offers a backup solution with those key features
 
 You find all the important documentation in the official repository [documentation](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
-This chart does just try to provide an option to run the original image, not introducing any additional functionalities 
+This chart does just try to provide an option to run the original image, not introducing any additional functionalities
 or anything else - we keep it vanilla. If you need anything else, ask in [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
 We do not re-publish the docker-image but use the original one published in [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
@@ -20,35 +23,56 @@ We do not re-publish the docker-image but use the original one published in [pos
 
 ```bash
 helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
-helm install eugenmayer/coredns-private-dns-fix
+helm install eugenmayer/postgres-pgdump-backup
 ```
 
 ## Adjustments / Fixes
 
-- to fix https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76 we are current also exposing `PGUSER`,  `PGPASSWORD`, `PGHOST`,`PGPORT`as additional env variables
+- To fix https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76 we are current also exposing `PGUSER`, `PGPASSWORD`, `PGHOST`,`PGPORT`as additional env variables
 
 ## Helm values
 
-Hopefully most of them are self-explaining. You might have a look on `configmaps.yaml` to understand, what values
-are mapped in which [environment variables of the actual image](https://github.com/prodrigestivill/docker-postgres-backup-local#environment-variables=)
+Mandatory values to set
 
-If any values are unclear, open an issue or a PR explaining those. Happy to include docs here for anything needed.
+- `PGHOST`: hostname/ip of your pg
+- `POSTGRES_DB`: comma seperated list of databases to backup, for example: `sko,mattermost,paperless`
 
-### Mandatory values
+For example
 
-- `image.tag` - set this to your pg version, see [docker available tags](https://hub.docker.com/r/prodrigestivill/postgres-backup-local/tags)
-- `postgres.host` - set this to your postgres host
-- `postgres.auth.existingSecretName` - set this to the existing secret holding `POSTGRES_USER` and `POSTGRES_PASSWORD`. Alternatively set `postgres.auth.user` and `postgres.auth.password`
+```yaml
+image:
+  tag: "16-debian"
 
-Hint: You should not just set the mandatory fields by go through the entire `values.yaml` and ensure everything is 
-as expected.
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            POSTGRES_HOST: mypostgres.local
+            POSTGRES_DB: sko,mattermost,paperless
+```
+
+You will also need to deploy a secret called `postgres-backup-local` (you can rename it, see values.yaml) with the following values
+
+- `POSTGRES_USER`
+- `POSTGRES_PASSWORD`
+- `PGUSER` (same values, optional)
+- `PGPASSWORD` (same values, optional)
+
+see [values.yaml](./values.yaml) for a full list, but you will need to set
 
 ## FAQ
 
 - **How to enable ssl support?** Add this to your values.yaml
   ```yaml
-  env:
-    PGSSLMODE: "require"
+  workload:
+    main:
+      podSpec:
+        containers:
+          main:
+            env:
+              PGSSLMODE: "require"
   ```
 
 ## Developing
@@ -56,7 +80,7 @@ as expected.
 Test chart-rendering
 
 ```bash
-helm template . -f values.yaml -f values-mandatory-test.yaml
+helm template . -f values.yaml
 ```
 
 ## Credits
