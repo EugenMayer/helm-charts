@@ -9,8 +9,9 @@ keywords:
   - retention
   - pg_dump
 sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
   - https://github.com/prodrigestivill/docker-postgres-backup-local
-home: https://github.com/EugenMayer/helm-charts/chats/postgres-pgdump-backup
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
 dependencies:
   - name: common
     # https://artifacthub.io/packages/helm/truecharts-library-charts/common

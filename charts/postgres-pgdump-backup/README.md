@@ -34,6 +34,7 @@ helm install eugenmayer/postgres-pgdump-backup
 
 Mandatory values to set
 
+- `tag`: You have to select a postgres dump version to deploy - use the same version as your server
 - `PGHOST`: hostname/ip of your pg
 - `POSTGRES_DB`: comma seperated list of databases to backup, for example: `sko,mattermost,paperless`
 
