@@ -1,4 +1,5 @@
-[CHANGLOG](./CHANGELOG.md)
+[CHANGELOG](./CHANGELOG.md)
+**0.7.0** had breaking changes - see changelog!
 
 # WAT
 
@@ -13,7 +14,7 @@ It offers a backup solution with those key features
 
 You find all the important documentation in the official repository [documentation](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
-This chart does just try to provide an option to run the original image, not introducing any additional functionalities 
+This chart does just try to provide an option to run the original image, not introducing any additional functionalities
 or anything else - we keep it vanilla. If you need anything else, ask in [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
 
 We do not re-publish the docker-image but use the original one published in [postgres-backup-local](https://github.com/prodrigestivill/docker-postgres-backup-local).
@@ -27,7 +28,7 @@ helm install eugenmayer/postgres-pgdump-backup
 
 ## Adjustments / Fixes
 
-- To fix https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76 we are current also exposing `PGUSER`,  `PGPASSWORD`, `PGHOST`,`PGPORT`as additional env variables
+- To fix https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76 we are current also exposing `PGUSER`, `PGPASSWORD`, `PGHOST`,`PGPORT`as additional env variables
 
 ## Helm values
 
@@ -37,6 +38,7 @@ Mandatory values to set
 - `POSTGRES_DB`: comma seperated list of databases to backup, for example: `sko,mattermost,paperless`
 
 For example
+
 ```yaml
 image:
   tag: "16-debian"
@@ -52,7 +54,8 @@ workload:
 ```
 
 You will also need to deploy a secret called `postgres-backup-local` (you can rename it, see values.yaml) with the following values
-- `POSTGRES_USER` 
+
+- `POSTGRES_USER`
 - `POSTGRES_PASSWORD`
 - `PGUSER` (same values, optional)
 - `PGPASSWORD` (same values, optional)

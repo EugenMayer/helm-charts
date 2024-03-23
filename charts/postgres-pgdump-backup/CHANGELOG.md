@@ -1,3 +1,7 @@
+## 0.7.1
+
+- Update TrueCharts
+
 ## 0.7.0
 
 **BREAKING CHANGES!!**

@@ -1,17 +1,45 @@
+image:
+  repository: ghcr.io/eugenmayer/ldaptestserver
+  # adapt if you want to use a different tag like type1
+  tag: "type2"
+  pullPolicy: Always
+
 service:
-  enabled: true
-  port: 389
-  # set this to bind to an external ip. Mandatory if your enable the service
-  externalIp:
+  main:
+    ports:
+      main:
+        port: 389
+        targetPort: 389
 
-# set to true for verbose logging
-verbose: false
-# change this to set the number of replicas
-replicas: 1
-deployment:
-  image:
-    # if needed you can use another image
-    repository: ghcr.io/eugenmayer/ldaptestserver
-    # adapt if you want to use a different tag like type1
-    tag: "type2"
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          probes:
+            readiness:
+              type: tcp
+              port: 389
+              spec:
+                initialDelaySeconds: 10
+                periodSeconds: 5
+                failureThreshold: 2
+            liveness:
+              enabled: true
+              type: tpc
+              port: 389
+              spec:
+                initialDelaySeconds: 15
+                periodSeconds: 5
+                failureThreshold: 2
 
+ingress:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false

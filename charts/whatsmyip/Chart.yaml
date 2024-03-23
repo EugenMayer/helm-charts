@@ -3,3 +3,20 @@ description: What's my ip - as simple as that
 version: 1.0.4
 apiVersion: v2
 appVersion: 1.0.0
+keywords:
+  - network
+  - tools
+  - development
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+  - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+dependencies:
+  - name: common
+    # https://artifacthub.io/packages/helm/truecharts-library-charts/common
+    version: 20.2.3
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+type: application

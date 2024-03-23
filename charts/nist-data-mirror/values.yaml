@@ -1,7 +1,0 @@
-deployment:
-  replicas: 1
-
-image:
-  repository: ghcr.io/eugenmayer/nist-data-mirror
-  # tag: "0.0.1"
-

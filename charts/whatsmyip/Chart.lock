@@ -3,4 +3,4 @@ dependencies:
   repository: oci://tccr.io/truecharts
   version: 20.2.3
 digest: sha256:0bd99bc2fef88ee21b0af5719643af466155a589d026d266551ab9924ea58779
-generated: "2024-03-23T10:10:26.068019263+01:00"
+generated: "2024-03-23T10:28:02.377983818+01:00"
