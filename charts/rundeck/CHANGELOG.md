@@ -1,10 +1,12 @@
 ## 2.0.0
 
-- Upgrade run rundeck to 5.1.1
+**Major app update**!!
+
+- Upgrade rundeck to 5.1.1
 
 ## 1.11.1
 
-- Upgrade run rundeck to 4.17.5
+- Upgrade rundeck to 4.17.5
 
 ## 1.11.0
 
