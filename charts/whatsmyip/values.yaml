@@ -1,8 +1,8 @@
 image:
   repository: traefik/whoamim
   # https://hub.docker.com/r/traefik/whoami/tags
-  tag: v1.10.1
-  pullPolicy: IfNotPresent
+  tag: v1.10
+  pullPolicy: Always
 
 securityContext:
   container:
@@ -48,7 +48,7 @@ ingress:
     enabled: false
     primary: true
     required: false
-    ingressClassName: ""
+    ingressClassName: ''
     targetSelector:
       main: main
     hosts:

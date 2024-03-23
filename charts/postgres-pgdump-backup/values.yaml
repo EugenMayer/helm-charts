@@ -2,13 +2,13 @@ image:
   repository: prodrigestivill/postgres-backup-local
   # pick the pg version here: 15, 16 - see https://hub.docker.com/r/prodrigestivill/postgres-backup-local/tags
   # tag: "15"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 persistence:
   storage:
     enabled: true
     size: 1Gi
-    mountPath: "/backups"
+    mountPath: '/backups'
     type: emptyDir
 
 securityContext:
@@ -46,16 +46,16 @@ workload:
             POSTGRES_PORT: 5432
             # Setting those 2 for better cli-support https://github.com/prodrigestivill/docker-postgres-backup-local/issues/76
             # PGHOST:
-            PGPORT: 5432       
-            # PGSSLMODE: "require"    
+            PGPORT: 5432
+            # PGSSLMODE: "require"
             # If TRUE, backups all databases and not just the list given in POSTGRES_DB
-            POSTGRES_CLUSTER: "FALSE"
-            POSTGRES_EXTRA_OPTS: ""
-            SCHEDULE: "@daily"
+            POSTGRES_CLUSTER: 'FALSE'
+            POSTGRES_EXTRA_OPTS: ''
+            SCHEDULE: '@daily'
             BACKUP_KEEP_DAYS: 7
             BACKUP_KEEP_WEEKS: 4
             BACKUP_KEEP_MONTHS: 6
-            HEALTHCHECK_PORT: "8080"
+            HEALTHCHECK_PORT: '8080'
           envFrom:
             - secretRef:
                 name: postgres-backup-local
