@@ -523,6 +523,27 @@ entries:
   whatsmyip:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-03-23T20:34:34.849109728Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: What's my ip - as simple as that
+    digest: eb8526025fda34bb97f51e294843719b19023390b8c4a1d3f33b4e5cc8d6c8a3
+    keywords:
+    - network
+    - tools
+    - development
+    name: whatsmyip
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.2.0/whatsmyip-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-03-02T22:25:04.804594992+01:00"
     description: What's my ip - as simple as that
     digest: 0df6b4a9c5cddf6a13215787c9fc12551592fc051470e703d5ddfcac3b9aeb5e
@@ -530,4 +551,26 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-23T20:28:09.762410469Z"
+  whoami:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-23T20:34:34.987694779Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: What's my ip - as simple as that
+    digest: 60b59d624147ff59b49a59d47895848d40d54e2d79cbc689fd9d772b315632f7
+    keywords:
+    - network
+    - tools
+    - development
+    name: whoami
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-03-23T20:34:34.987747227Z"
