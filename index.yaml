@@ -257,6 +257,29 @@ entries:
   openldap-test:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-03-23T20:28:09.411590848Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: OpenLdap test / example server
+    digest: 6d470d83639fd0139bd8a60fdafddd1e1e0998de1bbc78f1f5846ff588f53477
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.1.1/openldap-test-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-03-23T09:30:11.635350611Z"
     dependencies:
     - name: common
@@ -507,4 +530,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.0.4/whatsmyip-1.0.4.tgz
     version: 1.0.4
-generated: "2024-03-23T20:07:28.426752149Z"
+generated: "2024-03-23T20:28:09.762410469Z"
