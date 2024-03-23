@@ -1,13 +1,17 @@
 image:
   repository: ghcr.io/eugenmayer/ldaptestserver
   # adapt if you want to use a different tag like type1
-  tag: "type2"
+  tag: 'type2'
   pullPolicy: Always
 
 service:
   main:
+    enabled: true
+    #type: ExternalIP
+    #externalIP: <exernalIp>
     ports:
       main:
+        protocol: tcp
         port: 389
         targetPort: 389
 
