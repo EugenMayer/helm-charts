@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Upgrade run rundeck to 5.1.1
+
 ## 1.11.1
 
 - Upgrade run rundeck to 4.17.5
