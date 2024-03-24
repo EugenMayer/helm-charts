@@ -1,8 +1,8 @@
 image:
-  repository: eugenmayer/whatsmyip
-  # https://hub.docker.com/r/traefik/whoami/tags
-  tag: v1.10
-  pullPolicy: Always
+  repository: ghcr.io/eugenmayer/whatsmyip
+  # https://github.com/EugenMayer/whatsmyip/pkgs/container/whatsmyip
+  tag: 0.0.1
+  pullPolicy: IfNotPresent
 
 securityContext:
   container:
@@ -48,7 +48,7 @@ ingress:
     enabled: false
     primary: true
     required: false
-    ingressClassName: ''
+    ingressClassName: ""
     targetSelector:
       main: main
     hosts:
