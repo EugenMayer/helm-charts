@@ -2,7 +2,7 @@ apiVersion: v2
 description: OpenLdap test / example server
 name: openldap-test
 home: https://github.com/EugenMayer/docker-image-ldapexample
-version: 0.1.2
+version: 0.1.3
 appVersion: 0.0.1
 keywords:
   - benchmark
