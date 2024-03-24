@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/eugenmayer/ldaptestserver
   # adapt if you want to use a different tag like type1
-  tag: 'type2'
+  tag: "type2"
   pullPolicy: Always
 
 service:
@@ -33,7 +33,7 @@ workload:
                 failureThreshold: 2
             liveness:
               enabled: true
-              type: tpc
+              type: tcp
               port: 389
               spec:
                 initialDelaySeconds: 15

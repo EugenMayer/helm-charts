@@ -2,7 +2,7 @@ apiVersion: v2
 description: OpenLdap test / example server
 name: openldap-test
 home: https://github.com/EugenMayer/docker-image-ldapexample
-version: 0.1.1
+version: 0.1.2
 appVersion: 0.0.1
 keywords:
   - benchmark
@@ -17,8 +17,8 @@ dependencies:
     # https://artifacthub.io/packages/helm/truecharts-library-charts/common
     version: 20.2.3
     repository: oci://tccr.io/truecharts
-    condition: ''
-    alias: ''
+    condition: ""
+    alias: ""
     tags: []
     import-values: []
 type: application
