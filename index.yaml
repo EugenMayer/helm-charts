@@ -137,6 +137,15 @@ entries:
   longhorn-backup-config:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-03-29T10:39:29.557405319Z"
+    description: Configure longhorn backups
+    digest: c7b0e39ac1068846f4a1fc0f8d8f78dddd2f1ec3bce6de1c76480c483500c5e5
+    name: longhorn-backup-config
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/longhorn-backup-config-0.0.2/longhorn-backup-config-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-03-02T22:25:03.371075763+01:00"
     description: Configure longhorn backups
     digest: 83e55345166ff80ba8ae5b424b26ee0182f6df67e6da6e6ffb04016be501267e
@@ -448,6 +457,24 @@ entries:
     version: 0.5.2
   rundeck:
   - apiVersion: v2
+    appVersion: 5.1.2
+    created: "2024-03-29T10:39:29.677450966Z"
+    description: Rundeck chart for Kubernetes
+    digest: 8b8ace580996ce9d7e53f2d23d10d69adcded022159de843adc995a8a3b15e81
+    home: https://github.com/rundeck/rundeck
+    keywords:
+    - rundeck
+    - jobs
+    - automation
+    - operations
+    name: rundeck
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/rundeck
+    - https://github.com/rundeck/rundeck
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-2.0.1/rundeck-2.0.1.tgz
+    version: 2.0.1
+  - apiVersion: v2
     appVersion: 5.1.1
     created: "2024-03-23T20:07:28.426710361Z"
     description: Rundeck chart for Kubernetes
@@ -640,4 +667,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-24T06:45:34.24722025Z"
+generated: "2024-03-29T10:39:29.677523421Z"
