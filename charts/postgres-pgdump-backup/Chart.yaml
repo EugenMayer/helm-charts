@@ -1,6 +1,6 @@
 name: postgres-pgdump-backup
 description: Backup postgres databases using pg_dump, retention and schedules
-version: 0.7.1
+version: 0.7.2
 apiVersion: v2
 appVersion: 15
 keywords:

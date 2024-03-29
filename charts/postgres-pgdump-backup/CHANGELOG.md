@@ -1,3 +1,7 @@
+## 0.7.2
+
+- Do not override the POSTGRES_EXTRA_OPTS by default
+
 ## 0.7.1
 
 - Update TrueCharts
