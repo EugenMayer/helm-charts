@@ -1,3 +1,7 @@
+## 2.0.1
+
+- Upgrade rundeck to 5.1.2
+
 ## 2.0.0
 
 **Major app update**!!

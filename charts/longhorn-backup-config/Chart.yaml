@@ -1,5 +1,5 @@
 name: longhorn-backup-config
 description: Configure longhorn backups
-version: 0.0.1
+version: 0.0.2
 apiVersion: v2
 appVersion: 0.0.1

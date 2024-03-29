@@ -1,5 +1,7 @@
 longhorn:
   backup:
+    groups:
+      - default
     cron: "20 2 * * *"
     retain: 7
     concurrency: 3
