@@ -23,6 +23,29 @@ entries:
     version: 0.1.1
   iobroker:
   - apiVersion: v2
+    appVersion: v9.1.2
+    created: "2024-04-06T09:18:38.07798094Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.13
+    description: home automation via ioBroker
+    digest: bb074d89c06dc5839253c52fed62e0cc4d18da85bc8bf395f1519fd72324de3b
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    keywords:
+    - iobroker
+    - home-automation
+    kubeVersion: '>=1.24.0-0'
+    name: iobroker
+    sources:
+    - https://www.iobroker.net/
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
+    - https://github.com/buanet/ioBroker.docker
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/iobroker-0.2.6/iobroker-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v2
     appVersion: v9.1.1
     created: "2024-03-23T09:30:11.527354808Z"
     dependencies:
@@ -689,4 +712,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-29T12:04:26.356026896Z"
+generated: "2024-04-06T09:18:38.078042134Z"
