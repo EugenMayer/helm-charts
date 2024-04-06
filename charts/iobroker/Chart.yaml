@@ -1,8 +1,9 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: iobroker
-version: 0.2.5
-appVersion: v9.1.1
+version: 0.2.6
+# see https://hub.docker.com/r/iobroker/iobroker/tags
+appVersion: v9.1.2
 description: home automation via ioBroker
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/iobroker
 deprecated: false
@@ -16,7 +17,7 @@ keywords:
 dependencies:
   - name: common
     # https://artifacthub.io/packages/helm/truecharts-library-charts/common
-    version: 20.2.3
+    version: 20.2.13
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
