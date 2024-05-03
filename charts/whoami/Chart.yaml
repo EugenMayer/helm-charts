@@ -1,6 +1,6 @@
 name: whoami
 description: What's my ip - as simple as that
-version: 1.0.0
+version: 1.0.1
 apiVersion: v2
 appVersion: 1.0.0
 keywords:
@@ -13,7 +13,7 @@ sources:
 dependencies:
   - name: common
     # https://artifacthub.io/packages/helm/truecharts-library-charts/common
-    version: 20.2.3
+    version: 20.3.7
     repository: oci://tccr.io/truecharts
     condition: ''
     alias: ''

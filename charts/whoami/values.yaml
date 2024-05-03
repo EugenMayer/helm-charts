@@ -1,5 +1,5 @@
 image:
-  repository: traefik/whoamim
+  repository: traefik/whoami
   # https://hub.docker.com/r/traefik/whoami/tags
   tag: v1.10
   pullPolicy: Always
