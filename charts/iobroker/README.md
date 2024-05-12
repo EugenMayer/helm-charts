@@ -1,3 +1,11 @@
+# DISCONTINUED
+
+For now, if nobody opts in to maintain this chart, i will not update it since i moved on to home-assistant. 
+The chart should work (as of now) and you can update the image version via the values.yaml without being in need
+of a chart release.
+
+If you are willing to maintain this chart, write me and create a PR removing this section.
+
 # WAT
 
 ioBroker in kubernetes - that is what we go for here.
