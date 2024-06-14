@@ -94,6 +94,9 @@ rundeck:
   # this will later be copied to /tmp/remco-partials/framework/framework-custom.properties and then appended
   # to rundecks framework config, see https://docs.rundeck.com/docs/administration/configuration/docker/extending-configuration.html#special-destination-directories
   rundeckFrameworkConfigMap:
+  # if set, a config-map with this name will be loaded and copied into the /etc folder
+  # This will enable custom ACLs. Multiple ACL Files can be set. Use the keys 'filename.aclpolicy filename1.aclpolicy etc.'
+  rundeckAclConfigMap:
   # Create this secrete in the rundeck namespace.
   # Should have the field `userCredentials` with the value `admin:YOURPASSWORD,user,admin,architect,deploy,build`
   userCredentialsSecretName: user-credentials-secret

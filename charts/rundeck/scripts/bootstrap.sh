@@ -9,6 +9,12 @@ if test -f "$CONFIG_SRC"; then
     cp "$CONFIG_SRC" /tmp/remco-partials/rundeck-config/rundeck-config-custom.properties
 fi
 
+ACL_SRC=/home/rundeck/acls
+if ls "$ACL_SRC"/*.aclpolicy &>/dev/null; then
+    echo "Copying ACL Policies to /home/rundeck/etc"
+    cp "$ACL_SRC"/*.aclpolicy /home/rundeck/etc/
+fi
+
 FRAMEWORK_SRC=/home/rundeck/custom/framework/framework-append.properties
 if test -f "$FRAMEWORK_SRC"; then
     echo "Applying custom framework.properties"

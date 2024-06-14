@@ -67,7 +67,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{.Values.database.secret_name | quote }}
-                  key: user          
+                  key: user
             - name: RUNDECK_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -75,7 +75,7 @@ spec:
                   key: password
             {{- end }}
             - name: RUNDECK_GRAILS_URL
-              value: {{ required "Please set the externUrl so grails can be configured!" .Values.externUrl | quote }}                     
+              value: {{ required "Please set the externUrl so grails can be configured!" .Values.externUrl | quote }}
           volumeMounts:
           - name: boostrap-wrapper-script
             mountPath: /custom-scripts
@@ -123,9 +123,13 @@ spec:
           {{- if .Values.rundeck.rundeckFrameworkConfigMap }}
           - name: framework-append
             mountPath: /home/rundeck/custom/framework
-          {{- end }}          
+          {{- end }}
+          {{- if .Values.rundeck.rundeckAclConfigMap }}
+          - name: acl-append
+            mountPath: /home/rundeck/acls/
+          {{- end }}
           livenessProbe:
-            httpGet:  
+            httpGet:
               path: /
               port: 4440
               scheme: HTTP
@@ -166,12 +170,12 @@ spec:
 
       securityContext:
       {{- toYaml .Values.securityContext | nindent 8 }}
-      
+
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
         - name: {{ .Values.image.pullSecrets }}
       {{- end }}
-      
+
       serviceAccountName: {{ include "rundeck.serviceAccountName" . }}
 
       volumes:
@@ -187,17 +191,17 @@ spec:
         - name: {{ $fullName }}-data
           persistentVolumeClaim:
             claimName: {{ $fullName }}-data-claim
-        {{- end }}  
+        {{- end }}
         {{- if .Values.plugins.claim.enabled }}
         - name: {{ $fullName }}-plugins
           persistentVolumeClaim:
             claimName: {{ $fullName }}-plugins-claim
-        {{- end }}  
+        {{- end }}
         {{- if .Values.addons.claim.enabled }}
         - name: {{ $fullName }}-addons
           persistentVolumeClaim:
             claimName: {{ $fullName }}-addons-claim
-        {{- end }}          
+        {{- end }}
         {{- if .Values.rundeck.sshSecrets }}
         - name: sshkeys
           secret:
@@ -235,6 +239,11 @@ spec:
             items:
             - key: config
               path: framework-append.properties
+        {{- end }}
+        {{- if .Values.rundeck.rundeckAclConfigMap }}
+        - name: acl-append
+          configMap:
+            name: {{ .Values.rundeck.rundeckAclConfigMap }}
         {{- end }}
       {{- if .Values.volumes }}
         {{- toYaml .Values.volumes | nindent 8}}
