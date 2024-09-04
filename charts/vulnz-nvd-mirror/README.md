@@ -1,6 +1,6 @@
 # WAT
 
-Chart to host a NIST mirror - see https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+Chart to host a NIST mirror - see [jeremylong/Open-Vulnerability-Project/vulnz](https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz)
 It syncs and serves the NVD (CPE/CVE JSON) data from NIST.
 
 This cache offers the v2 API of NVD, while [nist-data-mirror](../nist-data-mirror), offers v1.
