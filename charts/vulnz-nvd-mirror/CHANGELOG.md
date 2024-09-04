@@ -1,6 +1,9 @@
+## 0.2.0
+- update to ghcr.io/jeremylong/open-vulnerability-data-mirror 6.2.0
+
 ## 0.1.3
 
-- Switch image back to ghcr.io/jeremylong/open-vulnerability-data-mirror 6.0.1 including the cron-fix
+- Switch image back to j 6.0.1 including the cron-fix
 - Update TrueCharts
 
 ## 0.1.2
