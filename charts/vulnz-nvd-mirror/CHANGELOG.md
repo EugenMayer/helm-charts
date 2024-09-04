@@ -1,3 +1,7 @@
+## 0.2.1
+
+- fix OCI image version and coords
+
 ## 0.2.0
 - update to ghcr.io/jeremylong/open-vulnerability-data-mirror 6.2.0
 

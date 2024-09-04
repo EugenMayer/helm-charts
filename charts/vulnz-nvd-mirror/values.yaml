@@ -2,8 +2,8 @@ image:
   #repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
   #tag: v6.1.6
   # FIXME: use the official image once  https://github.com/jeremylong/Open-Vulnerability-Project/pull/196 is merged
-  repository: ghcr.io/eugenmayer/vulnz
-  tag: v6.1.6
+  repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  tag: v6.2.0
   pullPolicy: IfNotPresent
 
 persistence:
