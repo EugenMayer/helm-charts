@@ -12,8 +12,8 @@ sources:
   - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
 dependencies:
   - name: common
-    # https://artifacthub.io/packages/helm/truecharts-library-charts/common
-    version: 20.3.7
+    # https://github.com/truecharts/library-charts/blob/main/library/common/Chart.yaml
+    version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ''
     alias: ''

@@ -1,3 +1,7 @@
+## 0.3.0
+
+- upgrade vulnz to 7.0.0
+
 ## 0.2.1
 
 - fix OCI image version and coords

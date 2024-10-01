@@ -1,3 +1,7 @@
+## 1.3.1
+
+- Update truecharts common base
+
 ## 1.3.0
 
 - Update docker image (go lang 1.22)
