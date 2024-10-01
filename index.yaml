@@ -409,6 +409,28 @@ entries:
   postgres-pgdump-backup:
   - apiVersion: v2
     appVersion: "15"
+    created: "2024-10-01T08:58:27.948302892Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.0.0
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: a4a33fedc50632bf7702662252c4a3ab45188659bd18cdbc144c44f0024548b8
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.3/postgres-pgdump-backup-0.7.3.tgz
+    version: 0.7.3
+  - apiVersion: v2
+    appVersion: "15"
     created: "2024-03-29T12:04:26.355968086Z"
     dependencies:
     - name: common
@@ -692,6 +714,29 @@ entries:
     version: 1.11.0
   vulnz-nvd-mirror:
   - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2024-10-01T08:58:28.103566051Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.0.0
+    description: NVD api mirror and cache
+    digest: 0141fc0540b2862ea3426a68dcb4740de3cc9b0eead2a1715ee231f01cec7864
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.3.0/vulnz-nvd-mirror-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: 6.2.0
     created: "2024-09-04T07:56:23.986540893Z"
     dependencies:
@@ -924,4 +969,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-09-26T06:01:39.708043075Z"
+generated: "2024-10-01T08:58:28.426183478Z"
