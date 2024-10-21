@@ -1,3 +1,7 @@
+## 2.7.0
+
+- Upgrade rundeck to 5.7.0
+
 ## 2.6.1
 
 - Fix name-prefixing of ingress [#60](https://github.com/EugenMayer/helm-charts/pull/60) - thank you [callen-rti](https://github.com/callen-rti)
