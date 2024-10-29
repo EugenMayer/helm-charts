@@ -1,3 +1,7 @@
+## 0.3.2
+
+- upgrade vulnz to 7.0.1
+
 ## 0.3.1
 
 - fix vulnz image to match 7.0.0
