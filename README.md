@@ -39,6 +39,7 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [ioBroker](charts/iobroker): Home automation ioBroker
 - [longhorn-backup-config](charts/longhorn-backup-config): Longhorn backup configuration (CRD)
 - [network-tools](charts/network-tools): Multi-Pod network debugging tools
+- [gradle-build-cache](charts/gradle-build-cache) Remote and centralized gradle build cache server
 - [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing

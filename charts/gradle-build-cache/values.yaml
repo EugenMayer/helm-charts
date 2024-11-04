@@ -1,0 +1,103 @@
+image:
+  repository: gradle/build-cache-node
+  tag: "20.0"
+  pullPolicy: Always
+
+service:
+  main:
+    ports:
+      main:
+        port: 5071
+        targetPort: 5071
+
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    type: Deployment
+    podSpec:
+      initContainers:
+        init-config:
+          enabled: true
+          type: init
+          imageSelector: image
+          # we need to copy the config since mounting the secret would make the file read only
+          # which crashes the build cache server (required rw). So we jump through hoops
+          command:
+            - /bin/sh
+            - -ce
+          args:
+            - |
+              echo "Copying config.yaml file..."
+              if [ -f /tmp/conf/config.yaml ]; then
+                cp /tmp/conf/config.yaml /data/conf/config.yaml
+                echo "...done"
+              else
+                echo 'config.yaml does not exist'
+              fi
+      containers:
+        main:
+          args:
+            - start
+          probes:
+            startup:
+              enabled: true
+              port: 5071
+              type: tcp
+              spec:
+                initialDelaySeconds: 5
+                periodSeconds: 3
+                failureThreshold: 6
+            readiness:
+              enabled: true
+              port: 5071
+              type: tcp
+              spec:
+                initialDelaySeconds: 5
+                periodSeconds: 3
+                failureThreshold: 6
+            liveness:
+              enabled: true
+              type: tcp
+              port: 5071
+              spec:
+                initialDelaySeconds: 1
+                periodSeconds: 5
+                failureThreshold: 3
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+persistence:
+  cache:
+    enabled: true
+    size: 1Gi
+    mountPath: "/data/system"
+  config:
+    enabled: true
+    size: 1Mi
+    mountPath: "/data/conf"
+    targetSelectAll: all
+    type: emptyDir
+  config-secret:
+    # Enable if you want to preseed a config
+    enabled: false
+    type: secret
+    objectName: 'gradle-cache-config'
+    expandObjectName: false
+    targetSelector:
+      main:
+        init-config:
+          # this secret needs to have a property called 'config.yaml' that is the base64 encoded gradle-cache config
+          # see https://docs.gradle.com/build-cache-node/#editing_the_file
+          mountPath: "/tmp/conf/config.yaml"
+          subPath: 'config.yaml'
+
+portal:
+  open:
+    enabled: false
+

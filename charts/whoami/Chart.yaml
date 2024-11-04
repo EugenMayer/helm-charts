@@ -12,7 +12,7 @@ sources:
   - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
 dependencies:
   - name: common
-    # https://github.com/truecharts/library-charts/blob/main/library/common/Chart.yaml
+    # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
     version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ''

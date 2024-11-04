@@ -1,22 +1,21 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-name: vulnz-nvd-mirror
-version: 0.4.0
-appVersion: 7.0.1
-description: NVD api mirror and cache
-home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+name: gradle-build-cache
+version: 0.0.1
+appVersion: 20.0
+description: Hosts the official gradle build cache node
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
 deprecated: false
 keywords:
   - network
   - tools
   - development
 sources:
-  - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
-  - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.0.0
+    version: 25.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
