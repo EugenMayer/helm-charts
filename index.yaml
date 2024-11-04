@@ -21,6 +21,29 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/coredns-private-dns-fix-0.1.1/coredns-private-dns-fix-0.1.1.tgz
     version: 0.1.1
+  gradle-build-cache:
+  - apiVersion: v2
+    appVersion: "20"
+    created: "2024-11-04T15:55:44.567879348Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.1.5
+    description: Hosts the official gradle build cache node
+    digest: d7ed0006942086b221244dff02dd2f57a7a34e71889ea588b8aa99f51d3fa702
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: gradle-build-cache
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/gradle-build-cache-0.0.1/gradle-build-cache-0.0.1.tgz
+    version: 0.0.1
   iobroker:
   - apiVersion: v2
     appVersion: v9.1.2
@@ -1051,4 +1074,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-10-21T19:23:37.594323506Z"
+generated: "2024-11-04T15:55:44.976198163Z"
