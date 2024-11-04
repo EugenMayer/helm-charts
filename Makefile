@@ -16,3 +16,5 @@ package-all:
 	cr package charts/longhorn-backup-config
 	cr package charts/iobroker
 	cr package charts/network-tools
+	cr package charts/gradle-build-cache
+

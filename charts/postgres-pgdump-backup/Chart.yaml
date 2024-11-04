@@ -14,7 +14,7 @@ sources:
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
 dependencies:
   - name: common
-    # https://github.com/truecharts/library-charts/blob/main/library/common/Chart.yaml
+    # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
     version: 25.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
