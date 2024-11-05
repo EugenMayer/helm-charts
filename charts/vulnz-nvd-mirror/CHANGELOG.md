@@ -1,3 +1,7 @@
+## 0.4.0
+
+- adjust mounted PVC permissions to match app's user
+
 ## 0.3.2
 
 - upgrade vulnz to 7.0.1
