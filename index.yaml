@@ -320,6 +320,29 @@ entries:
     version: 0.1.2
   openldap-test:
   - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-11-29T06:22:48.870274952Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 20.2.3
+    description: OpenLdap test / example server
+    digest: a48b832da4f55d82dd64b0a2c5877b838c665fc53262de0e9178773e29a1a19b
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.2.0/openldap-test-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.0.1
     created: "2024-03-24T06:45:34.247164776Z"
     dependencies:
@@ -1097,4 +1120,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-11-05T06:07:27.791837634Z"
+generated: "2024-11-29T06:22:48.870394635Z"
