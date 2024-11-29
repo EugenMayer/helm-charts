@@ -8,7 +8,7 @@ general documentation of the ldap server itself.
 
 ```bash
 helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
-helm install eugenmayer/coredns-private-dns-fix
+helm install eugenmayer/openldap-test
 ```
 
 # Values
