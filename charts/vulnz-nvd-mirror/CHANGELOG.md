@@ -1,3 +1,8 @@
+## 0.4.1
+
+- upgrade vulnz to 7.0.2
+- remove predefined JAVA_OPT settings
+
 ## 0.4.0
 
 - adjust mounted PVC permissions to match app's user
