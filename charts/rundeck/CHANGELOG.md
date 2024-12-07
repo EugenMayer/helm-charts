@@ -1,3 +1,7 @@
+## 2.8.0
+
+- Upgrade rundeck to 5.8.0
+
 ## 2.7.0
 
 - Upgrade rundeck to 5.7.0
