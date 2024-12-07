@@ -50,6 +50,10 @@ workload:
                 periodSeconds: 5
                 failureThreshold: 2
 
+          resources:
+            limits:
+              memory: 2Gi
+
           # env:
           #   # set this to preseed your API key. the expected structure is
           #   NVD_API_KEY:
