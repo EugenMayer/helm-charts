@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
-  tag: v7.0.1
+  tag: v7.0.2
   pullPolicy: IfNotPresent
 
 persistence:
@@ -33,20 +33,6 @@ workload:
     podSpec:
       containers:
         main:
-          env:
-            # set this to preseed your API key. the expected structure is
-            #NVD_API_KEY:
-            #  secretKeyRef:
-            #    name: nvd-api-key
-            #    key: password
-            JAVA_OPT: -Xmx2g
-            # amount of retries
-            #MAX_RETRY: 10
-            # fetch max record pre page - cannot be higher then 2000 by API limits
-            #MAX_RECORDS_PER_PAGE: 2000
-            # show debug logs
-            #DEBUG: true
-
           probes:
             readiness:
               port: 80
@@ -63,6 +49,23 @@ workload:
                 initialDelaySeconds: 15
                 periodSeconds: 5
                 failureThreshold: 2
+
+          resources:
+            limits:
+              memory: 2Gi
+
+          # env:
+          #   # set this to preseed your API key. the expected structure is
+          #   NVD_API_KEY:
+          #     secretKeyRef:
+          #       name: nvd-api-key
+          #       key: password
+          #   # amount of retries
+          #   MAX_RETRY: 10
+          #   # fetch max record pre page - cannot be higher then 2000 by API limits
+          #   MAX_RECORDS_PER_PAGE: 2000
+          #   # show debug logs
+          #   DEBUG: true
 
 ingress:
   main:
