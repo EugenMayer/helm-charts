@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.1.5
+    version: 25.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

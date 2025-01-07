@@ -1,8 +1,8 @@
 name: postgres-pgdump-backup
 description: Backup postgres databases using pg_dump, retention and schedules
-version: 0.7.3
+version: 0.7.4
 apiVersion: v2
-appVersion: 15
+appVersion: 16
 keywords:
   - postgres
   - backup
@@ -15,7 +15,7 @@ home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.0.0
+    version: 25.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

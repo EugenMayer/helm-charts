@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
-  tag: v7.0.2
+  tag: v7.1.0
   pullPolicy: IfNotPresent
 
 persistence:

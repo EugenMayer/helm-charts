@@ -1,3 +1,7 @@
+## 0.7.4
+
+- Update truecharts common base
+
 ## 0.7.3
 
 - Update truecharts common base

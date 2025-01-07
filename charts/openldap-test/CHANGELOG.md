@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Update truecharts common base
+
 ## 0.2.0
 
 - Switch from osixia to bitnami docker images. Adopt configuration

@@ -1,6 +1,6 @@
 name: whoami
 description: What's my ip - as simple as that
-version: 1.0.1
+version: 1.0.2
 apiVersion: v2
 appVersion: 1.0.0
 keywords:
@@ -8,12 +8,12 @@ keywords:
   - tools
   - development
 sources:
-  - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
-  - https://github.com/jeremylong/Open-Vulnerability-Project/vulnz
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.0.0
+    version: 25.4.2
     repository: oci://tccr.io/truecharts
     condition: ''
     alias: ''
