@@ -211,6 +211,26 @@ entries:
   network-tools:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2025-01-07T10:01:44.38553131Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: Debugging Tools / Pods
+    digest: 8be81454781b1b0fcda7c079096517dd7eab783db0e8f2736d33661928c0240c
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    keywords:
+    - network
+    - tools
+    - development
+    name: network-tools
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/network-tools-0.2.3/network-tools-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2024-03-17T08:43:10.941896036Z"
     dependencies:
     - name: common
@@ -319,6 +339,29 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/nist-data-mirror-0.1.2/nist-data-mirror-0.1.2.tgz
     version: 0.1.2
   openldap-test:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-01-07T10:01:44.56921099Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: OpenLdap test / example server
+    digest: 85dd5288bc2beef5086845a1fdde941e986011377a6c5ddafc0bae6c5f6e711e
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.2.1/openldap-test-0.2.1.tgz
+    version: 0.2.1
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2024-11-29T06:22:48.870274952Z"
@@ -453,6 +496,28 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.0.5/openldap-test-0.0.5.tgz
     version: 0.0.5
   postgres-pgdump-backup:
+  - apiVersion: v2
+    appVersion: "16"
+    created: "2025-01-07T10:01:44.742081175Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 0f12d7e3c1e0cf22b5e02b9f628a80d246eade7aebec14f35ba09dd9049b6b43
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.4/postgres-pgdump-backup-0.7.4.tgz
+    version: 0.7.4
   - apiVersion: v2
     appVersion: "15"
     created: "2024-10-01T08:58:27.948302892Z"
@@ -814,6 +879,29 @@ entries:
     version: 1.11.0
   vulnz-nvd-mirror:
   - apiVersion: v2
+    appVersion: 7.1.0
+    created: "2025-01-07T10:01:44.892318282Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: NVD api mirror and cache
+    digest: f9354c44c831e44ca9da130e58f6b53990ea32f1a90746872dd703a2f3ac80a7
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.4.2/vulnz-nvd-mirror-0.4.2.tgz
+    version: 0.4.2
+  - apiVersion: v2
     appVersion: 7.0.2
     created: "2024-12-07T16:04:18.720766442Z"
     dependencies:
@@ -1069,6 +1157,27 @@ entries:
   whatsmyip:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2025-01-07T10:01:45.064386961Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: What's my ip - as simple as that
+    digest: 137fc481dba9ea78783d293dd32f7c9c66e528a06169ec68e3ec85527b23f420
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whatsmyip
+    keywords:
+    - network
+    - tools
+    - development
+    name: whatsmyip
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whatsmyip
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.3.1/whatsmyip-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-03-24T06:20:01.540480093Z"
     dependencies:
     - name: common
@@ -1121,6 +1230,27 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-01-07T10:01:45.213226525Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: What's my ip - as simple as that
+    digest: 92deadb8b3e8324f110fc5d8aa7a7374a7a9887309dcb752dce8ce6f6a7d319c
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    keywords:
+    - network
+    - tools
+    - development
+    name: whoami
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.2/whoami-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-05-03T14:48:01.698483199Z"
     dependencies:
     - name: common
@@ -1161,4 +1291,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2024-12-07T16:04:18.720928374Z"
+generated: "2025-01-07T10:01:45.213371247Z"
