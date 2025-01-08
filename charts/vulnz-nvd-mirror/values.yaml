@@ -17,6 +17,7 @@ securityContext:
     readOnlyRootFilesystem: false
     capabilities:
       add:
+        # needed for supervisord to properly kill / handle sigterms
         - KILL
   pod:
     fsGroup: 101
@@ -52,7 +53,6 @@ workload:
                 initialDelaySeconds: 15
                 periodSeconds: 5
                 failureThreshold: 2
-
           resources:
             limits:
               # needed since vulnz is rather memory hungry and will crash with less
@@ -60,18 +60,19 @@ workload:
           env:
             # we need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
             # leave some for the apache process
-            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=95.0
-        #   # set this to preseed your API key. the expected structure is
-        #   NVD_API_KEY:
-        #     secretKeyRef:
-        #       name: nvd-api-key
-        #       key: password
-        #   # amount of retries
-        #   MAX_RETRY: 10
-        #   # fetch max record pre page - cannot be higher then 2000 by API limits
-        #   MAX_RECORDS_PER_PAGE: 2000
-        #   # show debug logs
-        #   DEBUG: true
+            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=90.0
+            # starting from 7.1.0 even 5Gi is not enough to handle 2000 records per page
+            ## fetch max record pre page - cannot be higher then 2000 by API limits
+            MAX_RECORDS_PER_PAGE: 500
+            ## set this to preseed your API key. the expected structure is
+            #NVD_API_KEY:
+            #  secretKeyRef:
+            #    name: nvd-api-key
+            #    key: password
+            ## amount of retries
+            #MAX_RETRY: 10
+            ## show debug logs
+            #DEBUG: true
 
 ingress:
   main:

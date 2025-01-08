@@ -1,5 +1,9 @@
 ## 0.4.5
 
+- Lower max-per-page to 500 to ensure resources are not exhausted
+
+## 0.4.5
+
 - Add kill signal capability to the container so supervisor can handle the shutdown gracefully
 - Higher memory limit for the container
 
