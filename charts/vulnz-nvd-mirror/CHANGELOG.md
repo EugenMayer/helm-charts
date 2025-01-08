@@ -1,3 +1,7 @@
+## 0.4.3
+
+- Fix resource limits being to restrictive by default, crashing the app
+
 ## 0.4.2
 
 - upgrade vulnz to 7.1.0

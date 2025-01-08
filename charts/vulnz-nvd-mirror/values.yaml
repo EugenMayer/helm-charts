@@ -52,9 +52,11 @@ workload:
 
           resources:
             limits:
-              memory: 2Gi
-
-          # env:
+              # needed since vulnz is rather memory hungry and will crash with less
+              memory: 3Gi
+          env:
+            # wee need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
+            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=100.0
           #   # set this to preseed your API key. the expected structure is
           #   NVD_API_KEY:
           #     secretKeyRef:
