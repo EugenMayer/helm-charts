@@ -880,6 +880,29 @@ entries:
   vulnz-nvd-mirror:
   - apiVersion: v2
     appVersion: 7.1.0
+    created: "2025-01-08T18:01:54.835805781Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.2
+    description: NVD api mirror and cache
+    digest: d950d4660cc26ba2d11c760d2fc085262d44ec0a60c654cc5f4461983edba45f
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.4.7/vulnz-nvd-mirror-0.4.7.tgz
+    version: 0.4.7
+  - apiVersion: v2
+    appVersion: 7.1.0
     created: "2025-01-08T13:28:55.03266232Z"
     dependencies:
     - name: common
@@ -1383,4 +1406,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-01-08T13:28:55.032947735Z"
+generated: "2025-01-08T18:01:54.836012536Z"
