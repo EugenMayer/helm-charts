@@ -55,19 +55,20 @@ workload:
               # needed since vulnz is rather memory hungry and will crash with less
               memory: 3Gi
           env:
-            # wee need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
-            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=100.0
-          #   # set this to preseed your API key. the expected structure is
-          #   NVD_API_KEY:
-          #     secretKeyRef:
-          #       name: nvd-api-key
-          #       key: password
-          #   # amount of retries
-          #   MAX_RETRY: 10
-          #   # fetch max record pre page - cannot be higher then 2000 by API limits
-          #   MAX_RECORDS_PER_PAGE: 2000
-          #   # show debug logs
-          #   DEBUG: true
+            # we need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
+            # leave some for the apache process
+            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=95.0
+        #   # set this to preseed your API key. the expected structure is
+        #   NVD_API_KEY:
+        #     secretKeyRef:
+        #       name: nvd-api-key
+        #       key: password
+        #   # amount of retries
+        #   MAX_RETRY: 10
+        #   # fetch max record pre page - cannot be higher then 2000 by API limits
+        #   MAX_RECORDS_PER_PAGE: 2000
+        #   # show debug logs
+        #   DEBUG: true
 
 ingress:
   main:

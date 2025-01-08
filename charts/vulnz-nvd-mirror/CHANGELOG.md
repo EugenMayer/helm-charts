@@ -1,3 +1,7 @@
+## 0.4.4
+
+- Leave some memory for apache
+
 ## 0.4.3
 
 - Fix resource limits being to restrictive by default, crashing the app
