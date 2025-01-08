@@ -1,4 +1,8 @@
-## 0.4.5
+## 0.4.7
+
+- Further Lower max-per-page to 200 to ensure resources are not exhausted and the process actually finishes
+
+## 0.4.6
 
 - Lower max-per-page to 500 to ensure resources are not exhausted
 
