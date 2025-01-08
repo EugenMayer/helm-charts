@@ -1,3 +1,8 @@
+## 0.4.5
+
+- Add kill signal capability to the container so supervisor can handle the shutdown gracefully
+- Higher memory limit for the container
+
 ## 0.4.4
 
 - Leave some memory for apache
