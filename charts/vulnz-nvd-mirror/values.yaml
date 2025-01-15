@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
-  tag: v7.1.0
+  tag: v7.2.0
   pullPolicy: IfNotPresent
 
 persistence:
@@ -60,7 +60,7 @@ workload:
           env:
             # we need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
             # leave some for the apache process
-            JAVA_OPT: -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=90.0
+            JAVA_OPT: -XX:InitialRAMPercentage=50.0
             ## fetch max record pre page - cannot be higher then 2000 by API limits
             # starting from 7.1.0 even 5Gi is not enough to handle 2000 records per page
             MAX_RECORDS_PER_PAGE: 200

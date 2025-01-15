@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Upgrade to 7.2.0
+
 ## 0.4.7
 
 - Further Lower max-per-page to 200 to ensure resources are not exhausted and the process actually finishes
