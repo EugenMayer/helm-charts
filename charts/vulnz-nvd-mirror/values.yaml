@@ -58,9 +58,6 @@ workload:
               # needed since vulnz is rather memory hungry and will crash with less
               memory: 5Gi
           env:
-            # we need to override the default, see https://github.com/jeremylong/Open-Vulnerability-Project/issues/245
-            # leave some for the apache process
-            JAVA_OPT: -XX:InitialRAMPercentage=50.0
             ## fetch max record pre page - cannot be higher then 2000 by API limits
             # starting from 7.1.0 even 5Gi is not enough to handle 2000 records per page
             MAX_RECORDS_PER_PAGE: 200
