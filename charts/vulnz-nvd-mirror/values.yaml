@@ -1,7 +1,7 @@
 image:
   #repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
   #tag: v7.2.1
-  repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  repository: ghcr.io/eugenmayer/vulnz
   tag: v7.3.0-3
   pullPolicy: IfNotPresent
 

@@ -1,4 +1,4 @@
-## 0.6.0
+## 0.6.0 / 0.6.1
 
 - Custom rewrite for more resilience, less memory usage and faster cache (early 7.3.0-rc1)
 - Using continue-feature by default (see env files) - cache per year is not re-fetched if not older then 3 days.
