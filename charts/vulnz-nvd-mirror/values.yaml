@@ -1,6 +1,8 @@
 image:
+  #repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  #tag: v7.2.1
   repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
-  tag: v7.2.1
+  tag: v7.3.0-3
   pullPolicy: IfNotPresent
 
 persistence:
@@ -55,12 +57,13 @@ workload:
                 failureThreshold: 2
           resources:
             limits:
-              # needed since vulnz is rather memory hungry and will crash with less
-              memory: 5Gi
+              memory: 2Gi
           env:
             ## fetch max record pre page - cannot be higher then 2000 by API limits
-            # starting from 7.1.0 even 5Gi is not enough to handle 2000 records per page
-            MAX_RECORDS_PER_PAGE: 200
+            MAX_RECORDS_PER_PAGE: 2000
+            # enable continue mode, means, if a year cache file exists, do not re-fetch until it is older then 3 days
+            # also try to re-fetch every 2 hours to complete not-fetched years
+            CONTINUE: 1
             ## set this to preseed your API key. the expected structure is
             #NVD_API_KEY:
             #  secretKeyRef:

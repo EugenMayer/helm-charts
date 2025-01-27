@@ -1,3 +1,10 @@
+## 0.6.0
+
+- Custom rewrite for more resilience, less memory usage and faster cache (early 7.3.0-rc1)
+- Using continue-feature by default (see env files) - cache per year is not re-fetched if not older then 3 days.
+- See https://github.com/jeremylong/Open-Vulnerability-Project/pull/259
+- Default cgroups max mem size back to max 2GB (can be even lower now)
+
 ## 0.5.2
 
 - Upgrade to 7.2.1

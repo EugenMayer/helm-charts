@@ -25,7 +25,10 @@ workload:
       containers:
         main:
           env:
-            JAVA_OPT: -Xmx2g
+            # disable continue faeture
+            CONTINUE: 0
+            # show debug logs
+            DEBUG: 1
 ```
 
 ### API key
