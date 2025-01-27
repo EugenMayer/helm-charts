@@ -1,3 +1,8 @@
+## 0.6.2
+
+- remove continue flag since it has been automated within vulnz now
+- fix several issues with the cache and the cache cleanup
+
 ## 0.6.0 / 0.6.1
 
 - Custom rewrite for more resilience, less memory usage and faster cache (early 7.3.0-rc1)

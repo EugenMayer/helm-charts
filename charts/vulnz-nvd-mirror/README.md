@@ -25,8 +25,6 @@ workload:
       containers:
         main:
           env:
-            # disable continue faeture
-            CONTINUE: 0
             # show debug logs
             DEBUG: 1
 ```
