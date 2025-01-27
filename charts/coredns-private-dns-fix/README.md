@@ -7,11 +7,11 @@ When 2 DNS servers are presented via the resolv.conf / DNS tree, we would expect
 the first one in order and try resolving. Then, if that fails (the server is not reachable) it would
 try to pick the second one. https://linux.die.net/man/5/resolv.conf
 
-> f there are multiple servers, the resolver library queries them in the order listed.
+> if there are multiple servers, the resolver library queries them in the order listed.
 
 **CoreDNS way**
 Instead of doing it as expected above, CoreDNS picks "one of the servers" round-robbing/random style.
-It load balances though the servers, equally distributed. https://coredns.io/plugins/forward/
+It load balances through the servers, equally distributed. https://coredns.io/plugins/forward/
 
 > TO… are the destination endpoints to forward to. The TO syntax allows you to specify a protocol, tls://9.9.9.9 or dns:// (or no protocol) for plain DNS. The number of upstreams is limited to 15.
 Multiple upstreams are randomized (see policy) on first use. When a healthy proxy returns an error during the exchange the next upstream in the list is tried.

@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vulnz-nvd-mirror
 version: 0.5.1
-appVersion: 7.2.0
+appVersion: 7.2.1
 description: NVD api mirror and cache
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
 deprecated: false
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.4.2
+    version: 25.4.8
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,10 @@
 ## 0.5.1
 
-- remove no longer needed JAVA_OPT param
+- Upgrade to 7.2.1
 
+## 0.5.1
+
+- remove no longer needed JAVA_OPT param
 
 ## 0.5.0
 

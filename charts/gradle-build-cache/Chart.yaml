@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gradle-build-cache
-version: 0.0.1
-appVersion: 20.0
+version: 0.0.2
+appVersion: 20.1
 description: Hosts the official gradle build cache node
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
 deprecated: false
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.4.2
+    version: 25.4.8
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
