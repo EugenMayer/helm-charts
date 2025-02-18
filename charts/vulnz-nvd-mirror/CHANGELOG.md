@@ -1,3 +1,7 @@
+## 0.7.0
+
+- Use new vulnz client with more resilience, see https://github.com/jeremylong/open-vulnerability-cli/pull/279#issuecomment-2664962058
+
 ## 0.6.2
 
 - remove continue flag since it has been automated within vulnz now
