@@ -60,8 +60,12 @@ workload:
             limits:
               memory: 2Gi
           env:
-            ## fetch max record pre page - cannot be higher then 2000 by API limits
-            MAX_RECORDS_PER_PAGE: 2000
+            ## go below 2000 (max) since the NVD api fails more often for bigger requests
+            MAX_RECORDS_PER_PAGE: 1500
+            ## go below the 119 (max) since the NVD api fails more often for bigger requests
+            MAX_DAYS_OF_YEAR_RANGED: 90
+            ## if it fails, retrying more then 5 times makes a lot of sense with NVD being so unreliably.
+            MAX_MIRROR_RETRIES: 15
             ## set this to preseed your API key. the expected structure is
             #NVD_API_KEY:
             #  secretKeyRef:

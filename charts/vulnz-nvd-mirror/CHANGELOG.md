@@ -1,3 +1,7 @@
+## 0.7.1
+
+- Tweak defaults to have deterministic and reliable results with the NVD api being faulty
+
 ## 0.7.0
 
 - Use new vulnz client with more resilience, see https://github.com/jeremylong/open-vulnerability-cli/pull/279#issuecomment-2664962058
