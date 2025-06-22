@@ -4,6 +4,7 @@ apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
   name: {{ .Values.longhorn.backup.schedule_label }}-backup
+  namespace: longhorn-system
 spec:
   cron: {{ .Values.longhorn.backup.cron }}
   task: "backup-force-create"
