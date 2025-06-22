@@ -1,6 +1,6 @@
-# https://longhorn.io/docs/1.6.1/snapshots-and-backups/scheduling-backups-and-snapshots/#using-the-manifest
+# https://longhorn.io/docs/1.9.0/snapshots-and-backups/scheduling-backups-and-snapshots/#using-the-manifest
 
-apiVersion: longhorn.io/v1beta1
+apiVersion: longhorn.io/v1beta2
 kind: RecurringJob
 metadata:
   name: {{ .Values.longhorn.backup.schedule_label }}-backup
