@@ -1,3 +1,7 @@
+## 2.13.0
+
+- Upgrade rundeck to 5.13.0
+
 ## 2.12.0
 
 - Upgrade rundeck to 5.12.0
