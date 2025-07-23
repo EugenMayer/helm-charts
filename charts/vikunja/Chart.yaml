@@ -37,5 +37,5 @@ sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
   - https://vikunja.io/docs
 type: application
-version: 0.24.6.0
+version: 0.1.1
 

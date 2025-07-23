@@ -10,13 +10,13 @@ workload:
           env:
             VIKUNJA_DATABASE_PASSWORD:
               secretKeyRef:
-                name: ${db_secret_name}
-                key: ${db_secret_key}
+                name: db-yoursecret
+                key: password
                 expandObjectName: false
             VIKUNJA_MAILER_PASSWORD:
               secretKeyRef:
-                name: ${email_secret_name}
-                key: ${email_secret_key}
+                name: email-secret
+                key: password
                 expandObjectName: false
 vikunja:
   service:
