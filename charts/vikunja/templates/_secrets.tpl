@@ -20,7 +20,6 @@ secret:
         database:
           type: postgres
           user: {{ .Values.postgres.username | trimAll "\""}}
-          password: {{ .Values.postgres.password | trimAll "\""}}
           database: {{ .Values.postgres.database | trimAll "\""}}
           host: {{ .Values.postgres.host | trimAll "\""}}
           port: {{ .Values.postgres.port | trimAll "\""}}
@@ -81,7 +80,6 @@ secret:
           port: {{ .Values.vikunja.mailer.port }}
           authtype: {{ .Values.vikunja.mailer.authtype | quote }}
           username: {{ .Values.vikunja.mailer.username | quote }}
-          password: {{ .Values.vikunja.mailer.password | quote }}
           skiptlsverify: {{ .Values.vikunja.mailer.skiptlsverify }}
           fromemail: {{ .Values.vikunja.mailer.fromemail | quote }}
           queuelength: {{ .Values.vikunja.mailer.queuelength }}

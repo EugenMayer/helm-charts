@@ -3,7 +3,12 @@
 This chart has been copied from [TrueCharts](https://github.com/trueforge-org/truecharts/tree/master/charts/stable/vikunja)
 and only modified to work with non cpng external pg databases - that's it. If you are using cpng, use the truechart chart.
 
-See `postgres:` in the values.yaml
+See `postgres:` in the values.yaml.
+
+Other changes:
+    - `postgres.password` configured via the secret
+    - `mailer.password` now configured via the secret
+
 
 ## Installation
 
