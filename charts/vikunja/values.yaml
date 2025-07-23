@@ -1,0 +1,176 @@
+image:
+  repository: docker.io/vikunja/vikunja
+  tag: 0.24.6@sha256:ed1f3ed467fecec0b57e9de7bc6607f8bbcbb23ffced6a81f5dfefc794cdbe3b
+  pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              port: 10220
+              path: /health
+            readiness:
+              type: http
+              port: 10220
+              path: /health
+            startup:
+              type: http
+              port: 10220
+              path: /health
+vikunja:
+  service:
+    jwtttl: 259200
+    jwtttllong: 2592000
+    motd: Welcome to your new Vikunja instance
+    frontendurl: http://localhost:10220
+    maxitemsperpage: 50
+    enablecaldav: true
+    enablelinksharing: true
+    enableregistration: true
+    enabletaskattachments: true
+    enabletaskcomments: true
+    enabletotp: true
+    enableemailreminders: true
+    enableuserdeletion: true
+    maxavatarsize: 1024
+  cors:
+    enabled: true
+    origins: []
+    maxage: 0
+  ratelimit:
+    enabled: false
+    kind: user
+    period: 60
+    limit: 100
+  files:
+    maxsize: 20MB
+  avatar:
+    gravatarexpiration: 3600
+  legal:
+    imprinturl: ""
+    privacyurl: ""
+  mailer:
+    enabled: false
+    host: ""
+    port: 587
+    authtype: plain
+    username: ""
+    password: ""
+    fromemail: ""
+    skiptlsverify: false
+    forcessl: true
+    queuelength: 100
+    queuetimeout: 30
+  log:
+    enabled: true
+    path: /app/vikunja/logs
+    standard: stdout
+    level: INFO
+    database: "off"
+    databaselevel: WARNING
+    http: stdout
+    echo: "off"
+    events: stdout
+    eventslevel: INFO
+  defaultsettings:
+    avatar_provider: initials
+    avatar_file_id: 0
+    email_reminders_enabled: false
+    discoverable_by_name: false
+    discoverable_by_email: false
+    overdue_tasks_reminders_enabled: true
+    overdue_tasks_reminders_time: "9:00"
+    default_list_id: 0
+    week_start: 0
+    language: ""
+    timezone: ""
+  backgrounds:
+    enabled: true
+    providers:
+      upload:
+        enabled: true
+      unsplash:
+        enabled: false
+        accesstoken: ""
+        applicationid: ""
+  auth:
+    local:
+      enabled: true
+    openid:
+      enabled: false
+      redirecturl: ""
+      providers: []
+      # - name: ""
+      #   authurl: ""
+      #   logouturl: ""
+      #   clientid: ""
+      #   clientsecret: ""
+  migration:
+    todoist:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
+    trello:
+      enable: false
+      key: ""
+      redirecturl: ""
+    microsofttodo:
+      enable: false
+      clientid: ""
+      clientsecret: ""
+      redirecturl: ""
+service:
+  main:
+    ports:
+      main:
+        port: 10220
+persistence:
+  files:
+    enabled: true
+    mountPath: /app/vikunja/files
+  vikunja-config:
+    enabled: true
+    type: secret
+    objectName: config
+    targetSelector:
+      main:
+        main:
+          subPath: config.yaml
+          mountPath: /etc/vikunja/config.yaml
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    prometheusRule:
+      enabled: false
+cnpg:
+  main:
+    # keep that, see postgres below
+    enabled: false
+
+postgres:
+  host:
+  port: 5432
+  database: vikunja
+  username:
+  password:
+  # see https://vikunja.io/docs/config-options/#1-database-sslmode
+  sslmode: require
+
+redis:
+  enabled: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_BIND_SERVICE
+updated: true
