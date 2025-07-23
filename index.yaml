@@ -1025,6 +1025,43 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-1.11.0/rundeck-1.11.0.tgz
     version: 1.11.0
+  vikunja:
+  - annotations:
+      max_scale_version: 24.04.1
+      min_scale_version: 24.04.0
+      truecharts.org/category: productivity
+      truecharts.org/max_helm_version: "3.17"
+      truecharts.org/min_helm_version: "3.14"
+      truecharts.org/train: stable
+    apiVersion: v2
+    appVersion: 0.24.6
+    created: "2025-07-23T06:34:42.722744767Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 28.13.0
+    - condition: redis.enabled
+      name: redis
+      repository: oci://tccr.io/truecharts
+      version: 17.1.0
+    description: The to-do app to organize your life.
+    digest: 8a0af94984587ab4eb007d37778a6d1571cb2da435935e7f6cbe270c1e230d14
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+    keywords:
+    - vikunja
+    kubeVersion: '>=1.24.0-0'
+    maintainers:
+    - email: nope@nope.local
+      name: EugenMayer
+      url: https://github.com/EugenMayer/helm-charts/tree/main/charts
+    name: vikunja
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+    - https://vikunja.io/docs
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vikunja-0.1.1/vikunja-0.1.1.tgz
+    version: 0.1.1
   vulnz-nvd-mirror:
   - apiVersion: v2
     appVersion: 7.3.0
@@ -1738,4 +1775,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-06-27T19:33:13.796783424Z"
+generated: "2025-07-23T06:34:42.722893195Z"
