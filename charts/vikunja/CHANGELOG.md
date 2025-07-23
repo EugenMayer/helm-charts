@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Fix trimming port leading to typecast issue
+
 ## 0.1.1
 
 - Move postgres and mail passwords to secrets

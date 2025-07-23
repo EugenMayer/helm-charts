@@ -22,7 +22,7 @@ secret:
           user: {{ .Values.postgres.username | trimAll "\""}}
           database: {{ .Values.postgres.database | trimAll "\""}}
           host: {{ .Values.postgres.host | trimAll "\""}}
-          port: {{ .Values.postgres.port | trimAll "\""}}
+          port: {{ .Values.postgres.port }}
           sslmode: {{ .Values.postgres.sslmode | trimAll "\""}}
 
         cache:
