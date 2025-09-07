@@ -1,7 +1,7 @@
 image:
   repository: gradle/build-cache-node
   # see https://hub.docker.com/r/gradle/build-cache-node/tags
-  tag: "20.1"
+  tag: "21.2"
   pullPolicy: Always
 
 service:
