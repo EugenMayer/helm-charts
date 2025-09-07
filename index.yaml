@@ -582,6 +582,28 @@ entries:
   postgres-pgdump-backup:
   - apiVersion: v2
     appVersion: "16"
+    created: "2025-09-07T06:51:33.074956311Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 28.16.6
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 05dcdcfeb87306f4cacd23b258c902ceda7155da8b9e8aeb247ebdf18c686e66
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.5/postgres-pgdump-backup-0.7.5.tgz
+    version: 0.7.5
+  - apiVersion: v2
+    appVersion: "16"
     created: "2025-01-07T10:01:44.742081175Z"
     dependencies:
     - name: common
@@ -1909,4 +1931,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-07T06:49:01.524386803Z"
+generated: "2025-09-07T06:51:33.075157716Z"
