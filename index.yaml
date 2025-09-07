@@ -23,6 +23,28 @@ entries:
     version: 0.1.1
   gradle-build-cache:
   - apiVersion: v2
+    appVersion: "21.2"
+    created: "2025-09-07T06:47:40.905980383Z"
+    dependencies:
+    - name: common
+      repository: oci://tccr.io/truecharts
+      version: 25.4.8
+    description: Hosts the official gradle build cache node
+    digest: 87f91a0aa0cc9ee747a12a95ee1716e0996eefa440000547f0cccf1c4a4f37e4
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: gradle-build-cache
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/gradle-build-cache-0.1.0/gradle-build-cache-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
     appVersion: "20.1"
     created: "2025-01-27T07:40:14.156770522Z"
     dependencies:
@@ -1865,4 +1887,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-03T06:23:18.073301405Z"
+generated: "2025-09-07T06:47:40.906337446Z"
