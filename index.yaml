@@ -258,6 +258,15 @@ entries:
   longhorn-backup-config:
   - apiVersion: v2
     appVersion: 1.9.0
+    created: "2025-10-01T06:16:12.560944765Z"
+    description: Configure longhorn backups
+    digest: cdf24b6194addc06bef35998b129fac816cf01a582f302c4f0f2a74ea1ee94bc
+    name: longhorn-backup-config
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/longhorn-backup-config-0.1.2/longhorn-backup-config-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.9.0
     created: "2025-06-22T09:05:12.602934281Z"
     description: Configure longhorn backups
     digest: aea8d5dea30ea8b0014fc1457af960f5fd3540fd825d7e3c834d98332040f6ac
@@ -1931,4 +1940,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-07T06:51:33.075157716Z"
+generated: "2025-10-01T06:16:12.779957547Z"
