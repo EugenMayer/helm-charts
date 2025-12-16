@@ -759,6 +759,24 @@ entries:
     version: 0.5.2
   rundeck:
   - apiVersion: v2
+    appVersion: 5.18.0
+    created: "2025-12-16T05:54:08.320019104Z"
+    description: Rundeck chart for Kubernetes
+    digest: 823147e72d12262dcf65a1aba2e0a9c8f5b76dcbef82623f9517d4cb3de061d5
+    home: https://github.com/rundeck/rundeck
+    keywords:
+    - rundeck
+    - jobs
+    - automation
+    - operations
+    name: rundeck
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/rundeck
+    - https://github.com/rundeck/rundeck
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-2.18.0/rundeck-2.18.0.tgz
+    version: 2.18.0
+  - apiVersion: v2
     appVersion: 5.17.0
     created: "2025-11-04T06:24:13.088732365Z"
     description: Rundeck chart for Kubernetes
@@ -1976,4 +1994,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2025-11-04T06:24:13.228603547Z"
+generated: "2025-12-16T05:54:08.32052733Z"
