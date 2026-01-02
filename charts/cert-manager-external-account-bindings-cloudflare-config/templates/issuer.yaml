@@ -22,4 +22,4 @@ spec:
             email: {{required "Please set the dns email!" .Values.acme.dns.email}}
             apiTokenSecretRef:
               name: {{required "Please set the dns secret name!" .Values.acme.dns.secret.name}}
-              key: {{required "Please set the dns secret key!" .Values.acme`.dns.secret.key}}
+              key: {{required "Please set the dns secret key!" .Values.acme.dns.secret.key}}
