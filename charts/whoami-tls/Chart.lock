@@ -3,4 +3,4 @@ dependencies:
   repository: oci://oci.trueforge.org/truecharts
   version: 28.29.17
 digest: sha256:35f0dc93d2e4dc3fa82ea0421750ecc790c0426a26fcb65f80ca08c9ccca1320
-generated: "2026-01-02T17:55:31.495810282+01:00"
+generated: "2026-01-02T17:54:23.987916443+01:00"

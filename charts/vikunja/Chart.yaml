@@ -10,14 +10,14 @@ appVersion: 0.24.6
 dependencies:
   - name: common
     version: 28.13.0
-    repository: oci://tccr.io/truecharts
+    repository: oci://oci.trueforge.org/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
     version: 17.1.0
-    repository: oci://tccr.io/truecharts
+    repository: oci://oci.trueforge.org/truecharts
     condition: redis.enabled
     alias: ""
     tags: []

@@ -18,7 +18,7 @@ dependencies:
   - name: common
     # https://artifacthub.io/packages/helm/truecharts-library-charts/common
     version: 20.2.13
-    repository: oci://tccr.io/truecharts
+    repository: oci://oci.trueforge.org/truecharts
     condition: ""
     alias: ""
     tags: []

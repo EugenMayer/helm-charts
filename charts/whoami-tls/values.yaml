@@ -1,0 +1,62 @@
+image:
+  # https://github.com/EugenMayer/docker-image-whoami-tls
+  repository: ghcr.io/eugenmayer/whoami-tls:0.1.0
+  tag: 0.1.0
+  pullPolicy: Always
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+    readOnlyRootFilesystem: true
+
+service:
+  main:
+    ports:
+      main:
+        port: 443
+        targetPort: 443
+
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          probes:
+            readiness:
+              port: 443
+              type: tcp
+              spec:
+                initialDelaySeconds: 5
+                periodSeconds: 5
+                failureThreshold: 2
+            liveness:
+              enabled: true
+              type: tcp
+              port: 443
+              spec:
+                initialDelaySeconds: 5
+                periodSeconds: 5
+                failureThreshold: 2
+
+ingress:
+  main:
+    enabled: false
+    primary: true
+    required: false
+    ingressClassName: ''
+    targetSelector:
+      main: main
+    hosts:
+      - host: whoami.local
+        paths:
+          - path: /
+            pathType: Prefix
+
+portal:
+  open:
+    enabled: false

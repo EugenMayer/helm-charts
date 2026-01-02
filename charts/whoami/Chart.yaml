@@ -13,8 +13,8 @@ home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 25.4.2
-    repository: oci://tccr.io/truecharts
+    version: 28.29.17
+    repository: oci://oci.trueforge.org/truecharts
     condition: ''
     alias: ''
     tags: []
