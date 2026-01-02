@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gradle-build-cache
-version: 0.1.1
+version: 0.1.2
 appVersion: 21.2
 description: Hosts the official gradle build cache node
 home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache

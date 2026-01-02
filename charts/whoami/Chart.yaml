@@ -1,6 +1,6 @@
 name: whoami
 description: What's my ip - as simple as that
-version: 1.0.2
+version: 1.0.3
 apiVersion: v2
 appVersion: 1.0.0
 keywords:
