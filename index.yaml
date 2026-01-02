@@ -13,6 +13,16 @@ entries:
   cert-manager-external-account-bindings-cloudflare-config:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-02T12:56:52.671617137Z"
+    description: Cert-Manager config for ACME via Cloudflare (DNS01) with external
+      account bindings like for google trust services
+    digest: ee5488b116ab47e7ace7b4cfeec6729de6c96edf13f2f3213efde24a2f649fd2
+    name: cert-manager-external-account-bindings-cloudflare-config
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/cert-manager-external-account-bindings-cloudflare-config-0.1.1/cert-manager-external-account-bindings-cloudflare-config-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-01-02T10:48:40.419208404Z"
     description: Cert-Manager config for ACME via Cloudflare (DNS01) with external
       account bindings like for google trust services
@@ -2005,4 +2015,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2026-01-02T10:48:40.419452912Z"
+generated: "2026-01-02T12:56:52.671754253Z"
