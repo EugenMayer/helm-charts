@@ -1,6 +1,6 @@
 image:
   # https://github.com/EugenMayer/docker-image-whoami-tls
-  repository: ghcr.io/eugenmayer/whoami-tls:0.1.0
+  repository: ghcr.io/eugenmayer/whoami-tls
   tag: 0.1.0
   pullPolicy: Always
 
