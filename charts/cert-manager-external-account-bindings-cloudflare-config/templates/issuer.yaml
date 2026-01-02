@@ -14,7 +14,6 @@ spec:
       keySecretRef:
         name: {{required "Please set the external-service-binding secret name!" .Values.acme.externalAccountBinding.secret.name}}
         key: {{required "Please set the external-service-binding secret key!" .Values.acme.externalAccountBinding.secret.key}}
-      keyAlgorithm: {{.Values.acme.externalAccountBinding.keyAlgorithm}}
     solvers:
       # see https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/
       - dns01:

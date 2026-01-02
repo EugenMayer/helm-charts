@@ -11,4 +11,3 @@ acme:
     secret:
       name:
       key:
-    keyAlgorithm: HS256
