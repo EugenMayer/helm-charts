@@ -7,7 +7,7 @@ spec:
   acme:
     email: {{required "Please set the dns email!" .Values.acme.dns.email}}
     privateKeySecretRef:
-      name: le
+      name: {{.Values.acme.name}}-key
     server: {{.Values.acme.server}}
     externalAccountBinding:
       keyID: {{.Values.acme.externalAccountBinding.keyid}}
