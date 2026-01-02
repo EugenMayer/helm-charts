@@ -2190,6 +2190,27 @@ entries:
   whoami-tls:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2026-01-02T17:20:48.227627239Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: Whoami with a self-signed certificate - as simple as that
+    digest: 0103c4a45fd2274e0c986d82f09896dd3f122cbacbaa55844a4bdd638bd049df
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    keywords:
+    - network
+    - tools
+    - development
+    name: whoami-tls
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.1/whoami-tls-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2026-01-02T17:16:13.627759662Z"
     dependencies:
     - name: common
@@ -2209,4 +2230,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-02T17:16:13.628050364Z"
+generated: "2026-01-02T17:20:48.22786914Z"
