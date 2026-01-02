@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{.Values.acme.name}}
+  namespace: {{.Release.Namespace}}
+spec:
+  acme:
+    email: {{required "Please set the dns email!" .Values.acme.dns.email}}
+    privateKeySecretRef:
+      name: le
+    server: {{.Values.acme.server}}
+    externalAccountBinding:
+      keyID: {{.Values.acme.externalAccountBinding.keyid}}
+      keySecretRef:
+        name: {{required "Please set the external-service-binding secret name!" .Values.acme.externalAccountBinding.secret.name}}
+        key: {{required "Please set the external-service-binding secret key!" .Values.acme.externalAccountBinding.secret.key}}
+      keyAlgorithm: {{.Values.acme.externalAccountBinding.keyAlgorithm}}
+    solvers:
+      # see https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/
+      - dns01:
+          cloudflare:
+            email: {{required "Please set the dns email!" .Values.acme.dns.email}}
+            apiTokenSecretRef:
+              name: {{required "Please set the dns secret name!" .Values.acme.dns.secret.name}}
+              key: {{required "Please set the dns secret key!" .Values.acme`.dns.secret.key}}

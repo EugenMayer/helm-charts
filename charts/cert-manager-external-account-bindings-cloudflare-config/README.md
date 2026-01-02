@@ -1,13 +1,13 @@
 # WAT
 
 Deploys the configuration needed to run ACME DNS01 based certificates in the Cert-Manager, using Cloudflares API as 
-challenge.
+challenge and includes your to provide an external-service-binding (kid/hmac) for the certicate issues like Google Trust Services
 
 # Install
 
 ```bash
 helm repo add eugenmayer https://eugenmayer.github.io/helm-charts/
-helm install eugenmayer/cert-manager-cloudflare-config
+helm install eugenmayer/cert-manager-external-account-bindings-cloudflare-config
 ```
 
 # Why
