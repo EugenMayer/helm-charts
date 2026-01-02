@@ -17,6 +17,7 @@ service:
       main:
         port: 443
         targetPort: 443
+        protocol: https
 
 workload:
   main:
@@ -29,16 +30,14 @@ workload:
           probes:
             readiness:
               port: 443
-              type: http
-              scheme: https
+              type: https
               spec:
                 initialDelaySeconds: 5
                 periodSeconds: 5
                 failureThreshold: 2
             liveness:
               enabled: true
-              type: http
-              scheme: https
+              type: https
               port: 443
               spec:
                 initialDelaySeconds: 5
