@@ -29,14 +29,16 @@ workload:
           probes:
             readiness:
               port: 443
-              type: tcp
+              type: http
+              scheme: https
               spec:
                 initialDelaySeconds: 5
                 periodSeconds: 5
                 failureThreshold: 2
             liveness:
               enabled: true
-              type: tcp
+              type: http
+              scheme: https
               port: 443
               spec:
                 initialDelaySeconds: 5
