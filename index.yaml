@@ -65,6 +65,28 @@ entries:
   gradle-build-cache:
   - apiVersion: v2
     appVersion: "21.2"
+    created: "2026-01-02T17:16:12.365346317Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: Hosts the official gradle build cache node
+    digest: be332e0057fe780c61f6b4f9a6d73b3a4497c00b0f082381623b75997c1fefc5
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: gradle-build-cache
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/gradle-build-cache
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/gradle-build-cache-0.1.2/gradle-build-cache-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "21.2"
     created: "2025-09-07T06:49:01.524203823Z"
     dependencies:
     - name: common
@@ -345,6 +367,26 @@ entries:
   network-tools:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2026-01-02T17:16:12.633220934Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: Debugging Tools / Pods
+    digest: 1f1d2683582760a8fcd656236050648a17243fc7a549d7f2bef4726804a036dc
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    keywords:
+    - network
+    - tools
+    - development
+    name: network-tools
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/network-tools
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/network-tools-0.2.4/network-tools-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2025-01-07T10:01:44.38553131Z"
     dependencies:
     - name: common
@@ -473,6 +515,29 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/nist-data-mirror-0.1.2/nist-data-mirror-0.1.2.tgz
     version: 0.1.2
   openldap-test:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-01-02T17:16:12.785241617Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: OpenLdap test / example server
+    digest: 0c6c67c1f79c0bbdcd191ee7dc68dc1b1529cdec1294e56e2915ba1f280b403a
+    home: https://github.com/EugenMayer/docker-image-ldapexample
+    keywords:
+    - benchmark
+    - network
+    - tools
+    - directory
+    - test
+    name: openldap-test
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/openldap-test
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.2.2/openldap-test-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2025-01-07T10:01:44.56921099Z"
@@ -630,6 +695,28 @@ entries:
     - https://github.com/EugenMayer/helm-charts/releases/download/openldap-test-0.0.5/openldap-test-0.0.5.tgz
     version: 0.0.5
   postgres-pgdump-backup:
+  - apiVersion: v2
+    appVersion: "16"
+    created: "2026-01-02T17:16:12.907637431Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: Backup postgres databases using pg_dump, retention and schedules
+    digest: 1ec1c4074e7d3aa6fe572b669b5f90f273f247697051dfbfbad89926efb69250
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    keywords:
+    - postgres
+    - backup
+    - retention
+    - pg_dump
+    name: postgres-pgdump-backup
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/postgres-pgdump-backup
+    - https://github.com/prodrigestivill/docker-postgres-backup-local
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/postgres-pgdump-backup-0.7.6/postgres-pgdump-backup-0.7.6.tgz
+    version: 0.7.6
   - apiVersion: v2
     appVersion: "16"
     created: "2025-09-07T06:51:33.074956311Z"
@@ -1325,6 +1412,29 @@ entries:
   vulnz-nvd-mirror:
   - apiVersion: v2
     appVersion: 7.3.0
+    created: "2026-01-02T17:16:13.192767321Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: NVD api mirror and cache
+    digest: 663cb6764b742286f350ae7e9ebb3a0dfd0a86dbadf3a1b8b05a5435e28c9205
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    keywords:
+    - network
+    - tools
+    - development
+    kubeVersion: '>=1.24.0-0'
+    name: vulnz-nvd-mirror
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
+    - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vulnz-nvd-mirror-0.7.2/vulnz-nvd-mirror-0.7.2.tgz
+    version: 0.7.2
+  - apiVersion: v2
+    appVersion: 7.3.0
     created: "2025-02-18T09:06:07.49991449Z"
     dependencies:
     - name: common
@@ -1901,6 +2011,27 @@ entries:
   whatsmyip:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2026-01-02T17:16:13.316444989Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: What's my ip - as simple as that
+    digest: 55cb27c118e803faf7b48978a253d02434830089910b47612a90b3670d2e09d0
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whatsmyip
+    keywords:
+    - network
+    - tools
+    - development
+    name: whatsmyip
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whatsmyip
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whatsmyip-1.3.2/whatsmyip-1.3.2.tgz
+    version: 1.3.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2025-01-07T10:01:45.064386961Z"
     dependencies:
     - name: common
@@ -1974,6 +2105,27 @@ entries:
   whoami:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-02T17:16:13.47839877Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: What's my ip - as simple as that
+    digest: be4231057a844eb55d08c0ec955fdaee371fcae6601ce761d83c622f03f3c30c
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    keywords:
+    - network
+    - tools
+    - development
+    name: whoami
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.3/whoami-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-01-07T10:01:45.213226525Z"
     dependencies:
     - name: common
@@ -2035,4 +2187,26 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-1.0.0/whoami-1.0.0.tgz
     version: 1.0.0
-generated: "2026-01-02T13:31:02.754410695Z"
+  whoami-tls:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-01-02T17:16:13.627759662Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 28.29.17
+    description: Whoami with a self-signed certificate - as simple as that
+    digest: 6eaa828296f9d01df63ef43313bf2724707d576cef2eee3068a06d85cc4f9905
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    keywords:
+    - network
+    - tools
+    - development
+    name: whoami-tls
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/whoami
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-01-02T17:16:13.628050364Z"
