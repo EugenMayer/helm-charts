@@ -6,10 +6,10 @@ metadata:
   acme:
     isCA: false
     secretName: {{.Values.certificate.secret.name}}
-    dnsNames: |-
-      {{ - range .Values.certificate.hostnames }}
-      - {{ . | title | quote }}
-      {{ - end }}
+    dnsNames:
+      {{- range .Values.certificate.hostnames }}
+      - {{ . | quote }}
+      {{- end }}
     usages: ["server auth"]
     issuerRef:
       name: {{.Values.certificate.issuer.name}}
