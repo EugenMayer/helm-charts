@@ -1,5 +1,5 @@
 name:  traefik-default-middlewares
 description: Traefik default middlewares
-version: 0.1.0
+version: 0.1.1
 apiVersion: v2
 appVersion: 1.0.0

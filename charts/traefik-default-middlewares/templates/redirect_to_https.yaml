@@ -3,6 +3,10 @@ kind: Middleware
 metadata:
   name: redirect-https-default
   namespace: {{.Release.Namespace}}
+  {{- with .Values.labels }}
+  labels:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   redirectScheme:
     scheme: "https"
