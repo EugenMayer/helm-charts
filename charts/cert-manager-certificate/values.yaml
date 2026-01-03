@@ -1,0 +1,7 @@
+certificate:
+  secret:
+    name:
+  issuer:
+    name:
+    kind: ClusterIssuer
+  hostnames: # array of hostnames

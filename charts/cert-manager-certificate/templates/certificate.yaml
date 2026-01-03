@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: le
+  namespace: {{.Release.Namespace}}
+  acme:
+    isCA: false
+    secretName: {{.Values.certificate.secret.name}}
+    dnsNames: |-
+      {{ - range .Values.certificate.hostnames }}
+      - {{ . | title | quote }}
+      {{ - end }}
+    usages: ["server auth"]
+    issuerRef:
+      name: {{.Values.certificate.issuer.name}}
+      kind: {{.Values.certificate.issuer.kind}} "ClusterIssuer"
+      group: "cert-manager.io"
+
