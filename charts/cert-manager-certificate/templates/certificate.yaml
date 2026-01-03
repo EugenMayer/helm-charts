@@ -1,18 +1,18 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: le
+  name: {{.Values.certificate.name}}
   namespace: {{.Release.Namespace}}
-  acme:
-    isCA: false
-    secretName: {{.Values.certificate.secret.name}}
-    dnsNames:
-      {{- range .Values.certificate.hostnames }}
-      - {{ . | quote }}
-      {{- end }}
-    usages: ["server auth"]
-    issuerRef:
-      name: {{.Values.certificate.issuer.name}}
-      kind: {{.Values.certificate.issuer.kind}}
-      group: "cert-manager.io"
+spec:
+  isCA: false
+  secretName: {{.Values.certificate.secret.name}}
+  dnsNames:
+    {{- range .Values.certificate.hostnames }}
+    - {{ . | quote }}
+    {{- end }}
+  usages: ["server auth"]
+  issuerRef:
+    name: {{.Values.certificate.issuer.name}}
+    kind: {{.Values.certificate.issuer.kind}}
+    group: "cert-manager.io"
 

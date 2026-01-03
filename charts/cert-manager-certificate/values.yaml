@@ -1,4 +1,5 @@
 certificate:
+  name:
   secret:
     name:
   issuer:
