@@ -1376,6 +1376,15 @@ entries:
   traefik-default-middlewares:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-03T22:38:39.349375967Z"
+    description: Traefik default middlewares
+    digest: f1611d016796033e3c8aa82e8538d365b0a93ff770132896825ef9b39be0fae2
+    name: traefik-default-middlewares
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/traefik-default-middlewares-0.1.1/traefik-default-middlewares-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-01-03T21:19:33.845994499Z"
     description: Traefik default middlewares
     digest: da4c838355c41df4cf9be8bb351b4427584c5da99c58f3ac97a484eadc36b0bb
@@ -2319,4 +2328,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-03T22:24:59.828374842Z"
+generated: "2026-01-03T22:38:39.349659286Z"
