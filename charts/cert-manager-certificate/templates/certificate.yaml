@@ -13,6 +13,6 @@ metadata:
     usages: ["server auth"]
     issuerRef:
       name: {{.Values.certificate.issuer.name}}
-      kind: {{.Values.certificate.issuer.kind}} "ClusterIssuer"
+      kind: {{.Values.certificate.issuer.kind}}
       group: "cert-manager.io"
 
