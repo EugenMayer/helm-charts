@@ -3,6 +3,15 @@ entries:
   cert-manager-certificate:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-03T21:47:24.740646903Z"
+    description: Cert-Manager certificate
+    digest: 1c3257150cf07f3abfbcff86c654096e701eb7afdfa52e4c0df839daef31062e
+    name: cert-manager-certificate
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/cert-manager-certificate-0.1.1/cert-manager-certificate-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-01-03T21:40:54.573498798Z"
     description: Cert-Manager certificate
     digest: dce7685496334083a6791c00d954d7fbbbd870b40e24a36c74da85ee25c6e26b
@@ -2292,4 +2301,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-03T21:40:54.573759614Z"
+generated: "2026-01-03T21:47:24.740890016Z"
