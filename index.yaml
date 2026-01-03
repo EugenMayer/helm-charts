@@ -1336,6 +1336,16 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-1.11.0/rundeck-1.11.0.tgz
     version: 1.11.0
+  traefik-default-middlewares:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-01-03T21:19:33.845994499Z"
+    description: Traefik default middlewares
+    digest: da4c838355c41df4cf9be8bb351b4427584c5da99c58f3ac97a484eadc36b0bb
+    name: traefik-default-middlewares
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/traefik-default-middlewares-0.1.0/traefik-default-middlewares-0.1.0.tgz
+    version: 0.1.0
   vikunja:
   - annotations:
       max_scale_version: 24.04.1
@@ -2272,4 +2282,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-02T17:37:01.073090284Z"
+generated: "2026-01-03T21:19:33.846256668Z"
