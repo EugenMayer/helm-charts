@@ -9,3 +9,5 @@ cloudflare:
 
 edge_one:
   enabled: false
+
+name: "trusted-proxy-ips-default"
