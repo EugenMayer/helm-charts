@@ -17,7 +17,6 @@ spec:
     thrustLoca: {{ .Values.local.enabled }}
     thrustLocal: {{ .Values.local.enabled }}
     trustedIPs: |-
-      {{ - range .Values.local.trusted_ips }}
-      - {{ . | title | quote }}
-      {{ - end }}
-
+      {{- range .Values.local.trusted_ips }}
+      - {{ . | quote }}
+      {{- end }}
