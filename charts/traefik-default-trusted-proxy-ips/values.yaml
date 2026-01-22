@@ -1,0 +1,11 @@
+labels: {}
+
+local:
+  enabled: false
+  trusted_ips: []
+
+cloudflare:
+  enabled: false
+
+edge_one:
+  enabled: false

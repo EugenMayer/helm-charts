@@ -1,0 +1,5 @@
+name: traefik-default-trusted-proxy-ips
+description: Traefik default trusted proxies
+version: 0.1.0
+apiVersion: v2
+appVersion: 1.0.0
