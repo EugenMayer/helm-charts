@@ -1392,6 +1392,16 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/traefik-default-middlewares-0.1.0/traefik-default-middlewares-0.1.0.tgz
     version: 0.1.0
+  traefik-default-trusted-proxy-ips:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-01-22T13:38:11.176504906Z"
+    description: Traefik default trusted proxies
+    digest: 461ac2de878ec725adc4cb1de036fa19dee5bf7a84f57d5d2b546ef1f6007044
+    name: traefik-default-trusted-proxy-ips
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/traefik-default-trusted-proxy-ips-0.1.0/traefik-default-trusted-proxy-ips-0.1.0.tgz
+    version: 0.1.0
   vikunja:
   - annotations:
       max_scale_version: 24.04.1
@@ -2328,4 +2338,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-03T22:38:39.349659286Z"
+generated: "2026-01-22T13:38:11.176772825Z"
