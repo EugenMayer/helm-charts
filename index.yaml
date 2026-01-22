@@ -1395,6 +1395,15 @@ entries:
   traefik-default-trusted-proxy-ips:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-01-22T14:51:00.935897002Z"
+    description: Traefik default trusted proxies
+    digest: d991c4917ae114d94d8c86e16034cdcb6114067ee3b13e7e0a776a837ef6e981
+    name: traefik-default-trusted-proxy-ips
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/traefik-default-trusted-proxy-ips-0.1.4/traefik-default-trusted-proxy-ips-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-01-22T14:10:49.143539777Z"
     description: Traefik default trusted proxies
     digest: 9ad0ad91ca986437d83a7ef8b3dd7a87c6737b32d77440c4f17f179151c6ac5e
@@ -2365,4 +2374,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-01-22T14:10:49.143767283Z"
+generated: "2026-01-22T14:51:00.936148802Z"
