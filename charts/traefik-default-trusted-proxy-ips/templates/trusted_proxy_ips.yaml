@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: trusted-proxy-ips-default
+  name: {{ .Values.name | "trusted-proxy-ips-default" }}
   namespace: {{.Release.Namespace}}
   {{- with .Values.labels }}
   labels:
