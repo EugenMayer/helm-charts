@@ -8,12 +8,13 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  traefik-real-ip:
-    thrustCloudFlare: {{ .Values.cloudflare.enabled }}
-    thrustEdgeOn: {{ .Values.edge_one.enabled }}
-    thrustLoca: {{ .Values.local.enabled }}
-    thrustLocal: {{ .Values.local.enabled }}
-    trustedIPs: |-
-      {{- range .Values.local.trusted_ips }}
-      - {{ . | quote }}
-      {{- end }}
+  plugin:
+    traefik-real-ip:
+      thrustCloudFlare: {{ .Values.cloudflare.enabled }}
+      thrustEdgeOn: {{ .Values.edge_one.enabled }}
+      thrustLoca: {{ .Values.local.enabled }}
+      thrustLocal: {{ .Values.local.enabled }}
+      trustedIPs: |-
+        {{- range .Values.local.trusted_ips }}
+        - {{ . | quote }}
+        {{- end }}
