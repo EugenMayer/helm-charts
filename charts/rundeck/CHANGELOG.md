@@ -1,3 +1,7 @@
+## 2.19.0
+
+- Upgrade rundeck to 5.19.0
+
 ## 2.18.0
 
 - Upgrade rundeck to 5.18.0
