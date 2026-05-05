@@ -1,0 +1,49 @@
+image:
+  repository: probely/farcaster-onprem-agent
+  # https://github.com/Probely/farcaster-onprem-agent/releases
+  tag: v3
+  pullPolicy: Always
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+    readOnlyRootFilesystem: true
+
+service:
+  main:
+    enabled: false
+
+workload:
+  main:
+    replicas: 1
+    strategy: Recreate
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: farcaster-secret
+                expandObjectName: false
+                # should define following keys
+                # FARCASTER_AGENT_TOKEN:
+
+ingress:
+  main:
+    enabled: false
+    primary: true
+    required: false
+    ingressClassName: ''
+    targetSelector:
+      main: main
+    hosts:
+      - host: farcaster.local
+        paths:
+          - path: /
+            pathType: Prefix
+
+portal:
+  open:
+    enabled: false

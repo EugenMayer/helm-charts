@@ -1,0 +1,22 @@
+name: snyk-farcaster-agent
+description: What's my ip - as simple as that
+version: 1.0.0
+apiVersion: v2
+appVersion: 1.0.0
+keywords:
+  - network
+  - tools
+  - development
+sources:
+  - https://github.com/Probely/farcaster-onprem-agent/tree/main
+home: https://github.com/Probely/farcaster-onprem-agent/tree/main
+dependencies:
+  - name: common
+    # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
+    version: 29.2.9
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ''
+    alias: ''
+    tags: []
+    import-values: []
+type: application
