@@ -1409,6 +1409,28 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/rundeck-1.11.0/rundeck-1.11.0.tgz
     version: 1.11.0
+  snyk-farcaster-agent:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-05-05T13:49:10.715425703Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 29.2.9
+    description: What's my ip - as simple as that
+    digest: 13930811b3fe8b725680f01477840502398e825b25f7a6c59b08d66feb44aea3
+    home: https://github.com/Probely/farcaster-onprem-agent/tree/main
+    keywords:
+    - network
+    - tools
+    - development
+    name: snyk-farcaster-agent
+    sources:
+    - https://github.com/Probely/farcaster-onprem-agent/tree/main
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/snyk-farcaster-agent-1.0.0/snyk-farcaster-agent-1.0.0.tgz
+    version: 1.0.0
   traefik-default-middlewares:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -2437,4 +2459,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-04-02T17:44:42.131295245Z"
+generated: "2026-05-05T13:49:10.715647887Z"
