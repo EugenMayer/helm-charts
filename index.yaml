@@ -1412,6 +1412,27 @@ entries:
   snyk-farcaster-agent:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2026-05-06T06:20:41.918984384Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 29.2.9
+    description: What's my ip - as simple as that
+    digest: 0a199b90b57d709c14742b20e846bee7574b7d253b389a06450c7645a3492619
+    home: https://github.com/Probely/farcaster-onprem-agent/tree/main
+    keywords:
+    - network
+    - tools
+    - development
+    name: snyk-farcaster-agent
+    sources:
+    - https://github.com/Probely/farcaster-onprem-agent/tree/main
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/snyk-farcaster-agent-1.0.1/snyk-farcaster-agent-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2026-05-05T13:49:10.715425703Z"
     dependencies:
     - name: common
@@ -2459,4 +2480,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-05-05T13:49:10.715647887Z"
+generated: "2026-05-06T06:20:41.919290485Z"
