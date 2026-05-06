@@ -23,6 +23,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
           envFrom:
             - secretRef:
                 name: farcaster-secret
