@@ -1,4 +1,8 @@
-## 2.19.0
+## 2.20.1
+
+- Upgrade rundeck to 5.20.1
+
+## 2.20.0
 
 - Upgrade rundeck to 5.20.0
 
