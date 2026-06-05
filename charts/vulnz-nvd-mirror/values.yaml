@@ -1,9 +1,7 @@
 image:
-  #repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
-  #tag: v7.2.1
-  repository: ghcr.io/eugenmayer/vulnz
-  # see https://github.com/jeremylong/open-vulnerability-cli/pull/279#issuecomment-2664962058
-  tag: v7.3.0-1
+  repository: ghcr.io/jeremylong/open-vulnerability-data-mirror
+  # see https://github.com/jeremylong/open-vulnerability-cli/pkgs/container/open-vulnerability-data-mirror
+  tag: v9.0.4
   pullPolicy: IfNotPresent
 
 persistence:
@@ -61,18 +59,14 @@ workload:
               memory: 2Gi
           env:
             ## go below 2000 (max) since the NVD api fails more often for bigger requests
-            MAX_RECORDS_PER_PAGE: 1500
-            ## go below the 119 (max) since the NVD api fails more often for bigger requests
-            MAX_DAYS_OF_YEAR_RANGED: 90
-            ## if it fails, retrying more then 5 times makes a lot of sense with NVD being so unreliably.
-            MAX_MIRROR_RETRIES: 15
+            MAX_RECORDS_PER_PAGE_ARG: 1500
+            ## amount of retries
+            MAX_RETRY_ARG: 10
             ## set this to preseed your API key. the expected structure is
             #NVD_API_KEY:
             #  secretKeyRef:
             #    name: nvd-api-key
             #    key: password
-            ## amount of retries
-            #MAX_RETRY: 10
             ## show debug logs
             #DEBUG: true
 
