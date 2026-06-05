@@ -58,6 +58,7 @@ workload:
             limits:
               memory: 3Gi
           env:
+            JAVA_OPT: -Xmx3g
             ## go below 2000 (max) since the NVD api fails more often for bigger requests
             MAX_RECORDS_PER_PAGE_ARG: 1000
             ## amount of retries
