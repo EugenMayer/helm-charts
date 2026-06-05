@@ -7,7 +7,7 @@ image:
 persistence:
   mirror:
     enabled: true
-    size: 1Gi
+    size: 2Gi
     mountPath: "/usr/local/apache2/htdocs"
 
 securityContext:
@@ -56,10 +56,10 @@ workload:
                 failureThreshold: 2
           resources:
             limits:
-              memory: 2Gi
+              memory: 3Gi
           env:
             ## go below 2000 (max) since the NVD api fails more often for bigger requests
-            MAX_RECORDS_PER_PAGE_ARG: 1500
+            MAX_RECORDS_PER_PAGE_ARG: 1000
             ## amount of retries
             MAX_RETRY_ARG: 10
             ## set this to preseed your API key. the expected structure is
