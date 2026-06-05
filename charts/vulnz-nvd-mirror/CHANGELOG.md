@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Move back to offical implementation of the docker image
+
 ## 0.7.1
 
 - Tweak defaults to have deterministic and reliable results with the NVD api being faulty
