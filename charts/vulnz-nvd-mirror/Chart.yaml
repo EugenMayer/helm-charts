@@ -12,7 +12,7 @@ keywords:
   - development
 sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/vulnz-nvd-mirror
-  - https://github.com/jeremylong/Open-Vulnerability-Project/tree/main/vulnz
+  - https://github.com/jeremylong/open-vulnerability-cli
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
