@@ -339,6 +339,15 @@ entries:
   localpath:
   - apiVersion: v2
     appVersion: 0.0.36
+    created: "2026-06-30T23:21:24.332261861Z"
+    description: Provisions the rancher local-path
+    digest: c36612da66b05f88825fc6e807a562534adf8d43f37f9ccc598490a3a2dd307b
+    name: localpath
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/localpath-1.3.1/localpath-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 0.0.36
     created: "2026-06-05T11:17:41.071045667Z"
     description: Provisions the rancher local-path
     digest: 90a4fc511d50c60dc8835b731a2df438328a13c0b6d5c8434a61a8814624d523
@@ -2548,4 +2557,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-06-29T18:54:37.292600558Z"
+generated: "2026-06-30T23:21:24.3325453Z"
