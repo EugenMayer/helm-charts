@@ -1,3 +1,7 @@
+## 1.0.0
+
+- Upgrade vekunja to 2.3
+
 ## 0.1.2
 
 - Fix trimming port leading to typecast issue
