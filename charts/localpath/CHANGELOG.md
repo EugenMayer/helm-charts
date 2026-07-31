@@ -1,3 +1,6 @@
+## 1.3.2
+- update to 0.0.36 with a small update
+
 ## 1.3.1
 - Fix missing RBAC role https://github.com/kubernetes-sigs/kubespray/issues/7321
 
