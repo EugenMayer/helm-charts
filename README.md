@@ -30,7 +30,6 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [postgres-pgdump-backup](charts/postgres-pgdump-backup): Automated Postgres DB backups
 - [iperf3](charts/iperf3): Iperf for network performance tests
 - [openldap-test](charts/openldap-test): Pre-Provisioned ldap server for tests
-- [vulnz-nvd-mirror](charts/vulnz-nvd-mirror): NVD vuln mirror
 - [cert-manager-cloudflare-config](charts/cert-manager-cloudflare-config): Cert Manager Cloudflare ACME config CRD)
 - [localpath](charts/localpath): Rancher localpath 
 - [whatsmyip](charts/whatsmyip): Responds with your external ip - great for dyndns
@@ -41,7 +40,6 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [network-tools](charts/network-tools): Multi-Pod network debugging tools
 - [gradle-build-cache](charts/gradle-build-cache) Remote and centralized gradle build cache server
 - [vikunja](charts/vikunja) Known TODO app. Forked TrueCharts chart to support external Databases.
-- [nist-data-mirror (deprecated)](charts/nist-data-mirror)
 
 ## Releasing
 
