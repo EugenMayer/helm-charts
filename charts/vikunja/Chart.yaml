@@ -9,17 +9,17 @@ apiVersion: v2
 appVersion: 2.4.0
 dependencies:
   - name: common
-    version: 28.13.0
+    version: 29.10.4
     repository: oci://oci.trueforge.org/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: redis
-    version: 18.3.0
+  - name: valkey
+    version: 2.7.0
     repository: oci://oci.trueforge.org/truecharts
     condition: redis.enabled
-    alias: ""
+    alias: redis
     tags: []
     import-values: []
 deprecated: false

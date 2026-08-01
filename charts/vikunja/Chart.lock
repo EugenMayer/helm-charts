@@ -1,9 +1,9 @@
 dependencies:
 - name: common
   repository: oci://oci.trueforge.org/truecharts
-  version: 28.13.0
-- name: redis
+  version: 29.10.4
+- name: valkey
   repository: oci://oci.trueforge.org/truecharts
-  version: 18.3.0
-digest: sha256:9c9d02f4c8da8a83131a26c1e54b4adbdc303095a3522506b8e1dbec0a2fb090
-generated: "2026-08-01T18:01:46.668614364+02:00"
+  version: 2.7.0
+digest: sha256:6aea0c39c305b8ab3b353aa30e7a57f25e4b7cad1ac1181cc400fce6ce4d0938
+generated: "2026-08-01T18:14:48.959697271+02:00"
