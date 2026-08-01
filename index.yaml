@@ -1627,6 +1627,46 @@ entries:
     version: 0.1.0
   vikunja:
   - annotations:
+      artifacthub.io/links: |-
+        - name: support
+        url: https://discord.com/invite/tVsPTHWTtr
+      truecharts.org/train: stable
+      trueforge.org/category: productivity
+      trueforge.org/max_helm_version: "4.1"
+      trueforge.org/max_kubernetes_version: 1.35.0
+      trueforge.org/min_helm_version: "3.14"
+      trueforge.org/train: stable
+    apiVersion: v2
+    appVersion: 2.4.0
+    created: "2026-08-01T18:48:06.661934664Z"
+    dependencies:
+    - name: common
+      repository: oci://oci.trueforge.org/truecharts
+      version: 29.10.4
+    - alias: redis
+      condition: redis.enabled
+      name: valkey
+      repository: oci://oci.trueforge.org/truecharts
+      version: 2.7.0
+    description: The to-do app to organize your life.
+    digest: a34764a4ae0fdbd0d1ad3b5e59eff7949b8387269661e50d1e10420af9bacf5a
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+    keywords:
+    - vikunja
+    kubeVersion: '>=1.33.0-0'
+    maintainers:
+    - email: nope@nope.local
+      name: EugenMayer
+      url: https://github.com/EugenMayer/helm-charts/tree/main/charts
+    name: vikunja
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+    - https://vikunja.io/docs
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/vikunja-1.3.1/vikunja-1.3.1.tgz
+    version: 1.3.1
+  - annotations:
       max_scale_version: 24.04.1
       min_scale_version: 24.04.0
       truecharts.org/category: productivity
@@ -2729,4 +2769,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-08-01T16:15:48.790419037Z"
+generated: "2026-08-01T18:48:06.662253801Z"
