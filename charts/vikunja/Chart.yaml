@@ -16,7 +16,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 17.1.0
+    version: 18.3.0
     repository: oci://oci.trueforge.org/truecharts
     condition: redis.enabled
     alias: ""
@@ -37,5 +37,5 @@ sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
   - https://vikunja.io/docs
 type: application
-version: 1.1.0
+version: 1.2.0
 

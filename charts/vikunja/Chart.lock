@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: oci://oci.trueforge.org/truecharts
+  version: 28.13.0
+- name: redis
+  repository: oci://oci.trueforge.org/truecharts
+  version: 18.3.0
+digest: sha256:9c9d02f4c8da8a83131a26c1e54b4adbdc303095a3522506b8e1dbec0a2fb090
+generated: "2026-08-01T18:01:46.668614364+02:00"
