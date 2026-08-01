@@ -19,9 +19,11 @@ secret:
       config.yaml: |
         database:
           type: postgres
-          user: {{ .Values.cnpg.main.user }}
-          password: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
-          host: {{ $pgHost }}
+          user: {{ .Values.postgres.username | trimAll "\""}}
+          database: {{ .Values.postgres.database | trimAll "\""}}
+          host: {{ .Values.postgres.host | trimAll "\""}}
+          port: {{ .Values.postgres.port }}
+          sslmode: {{ .Values.postgres.sslmode | trimAll "\""}}
 
         cache:
           enabled: true
