@@ -1,3 +1,7 @@
+## 1.3.0
+
+- Migrate from redis to valkey
+
 ## 1.1.0
 
 - Upgrade vekunja to 2.4.0
