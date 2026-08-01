@@ -1,25 +1,29 @@
+# yaml-language-server: $schema=./values.schema.json
 image:
-  repository: vikunja/vikunja
-  tag: 2.4.0
+  repository: docker.io/vikunja/vikunja
+  tag: 2.4.0@sha256:1a5dd2d410b5359f689c77bbd1c66742cde1993f82d4adfe9aefa400ff1dd833
   pullPolicy: IfNotPresent
 workload:
   main:
     podSpec:
       containers:
         main:
-          env:
-            VIKUNJA_DATABASE_PASSWORD:
-              secretKeyRef:
-                name: db-yoursecret
-                key: password
-                expandObjectName: false
-            VIKUNJA_MAILER_PASSWORD:
-              secretKeyRef:
-                name: email-secret
-                key: password
-                expandObjectName: false
+          probes:
+            liveness:
+              type: http
+              port: 10220
+              path: /health
+            readiness:
+              type: http
+              port: 10220
+              path: /health
+            startup:
+              type: http
+              port: 10220
+              path: /health
 vikunja:
   service:
+    publicurl: http://localhost/
     jwtttl: 259200
     jwtttllong: 2592000
     motd: Welcome to your new Vikunja instance
@@ -56,8 +60,7 @@ vikunja:
     port: 587
     authtype: plain
     username: ""
-    # see the env variable VIKUNJA_MAILER_PASSWORD and configure your secret instead. This variable is ignored
-    # password: ""
+    password: ""
     fromemail: ""
     skiptlsverify: false
     forcessl: true
@@ -100,13 +103,27 @@ vikunja:
       enabled: true
     openid:
       enabled: false
-      redirecturl: ""
-      providers: []
-      # - name: ""
-      #   authurl: ""
-      #   logouturl: ""
-      #   clientid: ""
-      #   clientsecret: ""
+      providers: {}
+      # Example configuration for multiple OpenID providers:
+      # providers:
+      #   provider-id1:
+      #     name: "Provider 1"
+      #     authurl: "https://auth.example.com"  # Used for OIDC Discovery, usually the issuer
+      #     logouturl: ""  # Optional
+      #     clientid: "vikunja-client-id"
+      #     clientsecret: "vikunja-client-secret"
+      #     scope: "openid profile email"
+      #     usernamefallback: false
+      #     emailfallback: false
+      #     forceuserinfo: false  # Optional: Set to true to always use UserInfo endpoint instead of ID token claims
+      #     requireavailability: false
+      #   provider-id2:
+      #     name: "Provider 2"
+      #     authurl: "https://auth2.example.com"
+      #     clientid: "vikunja-client-id-2"
+      #     clientsecret: "vikunja-client-secret-2"
+      #     scope: "openid profile email"
+      #     forceuserinfo: false
   migration:
     todoist:
       enable: false
@@ -148,19 +165,9 @@ metrics:
       enabled: false
 cnpg:
   main:
-    # keep that, see postgres below
     enabled: false
-
-postgres:
-  host:
-  port: 5432
-  database: vikunja
-  # see https://vikunja.io/docs/config-options/#1-database-sslmode
-  sslmode: require
-  username:
-  # see the env var VIKUNJA_DATABASE_PASSWORD - This variable is ignored
-  # password:
-
+    user: vikunja
+    database: vikunja
 redis:
   enabled: true
 
