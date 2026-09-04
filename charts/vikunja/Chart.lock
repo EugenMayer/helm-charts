@@ -6,4 +6,4 @@ dependencies:
   repository: oci://oci.trueforge.org/truecharts
   version: 2.7.0
 digest: sha256:6aea0c39c305b8ab3b353aa30e7a57f25e4b7cad1ac1181cc400fce6ce4d0938
-generated: "2026-08-01T18:14:48.959697271+02:00"
+generated: "2026-09-04T12:30:40.340696471+02:00"

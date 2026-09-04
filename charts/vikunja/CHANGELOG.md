@@ -1,5 +1,9 @@
 ## 1.3.0
 
+- Update to 2.6.0
+
+## 1.3.0
+
 - Migrate from redis to valkey
 
 ## 1.1.0
