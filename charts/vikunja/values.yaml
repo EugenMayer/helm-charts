@@ -156,7 +156,7 @@ persistence:
       main:
         main:
           subPath: config.yaml
-          mountPath: /etc/vikunja/config.yaml
+          mountPath: /etc/vikunja/config.yml
 metrics:
   main:
     enabled: true
