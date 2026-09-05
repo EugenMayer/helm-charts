@@ -23,11 +23,12 @@ workload:
               path: /health
 vikunja:
   service:
-    publicurl: http://localhost/
+    # REQUIRED - set this to your domain!
+    # publicurl: http://your-vikunja-domain.tld
+    # frontendurl: http://your-vikunja-domain.tld
     jwtttl: 259200
     jwtttllong: 2592000
     motd: Welcome to your new Vikunja instance
-    frontendurl: http://localhost:10220
     maxitemsperpage: 50
     enablecaldav: true
     enablelinksharing: true

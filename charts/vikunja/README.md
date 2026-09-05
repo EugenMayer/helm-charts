@@ -24,6 +24,16 @@ For more information on how to install TrueCharts Helm charts, checkout the [ins
 
 ## Configuration Options
 
+Important:
+ - be sure to set this to your public domain
+   ```yaml
+   vikunja:
+     service:
+       # REQUIRED - set this to your domain!
+       #publicurl: http://your-vikunja-domain.tld
+       #frontendurl: http://your-vikunja-domain.tld
+   ```
+
 To view the chart specific options, please view Values.yaml included in the chart.
 The most recent version of which, is available here: [values.yaml](values.yaml)
 

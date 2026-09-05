@@ -1,5 +1,9 @@
 ## 1.3.1
 
+- fix publicurl and frontendurl being set to nonsense values fooling the deployment. Do not set a default at all
+
+## 1.3.1
+
 - Update to 2.6.1
 
 ## 1.3.0
