@@ -7,7 +7,7 @@ Also things that have been changed:
  - fixed the issue that the configuration is mounted to `/etc/vikunja/config.yaml` while it should be mounted to `/etc/vikunja/config.yml`
  - `postgres.password` configured via the secret
  - `mailer.password` now configured via the secret
-
+ - Removed the defaults for publicurl and frontendurl since they fool the frontend and are nonsense - those are mandatory now
 See `postgres:` in the values.yaml.
 
 
