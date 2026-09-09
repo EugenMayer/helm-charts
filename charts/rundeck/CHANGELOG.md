@@ -1,3 +1,7 @@
+## 3.2.0
+
+- Upgrade rundeck to 6.2.0
+
 ## 3.1.0
 
 - Upgrade rundeck to 6.1.0
