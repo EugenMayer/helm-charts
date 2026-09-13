@@ -59,3 +59,10 @@ metrics:
 cnpg:
   main:
     enabled: false
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: true
+    runAsUser: 101
+    runAsGroup: 101
