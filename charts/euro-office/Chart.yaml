@@ -1,0 +1,27 @@
+dependencies:
+  - name: common
+    version: 29.10.4
+    repository: oci://oci.trueforge.org/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The to-do app to organize your life.
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+keywords:
+  - euro-office
+  - office
+kubeVersion: '>=1.33.0-0'
+maintainers:
+  - name: EugenMayer
+    email: nope@nope.local
+    url: https://github.com/EugenMayer/helm-charts/tree/main/charts
+name: euro-office
+sources:
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office
+  - https://github.com/Euro-Offices
+type: application
+appVersion: 9.3.4
+version: 0.0.1
+

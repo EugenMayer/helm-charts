@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=./values.schema.json
+image:
+  repository: ghcr.io/euro-office/documentserver
+  # see https://github.com/Euro-Office/DocumentServer/pkgs/container/documentserver
+  tag: v.9.3.4
+  pullPolicy: IfNotPresent
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EXAMPLE_ENABLED: false
+            #JWT_SECRET: my_long_jwt_secret_at_least_32_chars
+          envFrom:
+            - secretRef:
+                # should include a key JWT_SECRET: my_long_jwt_secret_at_least_32_chars
+                name: jwt-token
+                expandObjectName: false
+          probes:
+            # see https://github.com/Euro-Office/Kubernetes-Docs/blob/main/values.yaml#L697
+            liveness:
+              type: http
+              port: 8000
+              path: /index.html
+            readiness:
+              type: http
+              port: 8000
+              path: /index.html
+              timeoutSeconds: 3
+              successThreshold: 1
+              failureThreshold: 2
+            startup:
+              type: http
+              port: 8000
+              path: /index.html
+              periodSeconds: 10
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+# see https://github.com/Euro-Office/Kubernetes-Docs/blob/main/templates/deployments/docservice.yaml#L357
+persistence:
+  plugins:
+    enabled: true
+    mountPath: /var/www/euro-office/documentserver/sdkjs-plugins
+  cache:
+    enabled: true
+    mountPath: /var/lib/euro-office/documentserver/App_Data/cache/files
+
+metrics:
+  main:
+    enabled: false
+
+cnpg:
+  main:
+    enabled: false
