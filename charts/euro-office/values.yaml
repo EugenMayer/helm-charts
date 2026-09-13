@@ -2,7 +2,7 @@
 image:
   repository: ghcr.io/euro-office/documentserver
   # see https://github.com/Euro-Office/DocumentServer/pkgs/container/documentserver
-  tag: v.9.3.4
+  tag: v9.3.4
   pullPolicy: IfNotPresent
 
 workload:
