@@ -102,6 +102,28 @@ entries:
   euro-office:
   - apiVersion: v1
     appVersion: 9.3.4
+    created: "2026-09-13T18:18:24.621638483Z"
+    description: The to-do app to organize your life.
+    digest: 4263a4e02641481a66de64db3c426d577e227ab61e7bdb6f1ae403b48bbf294b
+    home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+    keywords:
+    - euro-office
+    - office
+    kubeVersion: '>=1.33.0-0'
+    maintainers:
+    - email: nope@nope.local
+      name: EugenMayer
+      url: https://github.com/EugenMayer/helm-charts/tree/main/charts
+    name: euro-office
+    sources:
+    - https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office
+    - https://github.com/Euro-Offices
+    type: application
+    urls:
+    - https://github.com/EugenMayer/helm-charts/releases/download/euro-office-0.0.4/euro-office-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    appVersion: 9.3.4
     created: "2026-09-13T17:52:46.579795845Z"
     description: The to-do app to organize your life.
     digest: d0ad8905607b3f36f8c8fc2f0801e64288a248098b8018b68fcd68e91b5f1290
@@ -3050,4 +3072,4 @@ entries:
     urls:
     - https://github.com/EugenMayer/helm-charts/releases/download/whoami-tls-0.1.0/whoami-tls-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-13T17:52:46.580066484Z"
+generated: "2026-09-13T18:18:24.621842861Z"
