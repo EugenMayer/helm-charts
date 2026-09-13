@@ -1,7 +1,10 @@
 # yaml-language-server: $schema=./values.schema.json
 image:
-  repository: ghcr.io/euro-office/documentserver
+  # FIXME: we are currently opting in for the simple hosting solution without redis, pg, thus using the non cluster version
   # see https://github.com/Euro-Office/DocumentServer/pkgs/container/documentserver
+  repository: ghcr.io/euro-office/documentserver
+  # see https://github.com/Euro-Office/DocumentServer/pkgs/container/cluster-docs
+  # repository: ghcr.io/euro-office/cluster-doc
   tag: v9.3.4
   pullPolicy: IfNotPresent
 
@@ -45,6 +48,9 @@ service:
 
 # see https://github.com/Euro-Office/Kubernetes-Docs/blob/main/templates/deployments/docservice.yaml#L357
 persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/euro-office/Data
   plugins:
     enabled: true
     mountPath: /var/www/euro-office/documentserver/sdkjs-plugins
@@ -63,6 +69,10 @@ cnpg:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: true
-    runAsUser: 101
-    runAsGroup: 101
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    # FIXME: should we switch to cluster:docs - the k8s centric image, we need to activate this
+#    runAsNonRoot: true
+#    runAsUser: 101
+#    runAsGroup: 101
