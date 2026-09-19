@@ -17,7 +17,7 @@ maintainers:
   - name: EugenMayer
     email: nope@nope.local
     url: https://github.com/EugenMayer/helm-charts/tree/main/charts
-name: euro-office
+name: euro-office-simple
 sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office
   - https://github.com/Euro-Offices

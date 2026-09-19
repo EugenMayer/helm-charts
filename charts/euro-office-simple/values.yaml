@@ -47,7 +47,7 @@ service:
         port: 80
 
 # see https://github.com/Euro-Office/Kubernetes-Docs/blob/main/templates/deployments/docservice.yaml#L357
-persistence:
+wepersistence:
   data:
     enabled: true
     mountPath: /var/www/euro-office/Data
