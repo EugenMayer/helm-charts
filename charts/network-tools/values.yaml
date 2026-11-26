@@ -1,6 +1,6 @@
 image:
   repository: debian
-  tag: bookworm
+  tag: trixie
   pullPolicy: IfNotPresent
 
 securityContext:

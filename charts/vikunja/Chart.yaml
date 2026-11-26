@@ -9,20 +9,13 @@ annotations:
   trueforge.org/min_helm_version: "3.14"
   trueforge.org/train: stable
 apiVersion: v2
-appVersion: 2.6.0
+appVersion: 2.8.0
 dependencies:
   - name: common
-    version: 29.10.4
+    version: 32.9.0
     repository: oci://oci.trueforge.org/truecharts
     condition: ""
     alias: ""
-    tags: []
-    import-values: []
-  - name: valkey
-    version: 2.7.0
-    repository: oci://oci.trueforge.org/truecharts
-    condition: redis.enabled
-    alias: redis
     tags: []
     import-values: []
 deprecated: false
@@ -40,5 +33,5 @@ sources:
   - https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
   - https://vikunja.io/docs
 type: application
-version: 1.4.2
+version: 2.0.0
 

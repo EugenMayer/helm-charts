@@ -5,7 +5,7 @@ image:
   repository: ghcr.io/euro-office/documentserver
   # see https://github.com/Euro-Office/DocumentServer/pkgs/container/cluster-docs
   # repository: ghcr.io/euro-office/cluster-doc
-  tag: v9.3.4
+  tag: v9.3.8
   pullPolicy: IfNotPresent
 
 workload:
@@ -62,8 +62,9 @@ metrics:
   main:
     enabled: false
 
-cnpg:
-  main:
+dependencies:
+  # built-in PostgreSQL (CNPG / standalone) is not used by the simple (non-cluster) image
+  postgresql:
     enabled: false
 
 securityContext:

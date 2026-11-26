@@ -35,7 +35,6 @@ So it is not a 'how to learn to run rundeck' kind of project. Thank you for resp
 - [whatsmyip](charts/whatsmyip): Responds with your external ip - great for dyndns
 - [whoami](charts/whoami): Simple pong service for ingress tests and http header tests
 - [coredns-private-dns-fix](charts/coredns-private-dns-fix): Fix coreDNS private DNS resolving
-- [ioBroker](charts/iobroker): Home automation ioBroker
 - [longhorn-backup-config](charts/longhorn-backup-config): Longhorn backup configuration (CRD)
 - [network-tools](charts/network-tools): Multi-Pod network debugging tools
 - [gradle-build-cache](charts/gradle-build-cache) Remote and centralized gradle build cache server

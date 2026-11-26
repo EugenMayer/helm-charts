@@ -1,6 +1,6 @@
 name: snyk-farcaster-agent
 description: What's my ip - as simple as that
-version: 1.0.1
+version: 1.1.0
 apiVersion: v2
 appVersion: 1.0.0
 keywords:
@@ -13,7 +13,7 @@ home: https://github.com/Probely/farcaster-onprem-agent/tree/main
 dependencies:
   - name: common
     # https://github.com/truecharts/public/blob/master/charts/library/common/Chart.yaml
-    version: 29.2.9
+    version: 32.9.0
     repository: oci://oci.trueforge.org/truecharts
     condition: ''
     alias: ''

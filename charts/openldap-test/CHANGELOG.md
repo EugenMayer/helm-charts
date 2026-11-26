@@ -1,3 +1,8 @@
+## 0.3.0
+
+- Update TrueCharts common to 32.9.0 ("common 2026"). The rendered manifests are unchanged with the default values, but common now rejects some removed/legacy keys - check your own value overrides
+- Fix the `tls` service failing to render ("Expected enabled service to have at least one port"): its port is now explicitly enabled and named `tls`
+
 ## 0.2.1
 
 - Update truecharts common base

@@ -1,3 +1,8 @@
+## 0.8.0
+
+- Quote `appVersion` in Chart.yaml (helm lint --strict failed)
+- Update TrueCharts common to 32.9.0 ("common 2026"). The rendered manifests are unchanged with the default values, but common now rejects some removed/legacy keys - check your own value overrides
+
 ## 0.7.4
 
 - Update truecharts common base

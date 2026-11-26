@@ -1,7 +1,7 @@
 # IMPORTANT
 
 This chart has been copied from [TrueCharts](https://github.com/trueforge-org/truecharts/tree/master/charts/stable/vikunja)
-and only modified to work with non cpng external pg databases - that's it. If you are using cpng, use the truechart chart.
+and only modified to work with non cnpg external pg databases - that's it. If you are using cnpg, use the truechart chart.
 
 Also things that have been changed:
  - fixed the issue that the configuration is mounted to `/etc/vikunja/config.yaml` while it should be mounted to `/etc/vikunja/config.yml`
@@ -9,6 +9,12 @@ Also things that have been changed:
  - `mailer.password` now configured via the secret
  - Removed the defaults for publicurl and frontendurl since they fool the frontend and are nonsense - those are mandatory now
 See `postgres:` in the values.yaml.
+
+## Upgrading to 2.x (TrueCharts common 2026)
+
+- `redis.enabled` moved to `dependencies.valkey.enabled`, set your own password in `dependencies.valkey.depconfig.password`
+- the bundled valkey is recreated (new StatefulSet/PVC), only cache data is lost. The old `<release>-redis` PVC can be removed
+- `cnpg.main.enabled` moved to `dependencies.postgresql.enabled` (disabled by default). A top-level `cnpg:` key in your own values now fails rendering - remove it
 
 
 ## Installation

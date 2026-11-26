@@ -1,14 +1,15 @@
+apiVersion: v2
 dependencies:
   - name: common
-    version: 29.10.4
+    version: 32.9.0
     repository: oci://oci.trueforge.org/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: The to-do app to organize your life.
-home: https://github.com/EugenMayer/helm-charts/tree/main/charts/vikunja
+description: Euro-Office DocumentServer (single container, without external redis/postgres/rabbitmq)
+home: https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office-simple
 keywords:
   - euro-office
   - office
@@ -19,9 +20,9 @@ maintainers:
     url: https://github.com/EugenMayer/helm-charts/tree/main/charts
 name: euro-office-simple
 sources:
-  - https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office
+  - https://github.com/EugenMayer/helm-charts/tree/main/charts/euro-office-simple
   - https://github.com/Euro-Offices
 type: application
-appVersion: 9.3.4
-version: 0.0.5
+appVersion: 9.3.8
+version: 0.1.0
 

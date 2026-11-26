@@ -19,7 +19,8 @@ service:
     #type: ExternalIP
     #externalIP: <exernalIp>
     ports:
-      main:
+      tls:
+        enabled: true
         protocol: tcp
         port: 636
         targetPort: 1636

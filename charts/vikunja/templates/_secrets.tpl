@@ -1,8 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "vikunja.secrets" -}}
 
-{{- $secretStorage := printf "%s-storage-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-{{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
+{{- /* must match the rendered name of the "secret-storage" secret below, so the JWT secret survives upgrades */ -}}
+{{- $secretStorage := printf "%s-secret-storage" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 {{- $jwtSecret := randAlphaNum 32 -}}
 {{- with lookup "v1" "Secret" .Release.Namespace $secretStorage -}}
   {{- $jwtSecret = index .data "JWT_SECRET" | b64dec -}}
@@ -24,6 +24,11 @@ secret:
           host: {{ .Values.postgres.host | trimAll "\""}}
           port: {{ .Values.postgres.port }}
           sslmode: {{ .Values.postgres.sslmode | trimAll "\""}}
+          {{- with .Values.postgres.password }}
+          password: {{ . | quote }}
+          {{- end }}
+
+        {{- if .Values.dependencies.valkey.enabled }}
 
         cache:
           enabled: true
@@ -31,12 +36,13 @@ secret:
 
         redis:
           enabled: true
-          host: {{ printf "%v-%v:%v" .Release.Name "redis" "6379" }}
-          password: {{ .Values.redis.creds.redisPassword | trimAll "\""}}
+          host: {{ .Values.dependencies.valkey.depconfig.creds.plainporthost | trimAll "\"" }}
+          password: {{ (index .Values.dependencies.valkey.depconfig.creds "valkey-password") | trimAll "\"" | quote }}
           db: 0
 
         keyvalue:
           type: redis
+        {{- end }}
 
         service:
           publicurl: {{ .Values.vikunja.service.publicurl | quote }}
@@ -105,7 +111,7 @@ secret:
           kind: {{ .Values.vikunja.ratelimit.kind | quote }}
           period: {{ .Values.vikunja.ratelimit.period }}
           limit: {{ .Values.vikunja.ratelimit.limit }}
-          store: redis
+          store: {{ ternary "redis" "memory" (.Values.dependencies.valkey.enabled | toString | eq "true") }}
 
         files:
           maxsize: {{ .Values.vikunja.files.maxsize }}
